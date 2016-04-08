@@ -37,7 +37,7 @@ Bar_Object.prototype.Update_Bar_Object = function(){
     rectMode(CORNER);
     fill("#663931");
     stroke("#45283C");
-    strokeWeight(10);
+    strokeWeight(global_strokeWeight_Int);
 
 
 

@@ -3,15 +3,15 @@ var MasterNode_Object = function(){
 
     Node_Object.call(
         this,
-        50,             /*_width_Int,*/
-        50,             /*_height_Int,*/
-        (width/2),      /*_xC_Int,*/
-        (height/4),     /*_yC_Int,*/
-        true,           /*_fill_Bool,*/
-        true,           /*_stroke_Bool,*/
-        "#663931",      /*_fillColor_String,*/
-        10,             /*_stroke_Int,*/
-        "#45283C"       /*_strokeColor_String*/
+        50,                         /*_width_Int,*/
+        50,                         /*_height_Int,*/
+        (width/2),                  /*_xC_Int,*/
+        (height/4),                 /*_yC_Int,*/
+        true,                       /*_fill_Bool,*/
+        true,                       /*_stroke_Bool,*/
+        "#663931",                  /*_fillColor_String,*/
+        global_strokeWeight_Int,    /*_stroke_Int,*/
+        "#45283C"                   /*_strokeColor_String*/
     );
 
 
