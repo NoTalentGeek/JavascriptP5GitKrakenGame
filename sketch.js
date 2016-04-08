@@ -1,5 +1,12 @@
+var test_Bar_Object;
 var test_Node_Object;
+var test_MasterNode_Object;
 
+
+
+
+
+/*==================================================*/
 function setup(){
 
     createCanvas(960, 540);
@@ -8,11 +15,17 @@ function setup(){
 
 
 
+    text_Bar_Object = new Bar_Object();
+
+
+
+
+
     test_Node_Object = new Node_Object(
-        (width/2),      /*_positionCenterX,*/
-        (height/2),     /*_positionCenterY,*/
-        100,            /*_width_Int,*/
-        100,            /*_height_Int,*/
+        150,            /*_width_Int,*/
+        150,            /*_height_Int,*/
+        (width/2),      /*_xC_Int,*/
+        (height/2),     /*_yC_Int,*/
         true,           /*_fill_Bool,*/
         true,           /*_stroke_Bool,*/
         "#663931",      /*_fillColor_String,*/
@@ -20,12 +33,19 @@ function setup(){
         "#45283C"       /*_strokeColor_String*/
     );
 
+
+
+
+    test_MasterNode_Object = new MasterNode_Object();
+
 }
+/*==================================================*/
 
 
 
 
 
+/*==================================================*/
 function draw(){
 
     background("#222034");
@@ -34,6 +54,9 @@ function draw(){
 
 
 
+    text_Bar_Object.Update_Bar_Object();
     test_Node_Object.Update_Node_Object();
+    test_MasterNode_Object.Update_MasterNode_Object();
 
 }
+/*==================================================*/
