@@ -32,6 +32,28 @@ MasterNode_Object.prototype.constructor = MasterNode_Object;
 MasterNode_Object.prototype.Update_MasterNode_Object = function(){
 
     Node_Object.prototype.Update_Node_Object.call(this);
+    this.Move_MasterNode_Object();
 
-}
+
+
+
+
+    //console.log("Test!");
+
+};
 /*==================================================*/
+
+
+
+
+MasterNode_Object.prototype.Move_MasterNode_Object = function(){
+
+    Node_Object.prototype.Set_yC_Int_Void.call(this, this.yC_Int + global_nodeSpeed_Int);
+
+
+
+
+    //console.log(global_nodeSpeed_Int);
+    //console.log(this.yC_Int);
+
+};

@@ -88,6 +88,14 @@ Node_Object.prototype.Set_yC_Int_Void = function(_yC_Int){
         this.yUL_Int
     );
 
+
+
+
+    //console.log(this.height_Int/2);
+    //console.log(this.yC_Int);
+    //console.log(this.yUL_Int);
+    //console.log(this.height_Int/2 + " " + this.yC_Int + " " + this.yUL_Int);
+
 };
 Node_Object.prototype.Set_height_Int_Void = function(_height_Int){
 
