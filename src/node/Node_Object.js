@@ -175,6 +175,15 @@ Node_Object.prototype.Update_Node_Object = function(){
 
 
 
+    //console.log(this._Area_Struct.height_Int);
+    //console.log(this._Area_Struct.width_Int);
+    //console.log(this._Area_Struct.xUL_Int);
+    //console.log(this._Area_Struct.yUL_Int);
+
+
+
+
+
     return this;
 
 };
