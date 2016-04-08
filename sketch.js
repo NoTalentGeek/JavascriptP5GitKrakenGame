@@ -15,6 +15,17 @@ function setup(){
 
 
 
+    global_screen_Area_Struct = new Area_Struct(
+        0,
+        0,
+        width,
+        height
+    );
+
+
+
+
+
     text_Bar_Object             = new Bar_Object();
     test_MasterNode_Object      = new MasterNode_Object();
 
@@ -34,8 +45,13 @@ function draw(){
 
 
 
-    text_Bar_Object.Update_Bar_Object();
     test_MasterNode_Object.Update_MasterNode_Object();
+
+
+
+
+
+    text_Bar_Object.Update_Bar_Object();
 
 }
 /*==================================================*/

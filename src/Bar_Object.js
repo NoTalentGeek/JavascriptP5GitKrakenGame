@@ -9,7 +9,7 @@ var Bar_Object = function(){
 
 
 
-    global_areaBar_Struct = new Area_Struct(
+    global_bar_Area_Struct = new Area_Struct(
         global_widthBar_Int,
         global_heightBar_Int,
         global_xULBar_Int,
