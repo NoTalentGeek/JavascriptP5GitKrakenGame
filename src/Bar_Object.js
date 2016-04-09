@@ -11,7 +11,7 @@ var Bar_Object = function(){
 
     global_bar_Area_Struct = new Area_Struct(
         global_widthBar_Int,
-        global_heightBar_Int,
+        global_height_Int,
         global_xULBar_Int,
         global_yULBar_Int
     );
@@ -33,8 +33,8 @@ Bar_Object.prototype.constructor = Bar_Object;
 Bar_Object.prototype.Update_Bar_Object = function(){
 
     rectMode(CORNER);
-    fill("#663931");
-    stroke("#45283C");
+    fill(global_fillBar_String);
+    stroke(global_strokeBar_String);
     strokeWeight(global_strokeWeight_Int);
 
 
@@ -45,7 +45,7 @@ Bar_Object.prototype.Update_Bar_Object = function(){
         global_xULBar_Int,
         global_yULBar_Int,
         global_widthBar_Int,
-        global_heightBar_Int,
+        global_height_Int,
         global_offset_Int
     );
 

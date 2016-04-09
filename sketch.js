@@ -39,7 +39,7 @@ function setup(){
 /*==================================================*/
 function draw(){
 
-    background("#222034");
+    background(global_background_String);
 
 
 
