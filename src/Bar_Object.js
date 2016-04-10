@@ -33,8 +33,8 @@ Bar_Object.prototype.constructor = Bar_Object;
 Bar_Object.prototype.Update_Bar_Object = function(){
 
     rectMode(CORNER);
-    fill(global_fillBar_String);
-    stroke(global_strokeBar_String);
+    fill(global_fillBarColor_String);
+    stroke(global_strokeBarColor_String);
     strokeWeight(global_strokeWeight_Int);
 
 

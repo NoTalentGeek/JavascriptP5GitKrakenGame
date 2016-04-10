@@ -9,9 +9,9 @@ var MasterNode_Object = function(){
         height - global_offset_Int- (50/2) ,    /*_yC_Int,*/
         true,                                   /*_fill_Bool,*/
         true,                                   /*_stroke_Bool,*/
-        global_fill_String,                      /*_fillColor_String,*/
+        global_fillColor_String,                /*_fillColor_String,*/
         global_strokeWeight_Int,                /*_stroke_Int,*/
-        global_stroke_String                    /*_strokeColor_String*/
+        global_strokeColor_String               /*_strokeColor_String*/
     );
 
 
@@ -40,8 +40,10 @@ MasterNode_Object.prototype.constructor = MasterNode_Object;
 /*==================================================*/
 MasterNode_Object.prototype.Update_MasterNode_Object = function(){
 
-    Node_Object.prototype.Update_Node_Object.call(this);
-    this.Move_MasterNode_Object();
+    Node_Object.prototype.CheckBound_Node_Object.call(this)
+    Node_Object.prototype.CheckDelete_Node_Object.call(this)
+    Node_Object.prototype.Draw_Node_Object.call(this);
+    Node_Object.prototype.Set_yC_Int_Void.call(this, this.yC_Int - global_nodeSpeed_Int);
 
 
 
@@ -51,18 +53,3 @@ MasterNode_Object.prototype.Update_MasterNode_Object = function(){
 
 };
 /*==================================================*/
-
-
-
-
-MasterNode_Object.prototype.Move_MasterNode_Object = function(){
-
-    Node_Object.prototype.Set_yC_Int_Void.call(this, this.yC_Int - global_nodeSpeed_Int);
-
-
-
-
-    //console.log(global_nodeSpeed_Int);
-    //console.log(this.yC_Int);
-
-};

@@ -1,5 +1,4 @@
 var test_Bar_Object;
-var test_Node_Object;
 var test_MasterNode_Object;
 
 
@@ -16,10 +15,10 @@ function setup(){
 
 
     global_screen_Area_Struct = new Area_Struct(
-        0,
-        0,
         width,
-        height
+        height,
+        0,
+        0
     );
 
 
@@ -39,7 +38,8 @@ function setup(){
 /*==================================================*/
 function draw(){
 
-    background(global_background_String);
+    background(global_backgroundColor_String);
+    CheckNearestBarNode_Void();
 
 
 
