@@ -55,3 +55,30 @@ function draw(){
 
 }
 /*==================================================*/
+
+
+
+
+
+/*==================================================*/
+function keyTyped(){
+
+    if(key === "a"){
+
+        //console.log("Lowercase a was just pressed.");
+
+    }
+    if(key === "s"){
+
+        //console.log("Lowercase s was just pressed.");
+
+    }
+
+
+
+
+
+    return false;
+
+}
+/*==================================================*/
