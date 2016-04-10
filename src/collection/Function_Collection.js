@@ -46,7 +46,10 @@ function CheckInsideArea_Bool(_Area_Struct, container_Area_Struct){
 
 
 /*==================================================
-Function to always check which node is the nearest to the bar object*/
+Function to always check which node is the nearest to the bar object.
+This function will executed because the bar need to determine which
+    node to be deleted when the player wrongly pressed the button or
+    missed the timing.*/
 function CheckNearestBarNode_Void(){
 
     /*Check if this node is the nearest node to the bar
@@ -69,6 +72,16 @@ function CheckNearestBarNode_Void(){
             nearestY_Int = y_Int;
             global_Node_Object_Array[i_Int].nearest_Bool = true;
 
+
+
+
+
+            global_nearest_Node_Object = global_Node_Object_Array[i_Int];
+
+
+
+
+
             if(i_Int > 0){
 
                 global_Node_Object_Array[i_Int - 1]
@@ -82,6 +95,10 @@ function CheckNearestBarNode_Void(){
     }
 
 
+    /*If there is no node object in the main node array then there is
+        no nearest node object to the bar object.
+    Hence, set the global_nearest_Node_Object to null.*/
+    if(global_Node_Object_Array == 0){ global_nearest_Node_Object = null; }
 
 
     //console.log("Hello world!");

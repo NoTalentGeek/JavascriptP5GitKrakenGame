@@ -32,6 +32,15 @@ Bar_Object.prototype.constructor = Bar_Object;
 /*==================================================*/
 Bar_Object.prototype.Update_Bar_Object = function(){
 
+    if(global_barPressed_Bool == true)
+        { global_fillBarColor_String = global_fillBarPressedColor_String; }
+    else if(global_barPressed_Bool == false)
+        { global_fillBarColor_String = global_fillBarDefaultColor_String; }
+
+
+
+
+
     rectMode(CORNER);
     fill(global_fillBarColor_String);
     stroke(global_strokeBarColor_String);
