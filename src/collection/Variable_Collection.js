@@ -1,5 +1,5 @@
 var global_bar_Area_Struct;             /*Variable initiated in Bar_Object.js.*/
-var global_barPressedCountdown_Int;     /*Variable initiated in sketch.js.*/s
+var global_barPressedCountdown_Int;     /*Variable initiated in sketch.js.*/
 var global_nearest_Node_Object;         /*Variable initiated in CheckNearestBarNode_Void() in sketch.js.*/
 var global_screen_Area_Struct;          /*Variable initiated in sketch.js.*/
 var global_widthBar_Int;                /*Variable initiated in Bar_Object.js.*/
