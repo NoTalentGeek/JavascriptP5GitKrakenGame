@@ -4,6 +4,7 @@ var global_barPressedCountdown_Int;     /*Variable initiated in sketch.js.*/
 var global_furthest_Node_Object;        /*Variable initiated in CheckFurthestBarNode_Void() in sketch.js.*/
 var global_nearest_Node_Object;         /*Variable initiated in CheckNearestBarNode_Void() in sketch.js.*/
 var global_NodeGenerator_Object;        /*Variable initiated in sketch.js.*/
+var global_nodeNearestYUL_Int;          /*Variable initiated in sketch.js.*/
 var global_nodeSpawnPointY_Int;         /*Variable initiated in sketch.js.*/
 var global_screen_Area_Struct;          /*Variable initiated in sketch.js.*/
 var global_widthBar_Int;                /*Variable initiated in Bar_Object.js.*/
@@ -12,8 +13,9 @@ var global_yULBar_Int;                  /*Variable initiated in Bar_Object.js. C
 var global_barPressed_Bool              = false;
 var global_barPressedCountdownFixed_Int = 5;
 var global_Node_Object_Array            = new Array();
-var global_nodeSpeed_Int                = 5;
 var global_nodeAmount_Int               = 5;
+var global_nodeFurthestYUL_Int          = 0;
+var global_nodeSpeed_Int                = 5;
 var global_offset_Int                   = 10;
 var global_strokeWeight_Int             = 5;
 

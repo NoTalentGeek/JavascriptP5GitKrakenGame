@@ -10,7 +10,7 @@ var _3Node_Object = function(){
         global_nodeSpawnPointY_Int,                                         /*_yC_Int,*/
         true,                                                               /*_fill_Bool,*/
         true,                                                               /*_stroke_Bool,*/
-        global_fillNodeMaster_String,                                       /*_fillColor_String,*/
+        global_fillNode3_String,                                            /*_fillColor_String,*/
         global_strokeWeight_Int,                                            /*_stroke_Int,*/
         global_strokeColor_String                                           /*_strokeColor_String*/
     );

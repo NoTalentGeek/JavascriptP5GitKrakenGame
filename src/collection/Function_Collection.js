@@ -1,51 +1,46 @@
 /*==================================================
 Function to check what is the furthest node from the bar.
 The comments are nearly the same with CheckNearestBarNode_Void().*/
-function CheckFurthestBarNode_Void(){
+function CheckFurthestBarNode_Void(_index_Int){
 
-    var furthestY_Int = 0;
-    for(
-        var i_Int = 0;
-        i_Int < global_Node_Object_Array.length;
-        i_Int ++
+    var tempYUL_Int = global_Node_Object_Array[_index_Int].yUL_Int - global_yULBar_Int;
+    if(
+        tempYUL_Int > 0 &&
+        tempYUL_Int > global_nodeFurthestYUL_Int
     ){
 
-        var y_Int = global_Node_Object_Array[i_Int].yUL_Int -global_yULBar_Int;
-        if(
-            y_Int > 0 &&
-            y_Int > furthestY_Int
-        ){
 
-            furthestY_Int = y_Int;
-            global_Node_Object_Array[i_Int].furthest_Bool = true;
+
+
+
+        //console.log("Hello world!");
 
 
 
 
 
-            global_furthest_Node_Object = global_Node_Object_Array[i_Int];
+        global_nodeFurthestYUL_Int = tempYUL_Int;
+        global_Node_Object_Array[_index_Int].furthest_Bool = true;
 
 
 
 
 
-            if(i_Int > 0){
+        global_furthest_Node_Object = global_Node_Object_Array[_index_Int];
 
-                global_Node_Object_Array[i_Int - 1]
-                    .furthest_Bool
-                        = false;
 
-            }
+
+
+
+        if(_index_Int > 0){
+
+            global_Node_Object_Array[_index_Int - 1]
+                .furthest_Bool
+                    = false;
 
         }
 
     }
-
-
-
-
-
-    if(global_Node_Object_Array == 0){ global_furthest_Node_Object = null; }
 
 }
 /*==================================================*/
@@ -100,55 +95,39 @@ Function to always check which node is the nearest to the bar object.
 This function will executed because the bar need to determine which
     node to be deleted when the player wrongly pressed the button or
     missed the timing.*/
-function CheckNearestBarNode_Void(){
+function CheckNearestBarNode_Void(_index_Int){
 
-    /*Check if this node is the nearest node to the bar
-        object based on the y axis position.
-    CAUTION: There is a bug if I forget to put .length
-        fields in an Array object that returns no error.*/
-    var nearestY_Int = height;
-    for(
-        var i_Int = 0;
-        i_Int < global_Node_Object_Array.length;
-        i_Int ++
+    var tempYUL_Int = global_Node_Object_Array[_index_Int].yUL_Int -global_yULBar_Int;
+    if(
+        tempYUL_Int > 0 &&
+        tempYUL_Int < global_nodeNearestYUL_Int
     ){
 
-        var y_Int = global_Node_Object_Array[i_Int].yUL_Int -global_yULBar_Int;
-        if(
-            y_Int > 0 &&
-            y_Int < nearestY_Int
-        ){
-
-            nearestY_Int = y_Int;
-            global_Node_Object_Array[i_Int].nearest_Bool = true;
+        global_nodeNearestYUL_Int = tempYUL_Int;
+        global_Node_Object_Array[_index_Int].nearest_Bool = true;
 
 
 
 
 
-            global_nearest_Node_Object = global_Node_Object_Array[i_Int];
+        global_nearest_Node_Object = global_Node_Object_Array[_index_Int];
 
 
 
 
 
-            if(i_Int > 0){
+        if(_index_Int > 0){
 
-                global_Node_Object_Array[i_Int - 1]
-                    .nearest_Bool
-                        = false;
-
-            }
+            global_Node_Object_Array[_index_Int - 1]
+                .nearest_Bool
+                    = false;
 
         }
 
     }
 
 
-    /*If there is no node object in the main node array then there is
-        no nearest node object to the bar object.
-    Hence, set the global_nearest_Node_Object to null.*/
-    if(global_Node_Object_Array == 0){ global_nearest_Node_Object = null; }
+
 
 
     //console.log("Hello world!");
@@ -213,11 +192,36 @@ function StartBarPressedCountdown_Void(){
 /*==================================================*/
 function UpdateAllNode_Void(){
 
+    /*Check if this node is the nearest node to the bar
+        object based on the y axis position.
+    CAUTION: There is a bug if I forget to put .length
+        fields in an Array object that returns no error.*/
     for(
         var i_Int = 0;
         i_Int < global_Node_Object_Array.length;
         i_Int ++
-    ){ global_Node_Object_Array[i_Int].Update_Node_Object(); }
+    ){
+
+        CheckFurthestBarNode_Void(i_Int);
+        CheckNearestBarNode_Void(i_Int);
+
+
+
+
+
+        global_Node_Object_Array[i_Int].Update_Node_Object();
+
+    }
+
+
+
+
+
+    if(global_Node_Object_Array == 0){ global_furthest_Node_Object = null; }
+    /*If there is no node object in the main node array then there is
+        no nearest node object to the bar object.
+    Hence, set the global_nearest_Node_Object to null.*/
+    if(global_Node_Object_Array == 0){ global_nearest_Node_Object = null; }
 
 }
 /*==================================================*/
