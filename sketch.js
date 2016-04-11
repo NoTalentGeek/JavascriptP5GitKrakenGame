@@ -1,10 +1,3 @@
-var test_Bar_Object;
-var test_MasterNode_Object;
-
-
-
-
-
 /*==================================================*/
 function setup(){
 
@@ -14,19 +7,15 @@ function setup(){
 
 
 
-    global_screen_Area_Struct = new Area_Struct(
+    global_Bar_Object           = new Bar_Object();
+    global_NodeGenerator_Object = new NodeGenerator_Object();
+    global_nodeSpawnPointY_Int  = height - global_offset_Int- (global_height_Int/2);
+    global_screen_Area_Struct   = new Area_Struct(
         width,
         height,
         0,
         0
     );
-
-
-
-
-
-    text_Bar_Object             = new Bar_Object();
-    test_MasterNode_Object      = new MasterNode_Object();
 
 }
 /*==================================================*/
@@ -39,20 +28,17 @@ function setup(){
 function draw(){
 
     background(global_backgroundColor_String);
+    CheckFurthestBarNode_Void();
     CheckNearestBarNode_Void();
     StartBarPressedCountdown_Void();
+    UpdateAllNode_Void();
 
 
 
 
 
-    test_MasterNode_Object.Update_MasterNode_Object();
-
-
-
-
-
-    text_Bar_Object.Update_Bar_Object();
+    global_Bar_Object.Update_Bar_Object();
+    global_NodeGenerator_Object.Update_NodeGenerator_Object();
 
 }
 /*==================================================*/
@@ -70,7 +56,11 @@ function keyTyped(){
         global_barPressedCountdown_Int
             = global_barPressedCountdownFixed_Int;
 
-        console.log("Lowercase a was just pressed.");
+
+
+
+
+        //console.log("Lowercase a was just pressed.");
 
     }
     if(key == "s"){
@@ -79,7 +69,11 @@ function keyTyped(){
         global_barPressedCountdown_Int
             = global_barPressedCountdownFixed_Int;
 
-        console.log("Lowercase s was just pressed.");
+
+
+
+
+        //console.log("Lowercase s was just pressed.");
 
     }
 
@@ -87,34 +81,12 @@ function keyTyped(){
 
 
 
-    console.log("Hello world!");
+    //console.log("Hello world!");
 
 
 
 
     return false;
-
-}
-/*==================================================*/
-
-
-
-
-/*==================================================
-Start countdown to set back bar pressed boolean to false.*/
-function StartBarPressedCountdown_Void(){
-
-    if(global_barPressedCountdown_Int > 0){
-
-        global_barPressedCountdown_Int --;
-        if(global_barPressedCountdown_Int <= 0){
-
-            global_barPressed_Bool          = false;
-            global_barPressedCountdown_Int  = 0;
-
-        }
-
-    }
 
 }
 /*==================================================*/

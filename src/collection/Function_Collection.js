@@ -1,4 +1,59 @@
 /*==================================================
+Function to check what is the furthest node from the bar.
+The comments are nearly the same with CheckNearestBarNode_Void().*/
+function CheckFurthestBarNode_Void(){
+
+    var furthestY_Int = 0;
+    for(
+        var i_Int = 0;
+        i_Int < global_Node_Object_Array.length;
+        i_Int ++
+    ){
+
+        var y_Int = global_Node_Object_Array[i_Int].yUL_Int -global_yULBar_Int;
+        if(
+            y_Int > 0 &&
+            y_Int > furthestY_Int
+        ){
+
+            furthestY_Int = y_Int;
+            global_Node_Object_Array[i_Int].furthest_Bool = true;
+
+
+
+
+
+            global_furthest_Node_Object = global_Node_Object_Array[i_Int];
+
+
+
+
+
+            if(i_Int > 0){
+
+                global_Node_Object_Array[i_Int - 1]
+                    .furthest_Bool
+                        = false;
+
+            }
+
+        }
+
+    }
+
+
+
+
+
+    if(global_Node_Object_Array == 0){ global_furthest_Node_Object = null; }
+
+}
+/*==================================================*/
+
+
+
+
+/*==================================================
 Function to check if this area is inside container area.*/
 function CheckInsideArea_Bool(_Area_Struct, container_Area_Struct){
 
@@ -14,12 +69,7 @@ function CheckInsideArea_Bool(_Area_Struct, container_Area_Struct){
         _Area_Struct.yUL_Int + _Area_Struct.height_Int  >= container_Area_Struct.yUL_Int &&
         _Area_Struct.yUL_Int                            <= container_Area_Struct.yUL_Int + container_Area_Struct.height_Int
     ){ inside_Bool = true; }
-    else if(
-        _Area_Struct.xUL_Int + _Area_Struct.width_Int   >= container_Area_Struct.xUL_Int &&
-        _Area_Struct.xUL_Int                            <= container_Area_Struct.xUL_Int + container_Area_Struct.width_Int &&
-        _Area_Struct.yUL_Int + _Area_Struct.height_Int  >= container_Area_Struct.yUL_Int &&
-        _Area_Struct.yUL_Int                            <= container_Area_Struct.yUL_Int + container_Area_Struct.height_Int
-    ){ inside_Bool = false; }
+    else{ inside_Bool = false; }
 
 
 
@@ -130,6 +180,44 @@ function MakeStruct_Function(_variable_String){
     }
 
     return MakeStruct_Void;
+
+}
+/*==================================================*/
+
+
+
+
+/*==================================================
+Start countdown to set back bar pressed boolean to false.*/
+function StartBarPressedCountdown_Void(){
+
+    if(global_barPressedCountdown_Int > 0){
+
+        global_barPressedCountdown_Int --;
+        if(global_barPressedCountdown_Int <= 0){
+
+            global_barPressed_Bool          = false;
+            global_barPressedCountdown_Int  = 0;
+
+        }
+
+    }
+
+}
+/*==================================================*/
+
+
+
+
+
+/*==================================================*/
+function UpdateAllNode_Void(){
+
+    for(
+        var i_Int = 0;
+        i_Int < global_Node_Object_Array.length;
+        i_Int ++
+    ){ global_Node_Object_Array[i_Int].Update_Node_Object(); }
 
 }
 /*==================================================*/

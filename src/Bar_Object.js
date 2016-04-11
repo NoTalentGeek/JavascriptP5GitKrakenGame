@@ -11,7 +11,7 @@ var Bar_Object = function(){
 
     global_bar_Area_Struct = new Area_Struct(
         global_widthBar_Int,
-        global_height_Int,
+        global_heightFix_Int,
         global_xULBar_Int,
         global_yULBar_Int
     );
@@ -31,6 +31,17 @@ Bar_Object.prototype.constructor = Bar_Object;
 
 /*==================================================*/
 Bar_Object.prototype.Update_Bar_Object = function(){
+
+    global_bar_Area_Struct = new Area_Struct(
+        global_widthBar_Int,
+        global_heightFix_Int,
+        global_xULBar_Int,
+        global_yULBar_Int
+    );
+
+
+
+
 
     if(global_barPressed_Bool == true)
         { global_fillBarColor_String = global_fillBarPressedColor_String; }
@@ -54,7 +65,7 @@ Bar_Object.prototype.Update_Bar_Object = function(){
         global_xULBar_Int,
         global_yULBar_Int,
         global_widthBar_Int,
-        global_height_Int,
+        global_heightFix_Int,
         global_offset_Int
     );
 

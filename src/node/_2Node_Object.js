@@ -1,12 +1,12 @@
 /*==================================================*/
-var MasterNode_Object = function(){
+var _2Node_Object = function(){
 
     Node_Object.call(
         this,
         Branch_Enum.MASTER_BRANCH,                                          /*__Branch_Enum,**/
         global_heightFix_Int,                                               /*_width_Int,*/
         global_heightFix_Int,                                               /*_height_Int,*/
-        global_xULBar_Int + (global_height_Int/2) + (global_height_Int*0),  /*_xC_Int,*/
+        global_xULBar_Int + (global_height_Int/2) + (global_height_Int*2),  /*_xC_Int,*/
         global_nodeSpawnPointY_Int,                                         /*_yC_Int,*/
         true,                                                               /*_fill_Bool,*/
         true,                                                               /*_stroke_Bool,*/
@@ -31,7 +31,7 @@ var MasterNode_Object = function(){
     //console.log(this._Area_Struct.xUL_Int);
 
 };
-MasterNode_Object.prototype.constructor = MasterNode_Object;
+_2Node_Object.prototype.constructor = _2Node_Object;
 /*==================================================*/
 
 
@@ -39,7 +39,7 @@ MasterNode_Object.prototype.constructor = MasterNode_Object;
 
 
 /*==================================================*/
-MasterNode_Object.prototype.Update_Node_Object = function(){
+_2Node_Object.prototype.Update_Node_Object = function(){
 
     Node_Object.prototype.CheckBound_Node_Object.call(this)
     Node_Object.prototype.Draw_Node_Object.call(this);

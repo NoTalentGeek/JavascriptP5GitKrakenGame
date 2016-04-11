@@ -40,6 +40,7 @@ var Node_Object = function(
 
 
     this.delete_Bool            = false;
+    this.furthest_Bool          = false; /*Variable updated in CheckFurthestBarNode_Void() in sketch.js*/
     this.inside_Bool            = false;
     this.nearest_Bool           = false; /*Variable updated in CheckNearestBarNode_Void() in sketch.js*/
     this.xUL_Int                = this.xC_Int - (this.width_Int/2);     /*CAUTION: Do not change this variable.*/
@@ -75,6 +76,13 @@ Node_Object.prototype.CheckBound_Node_Object = function(){
 
 
 
+    //console.log(this.delete_Bool);
+    //console.log(this.inside_Bool);
+
+
+
+
+
     return this;
 
 };
@@ -88,7 +96,19 @@ Node_Object.prototype.CheckBound_Node_Object = function(){
 Function to check whether this node should be deleted or not.*/
 Node_Object.prototype.CheckDelete_Node_Object = function(){
 
+    //console.log("Hello world!");
+
+
+
+
+
     if(this.delete_Bool == true){
+
+        //console.log("Hello world!");
+
+
+
+
 
         //console.log(global_Node_Object_Array.length);
         /*Remove this node object from the main node array.*/
@@ -171,6 +191,8 @@ Node_Object.prototype.Draw_Node_Object = function(){
         //console.log(this._Area_Struct.width_Int);
         //console.log(this._Area_Struct.xUL_Int);
         //console.log(this._Area_Struct.yUL_Int);
+        //console.log(this);
+        //console.log(this.furthest_Bool);
         //console.log(this.nearest_Bool);
 
     }
