@@ -1,5 +1,6 @@
 /*==================================================*/
 var Node_Object = function(
+    __Branch_Enum,
     _width_Int,
     _height_Int,
     _xC_Int,
@@ -23,13 +24,9 @@ var Node_Object = function(
 
 
     /*Assign the parameters into local variables.*/
+    this._Branch_Enum           = __Branch_Enum;
     this.height_Int             = _height_Int;  /*CAUTION: Change this using setter.*/
     this.width_Int              = _width_Int;   /*CAUTION: Change this using setter.*/
-
-
-
-
-
     this.xC_Int                 = _xC_Int;      /*CAUTION: Change this using setter.*/
     this.yC_Int                 = _yC_Int;      /*CAUTION: Change this using setter.*/
     this.fill_Bool              = _fill_Bool;

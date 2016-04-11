@@ -3,6 +3,7 @@ var MasterNode_Object = function(){
 
     Node_Object.call(
         this,
+        Branch_Enum.MASTER_BRANCH,              /*__Branch_Enum,**/
         global_height_Int,                      /*_width_Int,*/
         global_height_Int,                      /*_height_Int,*/
         global_xULBar_Int + (50/2),             /*_xC_Int,*/
