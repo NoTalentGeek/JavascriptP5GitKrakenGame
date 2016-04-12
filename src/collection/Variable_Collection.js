@@ -1,6 +1,7 @@
 var global_bar_Area_Struct;             /*Variable initiated in Bar_Object.js.*/
 var global_Bar_Object;                  /*Variable initiated in sketch.js.*/
 var global_barPressedCountdown_Int;     /*Variable initiated in sketch.js.*/
+var global_barWidth_Int;                /*Variable initiated in Bar_Object.js.*/
 var global_furthest_Node_Object;        /*Variable initiated in CheckFurthestBarNode_Void() in sketch.js.*/
 var global_height_Int;                  /*Variable initiated in InitiateGlobalVariableFromScreenRatio_Void() in sketch.js.*/
 var global_heightFix_Int;               /*Variable initiated in sketch.js.*/
@@ -12,7 +13,6 @@ var global_nodeSpeed_Int;               /*Variable initiated in InitiateGlobalVa
 var global_offset_Int;                  /*Variable initiated in InitiateGlobalVariableFromScreenRatio_Void() in sketch.js.*/
 var global_screen_Area_Struct;          /*Variable initiated in sketch.js.*/
 var global_strokeWeight_Int;            /*Variable initiated in InitiateGlobalVariableFromScreenRatio_Void() in sketch.js.*/
-var global_widthBar_Int;                /*Variable initiated in Bar_Object.js.*/
 var global_xUC1Node_Int;                /*Variable initiated in sketch.js.*/
 var global_xUC2Node_Int;                /*Variable initiated in sketch.js.*/
 var global_xUC3Node_Int;                /*Variable initiated in sketch.js.*/
@@ -56,7 +56,7 @@ function Set_global_xULBar_Int_Void(_global_xULBar_Int){
 
     global_xULBar_Int = _global_xULBar_Int;
     global_bar_Area_Struct = new Area_Struct(
-        global_widthBar_Int,
+        global_barWidth_Int,
         global_heightFix_Int,
         global_xULBar_Int,
         global_yULBar_Int
@@ -67,7 +67,7 @@ function Set_global_yULBar_Int_Void(_global_yULBar_Int){
 
     global_yULBar_Int = _global_yULBar_Int;
     global_bar_Area_Struct = new Area_Struct(
-        global_widthBar_Int,
+        global_barWidth_Int,
         global_heightFix_Int,
         global_xULBar_Int,
         global_yULBar_Int

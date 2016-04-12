@@ -24,17 +24,36 @@ function setup(){
     global_NodeGenerator_Object = new NodeGenerator_Object();
     global_nodeNearestYUL_Int   = height;
     global_nodeSpawnPointY_Int  = height - global_offset_Int- (global_height_Int/2);
-    global_xUC1Node_Int         = global_xULBar_Int + (global_height_Int/2) + (global_height_Int*1);
-    global_xUC2Node_Int         = global_xULBar_Int + (global_height_Int/2) + (global_height_Int*2);
-    global_xUC3Node_Int         = global_xULBar_Int + (global_height_Int/2) + (global_height_Int*3);
-    global_xUC4Node_Int         = global_xULBar_Int + (global_height_Int/2) + (global_height_Int*4);
-    global_xUCMasterNode_Int    = global_xULBar_Int + (global_height_Int/2) + (global_height_Int*0);
     global_screen_Area_Struct   = new Area_Struct(
         width,
         height,
         0,
         0
     );
+
+
+
+
+
+    global_xUC1Node_Int         = global_xULBar_Int + DetermineXCNode_Int(2);
+    global_xUC2Node_Int         = global_xULBar_Int + DetermineXCNode_Int(3);
+    global_xUC3Node_Int         = global_xULBar_Int + DetermineXCNode_Int(4);
+    global_xUC4Node_Int         = global_xULBar_Int + DetermineXCNode_Int(5);
+    global_xUCMasterNode_Int    = global_xULBar_Int + DetermineXCNode_Int(1);
+
+
+
+
+
+    function DetermineXCNode_Int(_index_Int){
+
+        var barWidthDivision_Int    = global_barWidth_Int/global_nodeAmount_Int;
+        var xC_Int                  = (barWidthDivision_Int*_index_Int) - (barWidthDivision_Int/2);
+        //console.log(global_barWidth_Int);
+        //console.log(xC_Int);
+        return xC_Int;
+
+    }
 
 
 

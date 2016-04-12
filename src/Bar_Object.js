@@ -3,14 +3,14 @@ var Bar_Object = function(){
 
     global_xULBar_Int       = ((1/4)*width) + global_offset_Int;            /*CAUTION: Change this using setter.*/
     global_yULBar_Int       = global_offset_Int;                            /*CAUTION: Change this using setter.*/
-    global_widthBar_Int     = ((3/4)*width) - global_offsetSizeFix_Int;
+    global_barWidth_Int     = ((3/4)*width) - global_offsetSizeFix_Int;
 
 
 
 
 
     global_bar_Area_Struct = new Area_Struct(
-        global_widthBar_Int,
+        global_barWidth_Int,
         global_heightFix_Int,
         global_xULBar_Int,
         global_yULBar_Int
@@ -53,7 +53,7 @@ Bar_Object.prototype.Draw_Bar_Object = function(){
     rect(
         global_xULBar_Int,
         global_yULBar_Int,
-        global_widthBar_Int,
+        global_barWidth_Int,
         global_heightFix_Int,
         global_offset_Int
     );
@@ -78,7 +78,7 @@ Bar_Object.prototype.Draw_Bar_Object = function(){
 Bar_Object.prototype.Update_Bar_Object = function(){
 
     global_bar_Area_Struct = new Area_Struct(
-        global_widthBar_Int,
+        global_barWidth_Int,
         global_heightFix_Int,
         global_xULBar_Int,
         global_yULBar_Int
