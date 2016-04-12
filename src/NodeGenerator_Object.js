@@ -20,7 +20,8 @@ NodeGenerator_Object.prototype.constructor = NodeGenerator_Object;
 /*==================================================*/
 NodeGenerator_Object.prototype.Update_NodeGenerator_Object = function(){
 
-    /*If the main node array length is 0 then spawn a free node.*/
+    /*If the main node array length is 0 then spawn a free node.
+    Or if all node is undefined in the array.*/
     if(
         global_Node_Object_Array.length                 == 0 ||
         global_NodeGenerator_Object.nothing_Boolean     == true
@@ -34,7 +35,7 @@ NodeGenerator_Object.prototype.Update_NodeGenerator_Object = function(){
                 (
                     global_furthest_Node_Object._Area_Struct.yUL_Int +
                     global_furthest_Node_Object._Area_Struct.height_Int
-                ) >= global_strokeWeight_Int
+                ) >= global_height_Int
         ){
 
             if(Math.random() > (0.99 - this.counter_Float)){

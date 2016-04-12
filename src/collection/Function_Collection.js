@@ -272,7 +272,7 @@ function InitiateGlobalVariableFromScreenRatio_Void(){
     function GlobalVariableRatioControl(_widthOrHeight_Int){
 
         global_height_Int       = _widthOrHeight_Int/16;
-        global_nodeSpeed_Int    = _widthOrHeight_Int/192;
+        global_nodeSpeed_Int    = _widthOrHeight_Int/96;
         global_offset_Int       = _widthOrHeight_Int/96;
         global_strokeWeight_Int = _widthOrHeight_Int/192;
 
