@@ -1,14 +1,21 @@
 /*==================================================*/
 function setup(){
 
-    createCanvas(960, 540);
+    createCanvas(960, 540); /*16:9 display resolution.*/
     frameRate(30);
 
 
 
 
 
+    InitiateGlobalVariableFromScreenRatio_Void();
+
+
+
+
+
     global_Bar_Object           = new Bar_Object();
+    global_heightFix_Int        = global_height_Int - global_offsetSizeFix_Int;
     global_NodeGenerator_Object = new NodeGenerator_Object();
     global_nodeNearestYUL_Int   = height;
     global_nodeSpawnPointY_Int  = height - global_offset_Int- (global_height_Int/2);
@@ -60,57 +67,13 @@ function keyTyped(){
 
     if(key == "a"){
 
-        global_barPressed_Bool = true;
-        global_barPressedCountdown_Int
-            = global_barPressedCountdownFixed_Int;
-
-
-
-
-
-        for(
-            var i_Int = 0;
-            i_Int < global_Node_Object_Array.length;
-            i_Int ++
-        ){
-
-            //CheckFurthestBarNode_Void(i_Int);
-            CheckNearestBarNode_Void(i_Int);
-
-        }
-
-
-
-
-
+        ButtonMainPressed_Void();
         //console.log("Lowercase a was just pressed.");
 
     }
     if(key == "s"){
 
-        global_barPressed_Bool = true;
-        global_barPressedCountdown_Int
-            = global_barPressedCountdownFixed_Int;
-
-
-
-
-
-        for(
-            var i_Int = 0;
-            i_Int < global_Node_Object_Array.length;
-            i_Int ++
-        ){
-
-            //CheckFurthestBarNode_Void(i_Int);
-            CheckNearestBarNode_Void(i_Int);
-
-        }
-
-
-
-
-
+        ButtonMainPressed_Void();
         //console.log("Lowercase s was just pressed.");
 
     }

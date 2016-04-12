@@ -30,18 +30,7 @@ Bar_Object.prototype.constructor = Bar_Object;
 
 
 /*==================================================*/
-Bar_Object.prototype.Update_Bar_Object = function(){
-
-    global_bar_Area_Struct = new Area_Struct(
-        global_widthBar_Int,
-        global_heightFix_Int,
-        global_xULBar_Int,
-        global_yULBar_Int
-    );
-
-
-
-
+Bar_Object.prototype.Draw_Bar_Object = function(){
 
     if(global_barPressed_Bool == true)
         { global_fillBarColor_String = global_fillBarPressedColor_String; }
@@ -77,6 +66,25 @@ Bar_Object.prototype.Update_Bar_Object = function(){
     stroke("#000000");
     strokeWeight(1);
     rectMode(CORNER);
+
+};
+/*==================================================*/
+
+
+
+
+
+/*==================================================*/
+Bar_Object.prototype.Update_Bar_Object = function(){
+
+    global_bar_Area_Struct = new Area_Struct(
+        global_widthBar_Int,
+        global_heightFix_Int,
+        global_xULBar_Int,
+        global_yULBar_Int
+    );
+    this.Draw_Bar_Object();
+
 
 
 

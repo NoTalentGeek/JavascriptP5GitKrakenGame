@@ -2,6 +2,8 @@ var global_bar_Area_Struct;             /*Variable initiated in Bar_Object.js.*/
 var global_Bar_Object;                  /*Variable initiated in sketch.js.*/
 var global_barPressedCountdown_Int;     /*Variable initiated in sketch.js.*/
 var global_furthest_Node_Object;        /*Variable initiated in CheckFurthestBarNode_Void() in sketch.js.*/
+var global_height_Int;                  /*Variable initiated in sketch.js.*/
+var global_heightFix_Int;               /*Variable initiated in sketch.js.*/
 var global_nearest_Node_Object;         /*Variable initiated in CheckNearestBarNode_Void() in sketch.js.*/
 var global_NodeGenerator_Object;        /*Variable initiated in sketch.js.*/
 var global_nodeNearestYUL_Int;          /*Variable initiated in sketch.js.*/
@@ -15,22 +17,16 @@ var global_barPressedCountdownFixed_Int = 5;
 var global_Node_Object_Array            = new Array();
 var global_nodeAmount_Int               = 5;
 var global_nodeFurthestYUL_Int          = 0;
+
+
+
 var global_nodeSpeed_Int                = 5;
 var global_offset_Int                   = 10;
 var global_strokeWeight_Int             = 5;
 
 
 
-
-
 var global_offsetSizeFix_Int            = (global_offset_Int*2);
-
-
-
-
-
-var global_height_Int                   = 50;
-var global_heightFix_Int                = global_height_Int - global_offsetSizeFix_Int;
 
 
 
@@ -49,6 +45,8 @@ var global_fillNode4_String             = "rgba(55, 148, 110, 1)";
 var global_fillNodeMaster_String        = "rgba(172, 50, 50, 1)";
 var global_strokeBarColor_String        = "rgba(102, 57, 49, 0.5)";
 var global_strokeColor_String           = "rgba(102, 57, 49, 1)";
+
+
 
 
 

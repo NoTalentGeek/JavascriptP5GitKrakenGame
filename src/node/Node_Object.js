@@ -119,7 +119,7 @@ Node_Object.prototype.CheckDelete_Node_Object = function(){
         );
         */
         delete global_Node_Object_Array[global_Node_Object_Array.indexOf(this)];
-        console.log(global_Node_Object_Array.length);
+        //console.log(global_Node_Object_Array.length);
 
 
 

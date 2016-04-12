@@ -1,4 +1,31 @@
 /*==================================================
+Function that triggered when the action button is pressed.*/
+function ButtonMainPressed_Void(){
+
+        global_barPressed_Bool = true;
+        global_barPressedCountdown_Int
+            = global_barPressedCountdownFixed_Int;
+
+
+
+
+
+        /*For every time the action button being pushed
+            check for the nearest node first.*/
+        for(
+            var i_Int = 0;
+            i_Int < global_Node_Object_Array.length;
+            i_Int ++
+        ){ CheckNearestBarNode_Void(i_Int); }
+
+}
+/*==================================================*/
+
+
+
+
+
+/*==================================================
 Function to check what is the furthest node from the bar.
 The comments are nearly the same with CheckNearestBarNode_Void().*/
 function CheckFurthestBarNode_Void(_index_Int){
@@ -156,6 +183,51 @@ function CheckNearestBarNode_Void(_index_Int){
 
 
 
+/*==================================================*/
+function InitiateGlobalVariableFromScreenRatio_Void(){
+
+    if(width >= height)         { GlobalVariableRatioControl(width); }
+    else if(width < height)     { GlobalVariableRatioControl(height); }
+
+
+
+
+
+    function GlobalVariableRatioControl(_widthOrHeight_Int){
+
+        global_height_Int       = _widthOrHeight_Int/16;
+        global_nodeSpeed_Int    = _widthOrHeight_Int/192;
+        global_offset_Int       = _widthOrHeight_Int/96;
+        global_strokeWeight_Int = _widthOrHeight_Int/192;
+
+
+
+
+
+        /*Limit so that these variable does not appear to small.*/
+        if(global_height_Int        < 20)   { global_height_Int         = 20; }
+        if(global_nodeSpeed_Int     < 5)    { global_nodeSpeed_Int      = 5; }
+        if(global_offset_Int        < 5)    { global_offset_Int         = 5; }
+        if(global_strokeWeight_Int  < 1)    { global_strokeWeight_Int   = 1; }
+
+
+
+
+
+        console.log(global_height_Int);
+        console.log(global_nodeSpeed_Int);
+        console.log(global_offset_Int);
+        console.log(global_strokeWeight_Int);
+
+    }
+
+}
+/*==================================================*/
+
+
+
+
+
 /*==================================================
 Function to make a struct.
 This snippet is taken from here.
@@ -221,12 +293,6 @@ function UpdateAllNode_Void(){
         if(global_Node_Object_Array[i_Int] != null){
 
             CheckFurthestBarNode_Void(i_Int);
-            //CheckNearestBarNode_Void(i_Int);
-
-
-
-
-
             global_Node_Object_Array[i_Int].Update_Node_Object();
 
         }
