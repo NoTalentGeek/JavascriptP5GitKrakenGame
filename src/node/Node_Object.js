@@ -24,27 +24,30 @@ var Node_Object = function(
 
 
     /*Assign the parameters into local variables.*/
-    this._Branch_Enum           = __Branch_Enum;
-    this.height_Int             = _height_Int;  /*CAUTION: Change this using setter.*/
-    this.width_Int              = _width_Int;   /*CAUTION: Change this using setter.*/
-    this.xC_Int                 = _xC_Int;      /*CAUTION: Change this using setter.*/
-    this.yC_Int                 = _yC_Int;      /*CAUTION: Change this using setter.*/
-    this.fill_Bool              = _fill_Bool;
-    this.fillColor_String       = _fillColor_String;
-    this.stroke_Bool            = _stroke_Bool;
-    this.stroke_Int             = _stroke_Int;
-    this.strokeColor_String     = _strokeColor_String;
+    this._Branch_Enum               = __Branch_Enum;
+    this.height_Int                 = _height_Int;  /*CAUTION: Change this using setter.*/
+    this.width_Int                  = _width_Int;   /*CAUTION: Change this using setter.*/
+    this.xC_Int                     = _xC_Int;      /*CAUTION: Change this using setter.*/
+    this.yC_Int                     = _yC_Int;      /*CAUTION: Change this using setter.*/
+    this.fill_Bool                  = _fill_Bool;
+    this.fillColor_String           = _fillColor_String;
+    this.stroke_Bool                = _stroke_Bool;
+    this.stroke_Int                 = _stroke_Int;
+    this.strokeColor_String         = _strokeColor_String;
 
 
 
 
 
-    this.delete_Bool            = false;
-    this.furthest_Bool          = false; /*Variable updated in CheckFurthestBarNode_Void() in sketch.js*/
-    this.inside_Bool            = false;
-    this.nearest_Bool           = false; /*Variable updated in CheckNearestBarNode_Void() in sketch.js*/
-    this.xUL_Int                = this.xC_Int - (this.width_Int/2);     /*CAUTION: Do not change this variable.*/
-    this.yUL_Int                = this.yC_Int - (this.height_Int/2);    /*CAUTION: Do not change this variable.*/
+    this.counter_Int                = 0;
+    this.counterAnimation_Bool      = false;
+    this.counterAnimationDelay_Int  = 10;
+    this.delete_Bool                = false;
+    this.furthest_Bool              = false; /*Variable updated in CheckFurthestBarNode_Void() in sketch.js*/
+    this.inside_Bool                = false;
+    this.nearest_Bool               = false; /*Variable updated in CheckNearestBarNode_Void() in sketch.js*/
+    this.xUL_Int                    = this.xC_Int - (this.width_Int/2);     /*CAUTION: Do not change this variable.*/
+    this.yUL_Int                    = this.yC_Int - (this.height_Int/2);    /*CAUTION: Do not change this variable.*/
 
 
 
@@ -196,7 +199,7 @@ Node_Object.prototype.Draw_Node_Object = function(){
         //console.log("Hello world!");
 
 
-
+        this.counter_Int ++;
 
 
         ellipseMode(CORNER);
@@ -206,13 +209,27 @@ Node_Object.prototype.Draw_Node_Object = function(){
 
 
         if(this.fill_Bool == true){ fill(this.fillColor_String); }
-        if(this.nearest_Bool == true){ noFill(); console.log("Hello world!"); }
+        else if(this.fill_Bool == fase){ noFill(); }
         //console.log(this.fill_Bool);
         //console.log(this.fill_Bool || this.nearest_Bool);
-        console.log(this.nearest_Bool);
+        //console.log(this.nearest_Bool);
+
+
+        /*Simple blinking animation for nearest node.*/
+        if(this.nearest_Bool == true){
+
+            /*Animation for nearest node.*/
+            if(this.counter_Int%this.counterAnimationDelay_Int == 0)
+                { this.counterAnimation_Bool = !this.counterAnimation_Bool; }
 
 
 
+
+
+            if(this.counterAnimation_Bool == true){ noFill(); }
+            else if(this.counterAnimation_Bool == false){ fill(this.fillColor_String); }
+
+        }
 
 
         if(this.stroke_Bool == true){

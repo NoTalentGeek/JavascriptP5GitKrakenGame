@@ -40,7 +40,15 @@ function CheckFurthestBarNode_Void(_index_Int){
         global_Node_Object_Array[_index_Int] !== undefined
     ){
 
-        var tempYUL_Int = global_Node_Object_Array[_index_Int].yUL_Int - global_yULBar_Int;
+        var tempYUL_Int =
+            global_Node_Object_Array[_index_Int].yUL_Int +
+            global_Node_Object_Array[_index_Int]._Area_Struct.height_Int -
+            global_yULBar_Int;
+
+
+
+
+
         if(
             tempYUL_Int > 0 &&
             tempYUL_Int > global_nodeFurthestYUL_Int
@@ -145,7 +153,15 @@ function CheckNearestBarNode_Void(_index_Int){
         global_Node_Object_Array[_index_Int] !== undefined
     ){
 
-        var tempYUL_Int = global_Node_Object_Array[_index_Int].yUL_Int -global_yULBar_Int;
+        var tempYUL_Int =
+            global_Node_Object_Array[_index_Int].yUL_Int +
+            global_Node_Object_Array[_index_Int]._Area_Struct.height_Int -
+            global_yULBar_Int;
+
+
+
+
+
         if(
             tempYUL_Int > 0 &&
             tempYUL_Int < global_nodeNearestYUL_Int
