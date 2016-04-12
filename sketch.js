@@ -23,7 +23,7 @@ function setup(){
     global_heightFix_Int        = global_height_Int - global_offsetSizeFix_Int;
     global_NodeGenerator_Object = new NodeGenerator_Object();
     global_nodeNearestYUL_Int   = height;
-    global_nodeSpawnPointY_Int  = height - global_offset_Int- (global_height_Int/2);
+    global_nodeSpawnPointY_Int  = height - global_offset_Int - (global_height_Int/2);
     global_screen_Area_Struct   = new Area_Struct(
         width,
         height,
@@ -54,6 +54,13 @@ function setup(){
         return xC_Int;
 
     }
+
+
+
+
+
+    //var test_Audio = new Audio("asset/sound/Test.ogg");
+    //test_Audio.play();
 
 
 
