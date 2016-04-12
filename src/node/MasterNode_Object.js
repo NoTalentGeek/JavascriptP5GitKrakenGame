@@ -19,15 +19,6 @@ var MasterNode_Object = function(){
 
 
 
-    /*When this object is created automatically add this object
-        into the main node array.*/
-    global_Node_Object_Array.push(this);
-    //console.log(global_Node_Object_Array.length);
-
-
-
-
-
     //console.log(this._Area_Struct.xUL_Int);
 
 };
@@ -41,15 +32,15 @@ MasterNode_Object.prototype.constructor = MasterNode_Object;
 /*==================================================*/
 MasterNode_Object.prototype.Update_Node_Object = function(){
 
+    Node_Object.prototype.CheckDelete_Node_Object.call(this);
+
+
+
+
+
     Node_Object.prototype.CheckBound_Node_Object.call(this)
     Node_Object.prototype.Draw_Node_Object.call(this);
     Node_Object.prototype.Set_yC_Int_Void.call(this, this.yC_Int - global_nodeSpeed_Int);
-
-
-
-
-
-    Node_Object.prototype.CheckDelete_Node_Object.call(this)
 
 
 

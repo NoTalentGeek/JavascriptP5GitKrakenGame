@@ -56,6 +56,51 @@ var Node_Object = function(
         this.yUL_Int
     );
 
+
+
+
+
+    /*When this object is created automatically add this object
+        into the main node array.*/
+    global_Node_Object_Array.push(this);
+    /*PENDING: Recycle array.*/
+    /*
+    if(global_Node_Object_Array.length == 0){ global_Node_Object_Array.push(this); }
+    if(global_Node_Object_Array.length != 0){
+
+        var empty_Node_Object;
+        for(
+            var i_Int = 0;
+            i_Int < global_Node_Object_Array.length;
+            i_Int ++
+        ){
+
+            if(
+                global_Node_Object_Array[i_Int] == null ||
+                global_Node_Object_Array[i_Int] === undefined
+            ){
+
+                empty_Node_Object               = global_Node_Object_Array[i_Int];
+                global_Node_Object_Array[i_Int] = this;
+            }
+
+        }
+
+
+
+
+
+        if(empty_Node_Object === undefined){ global_Node_Object_Array.push(this); }
+
+    }
+    */
+
+
+
+
+
+    //console.log(global_Node_Object_Array.length);
+
 };
 Node_Object.prototype.constructor = Node_Object;
 /*==================================================*/
@@ -69,8 +114,9 @@ If this node is being pressed under the bar or outside of screen*/
 Node_Object.prototype.CheckBound_Node_Object = function(){
 
     this.inside_Bool = CheckInsideArea_Bool(this._Area_Struct, global_screen_Area_Struct);
-    if(this.inside_Bool == true){ this.delete_Bool = false; }
-    else if(this.inside_Bool == false){ this.delete_Bool = true; }
+    /*I do not need the if statement to prevent the infinite
+        this.delete_Bool switch.*/
+    if(this.inside_Bool == false){ this.delete_Bool = true; }
 
 
 
@@ -110,6 +156,8 @@ Node_Object.prototype.CheckDelete_Node_Object = function(){
 
 
 
+        /*CAUTION: The Javascript native splice() function to resource heavy to be initiated frequently.
+        CAUTION: Hence I only need to splice the object when a game session end.*/
         //console.log(global_Node_Object_Array.length);
         /*Remove this node object from the main node array.*/
         /*
@@ -145,6 +193,12 @@ Node_Object.prototype.Draw_Node_Object = function(){
 
     if(this.delete_Bool == false){
 
+        //console.log("Hello world!");
+
+
+
+
+
         ellipseMode(CORNER);
 
 
@@ -152,8 +206,10 @@ Node_Object.prototype.Draw_Node_Object = function(){
 
 
         if(this.fill_Bool == true){ fill(this.fillColor_String); }
-        else if(this.fill_Bool == false){ noFill(); }
+        if(this.nearest_Bool == true){ noFill(); console.log("Hello world!"); }
         //console.log(this.fill_Bool);
+        //console.log(this.fill_Bool || this.nearest_Bool);
+        console.log(this.nearest_Bool);
 
 
 

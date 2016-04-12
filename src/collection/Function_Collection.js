@@ -16,7 +16,12 @@ function ButtonMainPressed_Void(){
             var i_Int = 0;
             i_Int < global_Node_Object_Array.length;
             i_Int ++
-        ){ CheckNearestBarNode_Void(i_Int); }
+        ){
+
+            //CheckNearestBarNode_Void(i_Int);
+            //console.log(global_nearest_Node_Object);
+
+        }
 
 }
 /*==================================================*/
@@ -30,7 +35,10 @@ Function to check what is the furthest node from the bar.
 The comments are nearly the same with CheckNearestBarNode_Void().*/
 function CheckFurthestBarNode_Void(_index_Int){
 
-    if(global_Node_Object_Array[_index_Int] != null){
+    if(
+        global_Node_Object_Array[_index_Int] != null &&
+        global_Node_Object_Array[_index_Int] !== undefined
+    ){
 
         var tempYUL_Int = global_Node_Object_Array[_index_Int].yUL_Int - global_yULBar_Int;
         if(
@@ -132,7 +140,10 @@ This function will executed because the bar need to determine which
     missed the timing.*/
 function CheckNearestBarNode_Void(_index_Int){
 
-    if(global_Node_Object_Array[_index_Int] != null){
+    if(
+        global_Node_Object_Array[_index_Int] != null &&
+        global_Node_Object_Array[_index_Int] !== undefined
+    ){
 
         var tempYUL_Int = global_Node_Object_Array[_index_Int].yUL_Int -global_yULBar_Int;
         if(
@@ -175,6 +186,44 @@ function CheckNearestBarNode_Void(_index_Int){
 
     //console.log("Hello world!");
     //console.log(global_Node_Object_Array[0].nearest_Bool);
+
+}
+/*==================================================*/
+
+
+
+
+
+/*==================================================*/
+function DeleteNearestNode_Void(){
+
+    if(
+        global_nearest_Node_Object != null &&
+        global_nearest_Node_Object !== undefined
+    ){
+
+        global_nearest_Node_Object.delete_Bool = true;
+
+
+
+
+
+        /*After delete the nearest node from bar, I need to
+            setup new nearest node object.*/
+        for(
+            var i_Int = 0;
+            i_Int < global_Node_Object_Array.length;
+            i_Int ++
+        ){ CheckNearestBarNode_Void(i_Int); }
+
+    }
+
+
+
+
+
+    //console.log(global_nearest_Node_Object.delete_Bool);
+    //console.log(global_Node_Object_Array[0].delete_Bool);
 
 }
 /*==================================================*/
@@ -293,11 +342,20 @@ function UpdateAllNode_Void(){
         if(global_Node_Object_Array[i_Int] != null){
 
             CheckFurthestBarNode_Void(i_Int);
+            CheckNearestBarNode_Void(i_Int);
             global_Node_Object_Array[i_Int].Update_Node_Object();
 
         }
 
     }
+
+
+
+
+
+    /*Set back to default value.*/
+    global_nodeNearestYUL_Int   = height;
+    global_nodeFurthestYUL_Int  = 0;
 
 
 

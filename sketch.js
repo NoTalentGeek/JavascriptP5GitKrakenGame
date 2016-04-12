@@ -108,6 +108,8 @@ function draw(){
     //console.log(global_furthest_Node_Object);
     //console.log(global_nearest_Node_Object);
     //console.log(global_Node_Object_Array.length);
+    //console.log(global_nodeFurthestYUL_Int);
+    //console.log(global_nodeNearestYUL_Int);
 
 }
 /*==================================================*/
@@ -122,12 +124,14 @@ function keyTyped(){
     if(key == "a"){
 
         ButtonMainPressed_Void();
+        DeleteNearestNode_Void();
         //console.log("Lowercase a was just pressed.");
 
     }
     if(key == "s"){
 
         ButtonMainPressed_Void();
+        DeleteNearestNode_Void();
         //console.log("Lowercase s was just pressed.");
 
     }
