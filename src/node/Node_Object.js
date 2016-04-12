@@ -1,5 +1,6 @@
 /*==================================================*/
 var Node_Object = function(
+    __Audio,
     __Branch_Enum,
     _width_Int,
     _height_Int,
@@ -24,6 +25,7 @@ var Node_Object = function(
 
 
     /*Assign the parameters into local variables.*/
+    this._Audio                     = __Audio;
     this._Branch_Enum               = __Branch_Enum;
     this.height_Int                 = _height_Int;  /*CAUTION: Change this using setter.*/
     this.width_Int                  = _width_Int;   /*CAUTION: Change this using setter.*/

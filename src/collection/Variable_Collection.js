@@ -22,9 +22,17 @@ var global_xULBar_Int;                  /*Variable initiated in Bar_Object.js. C
 var global_yULBar_Int;                  /*Variable initiated in Bar_Object.js. CAUTION: Change this using setter.*/
 var global_barPressed_Bool              = false;
 var global_barPressedCountdownFixed_Int = 5;
+var global_node1_Audio                  = new Audio("asset/sound/_1Node.ogg");
+var global_node2_Audio                  = new Audio("asset/sound/_2Node.ogg");
+var global_node3_Audio                  = new Audio("asset/sound/_3Node.ogg");
+var global_node4_Audio                  = new Audio("asset/sound/_4Node.ogg");
 var global_Node_Object_Array            = new Array();
 var global_nodeAmount_Int               = 5;
 var global_nodeFurthestYUL_Int          = 0;
+var global_nodeMaster_Audio             = new Audio("asset/sound/MasterNode.ogg");
+
+
+
 
 
 var global_offsetSizeFix_Int            = (global_offset_Int*2);

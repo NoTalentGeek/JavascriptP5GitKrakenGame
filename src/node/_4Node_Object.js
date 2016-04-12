@@ -3,7 +3,8 @@ var _4Node_Object = function(){
 
     Node_Object.call(
         this,
-        Branch_Enum.MASTER_BRANCH,      /*__Branch_Enum,**/
+        global_node4_Audio,             /*__Audio,*/
+        Branch_Enum._4_BRANCH,      /*__Branch_Enum,**/
         global_heightFix_Int,           /*_width_Int,*/
         global_heightFix_Int,           /*_height_Int,*/
         global_xUC4Node_Int,            /*_xC_Int,*/

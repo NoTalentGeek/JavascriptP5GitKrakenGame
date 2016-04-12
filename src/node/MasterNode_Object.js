@@ -3,6 +3,7 @@ var MasterNode_Object = function(){
 
     Node_Object.call(
         this,
+        global_nodeMaster_Audio,        /*__Audio,*/
         Branch_Enum.MASTER_BRANCH,      /*__Branch_Enum,**/
         global_heightFix_Int,           /*_width_Int,*/
         global_heightFix_Int,           /*_height_Int,*/

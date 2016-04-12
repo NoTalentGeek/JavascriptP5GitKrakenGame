@@ -218,6 +218,16 @@ function DeleteNearestNode_Void(){
         global_nearest_Node_Object !== undefined
     ){
 
+        /*Check if the nearest node is in the area of bar object.
+        If so play the sound before delete the node.*/
+        var insideBar_Bool = CheckInsideArea_Bool(global_nearest_Node_Object._Area_Struct, global_bar_Area_Struct);
+        //var insideBar_Bool = true;
+        if(insideBar_Bool == true){ global_nearest_Node_Object._Audio.play(); }
+
+
+
+
+
         global_nearest_Node_Object.delete_Bool = true;
 
 
