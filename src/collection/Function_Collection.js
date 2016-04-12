@@ -3,40 +3,48 @@ Function to check what is the furthest node from the bar.
 The comments are nearly the same with CheckNearestBarNode_Void().*/
 function CheckFurthestBarNode_Void(_index_Int){
 
-    var tempYUL_Int = global_Node_Object_Array[_index_Int].yUL_Int - global_yULBar_Int;
-    if(
-        tempYUL_Int > 0 &&
-        tempYUL_Int > global_nodeFurthestYUL_Int
-    ){
+    if(global_Node_Object_Array[_index_Int] != null){
+
+        var tempYUL_Int = global_Node_Object_Array[_index_Int].yUL_Int - global_yULBar_Int;
+        if(
+            tempYUL_Int > 0 &&
+            tempYUL_Int > global_nodeFurthestYUL_Int
+        ){
 
 
 
 
 
-        //console.log("Hello world!");
+            //console.log("Hello world!");
 
 
 
 
 
-        global_nodeFurthestYUL_Int = tempYUL_Int;
-        global_Node_Object_Array[_index_Int].furthest_Bool = true;
+            global_nodeFurthestYUL_Int = tempYUL_Int;
+            global_Node_Object_Array[_index_Int].furthest_Bool = true;
 
 
 
 
 
-        global_furthest_Node_Object = global_Node_Object_Array[_index_Int];
+            global_furthest_Node_Object = global_Node_Object_Array[_index_Int];
 
 
 
 
 
-        if(_index_Int > 0){
+            if(_index_Int > 0){
 
-            global_Node_Object_Array[_index_Int - 1]
-                .furthest_Bool
-                    = false;
+                if(global_Node_Object_Array[_index_Int - 1]!= null){
+
+                    global_Node_Object_Array[_index_Int - 1]
+                        .furthest_Bool
+                            = false;
+
+                }
+
+            }
 
         }
 
@@ -97,30 +105,38 @@ This function will executed because the bar need to determine which
     missed the timing.*/
 function CheckNearestBarNode_Void(_index_Int){
 
-    var tempYUL_Int = global_Node_Object_Array[_index_Int].yUL_Int -global_yULBar_Int;
-    if(
-        tempYUL_Int > 0 &&
-        tempYUL_Int < global_nodeNearestYUL_Int
-    ){
+    if(global_Node_Object_Array[_index_Int] != null){
 
-        global_nodeNearestYUL_Int = tempYUL_Int;
-        global_Node_Object_Array[_index_Int].nearest_Bool = true;
+        var tempYUL_Int = global_Node_Object_Array[_index_Int].yUL_Int -global_yULBar_Int;
+        if(
+            tempYUL_Int > 0 &&
+            tempYUL_Int < global_nodeNearestYUL_Int
+        ){
 
-
-
-
-
-        global_nearest_Node_Object = global_Node_Object_Array[_index_Int];
+            global_nodeNearestYUL_Int = tempYUL_Int;
+            global_Node_Object_Array[_index_Int].nearest_Bool = true;
 
 
 
 
 
-        if(_index_Int > 0){
+            global_nearest_Node_Object = global_Node_Object_Array[_index_Int];
 
-            global_Node_Object_Array[_index_Int - 1]
-                .nearest_Bool
-                    = false;
+
+
+
+
+            if(_index_Int > 0){
+
+                if(global_Node_Object_Array[_index_Int - 1]!= null){
+
+                    global_Node_Object_Array[_index_Int - 1]
+                        .nearest_Bool
+                            = false;
+
+                }
+
+            }
 
         }
 
@@ -202,14 +218,18 @@ function UpdateAllNode_Void(){
         i_Int ++
     ){
 
-        CheckFurthestBarNode_Void(i_Int);
-        //CheckNearestBarNode_Void(i_Int);
+        if(global_Node_Object_Array[i_Int] != null){
+
+            CheckFurthestBarNode_Void(i_Int);
+            //CheckNearestBarNode_Void(i_Int);
 
 
 
 
 
-        global_Node_Object_Array[i_Int].Update_Node_Object();
+            global_Node_Object_Array[i_Int].Update_Node_Object();
+
+        }
 
     }
 
