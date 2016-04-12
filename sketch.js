@@ -68,6 +68,21 @@ function keyTyped(){
 
 
 
+        for(
+            var i_Int = 0;
+            i_Int < global_Node_Object_Array.length;
+            i_Int ++
+        ){
+
+            //CheckFurthestBarNode_Void(i_Int);
+            CheckNearestBarNode_Void(i_Int);
+
+        }
+
+
+
+
+
         //console.log("Lowercase a was just pressed.");
 
     }
@@ -76,6 +91,21 @@ function keyTyped(){
         global_barPressed_Bool = true;
         global_barPressedCountdown_Int
             = global_barPressedCountdownFixed_Int;
+
+
+
+
+
+        for(
+            var i_Int = 0;
+            i_Int < global_Node_Object_Array.length;
+            i_Int ++
+        ){
+
+            //CheckFurthestBarNode_Void(i_Int);
+            CheckNearestBarNode_Void(i_Int);
+
+        }
 
 
 

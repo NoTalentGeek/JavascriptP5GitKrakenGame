@@ -203,7 +203,7 @@ function UpdateAllNode_Void(){
     ){
 
         CheckFurthestBarNode_Void(i_Int);
-        CheckNearestBarNode_Void(i_Int);
+        //CheckNearestBarNode_Void(i_Int);
 
 
 
@@ -217,11 +217,24 @@ function UpdateAllNode_Void(){
 
 
 
-    if(global_Node_Object_Array == 0){ global_furthest_Node_Object = null; }
+    /*Assign default nearest and furthest node is there is only
+        one node active.*/
+    if(global_Node_Object_Array.length == 1){
+
+        global_furthest_Node_Object = global_Node_Object_Array[0];
+        global_nearest_Node_Object  = global_Node_Object_Array[0];
+
+    }
+
+
+
+
+
+    if(global_Node_Object_Array.length == 0){ global_furthest_Node_Object = null; }
     /*If there is no node object in the main node array then there is
         no nearest node object to the bar object.
     Hence, set the global_nearest_Node_Object to null.*/
-    if(global_Node_Object_Array == 0){ global_nearest_Node_Object = null; }
+    if(global_Node_Object_Array.length == 0){ global_nearest_Node_Object = null; }
 
 }
 /*==================================================*/

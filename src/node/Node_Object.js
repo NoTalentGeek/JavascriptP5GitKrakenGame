@@ -112,11 +112,13 @@ Node_Object.prototype.CheckDelete_Node_Object = function(){
 
         //console.log(global_Node_Object_Array.length);
         /*Remove this node object from the main node array.*/
+        /*
         global_Node_Object_Array.splice(
             global_Node_Object_Array.indexOf(this),
             1
         );
-        //console.log(global_Node_Object_Array.length);
+        */
+        console.log(global_Node_Object_Array.length);
 
 
 
