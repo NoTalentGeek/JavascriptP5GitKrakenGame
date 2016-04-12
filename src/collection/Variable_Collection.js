@@ -30,6 +30,7 @@ var global_Node_Object_Array            = new Array();
 var global_nodeAmount_Int               = 5;
 var global_nodeFurthestYUL_Int          = 0;
 var global_nodeMaster_Audio             = new Audio("asset/sound/MasterNode.ogg");
+var global_nodeMissed_Audio             = new Audio("asset/sound/MissedNode.ogg");
 
 
 

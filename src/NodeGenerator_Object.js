@@ -5,6 +5,7 @@ var NodeGenerator_Object = function(){
         to spawn new node is fulfilled but no node is
         actually spawned.*/
     this.counter_Float = 0.0;
+    this.nothing_Bool = true;
 
 
 
@@ -20,7 +21,10 @@ NodeGenerator_Object.prototype.constructor = NodeGenerator_Object;
 NodeGenerator_Object.prototype.Update_NodeGenerator_Object = function(){
 
     /*If the main node array length is 0 then spawn a free node.*/
-    if(global_Node_Object_Array.length == 0){ new MasterNode_Object(); }
+    if(
+        global_Node_Object_Array.length                 == 0 ||
+        global_NodeGenerator_Object.nothing_Boolean     == true
+    ){ new MasterNode_Object(); }
     /*Check if this object is ready to spawn new node.
     Check the farthest node from the bar.*/
     else if(global_furthest_Node_Object != null){

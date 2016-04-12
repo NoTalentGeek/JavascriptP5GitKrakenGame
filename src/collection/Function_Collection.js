@@ -223,6 +223,7 @@ function DeleteNearestNode_Void(){
         var insideBar_Bool = CheckInsideArea_Bool(global_nearest_Node_Object._Area_Struct, global_bar_Area_Struct);
         //var insideBar_Bool = true;
         if(insideBar_Bool == true){ global_nearest_Node_Object._Audio.play(); }
+        else if(insideBar_Bool == false){ global_nodeMissed_Audio.play(); }
 
 
 
@@ -355,6 +356,12 @@ function StartBarPressedCountdown_Void(){
 /*==================================================*/
 function UpdateAllNode_Void(){
 
+    global_NodeGenerator_Object.nothing_Boolean = true;
+
+
+
+
+
     /*Check if this node is the nearest node to the bar
         object based on the y axis position.
     CAUTION: There is a bug if I forget to put .length
@@ -370,6 +377,12 @@ function UpdateAllNode_Void(){
             CheckFurthestBarNode_Void(i_Int);
             CheckNearestBarNode_Void(i_Int);
             global_Node_Object_Array[i_Int].Update_Node_Object();
+
+
+
+
+
+            global_NodeGenerator_Object.nothing_Boolean = false;
 
         }
 
