@@ -3,16 +3,16 @@ var MasterNode_Object = function(){
 
     Node_Object.call(
         this,
-        Branch_Enum.MASTER_BRANCH,                                          /*__Branch_Enum,**/
-        global_heightFix_Int,                                               /*_width_Int,*/
-        global_heightFix_Int,                                               /*_height_Int,*/
-        global_xULBar_Int + (global_height_Int/2) + (global_height_Int*0),  /*_xC_Int,*/
-        global_nodeSpawnPointY_Int,                                         /*_yC_Int,*/
-        true,                                                               /*_fill_Bool,*/
-        true,                                                               /*_stroke_Bool,*/
-        global_fillNodeMaster_String,                                       /*_fillColor_String,*/
-        global_strokeWeight_Int,                                            /*_stroke_Int,*/
-        global_strokeColor_String                                           /*_strokeColor_String*/
+        Branch_Enum.MASTER_BRANCH,      /*__Branch_Enum,**/
+        global_heightFix_Int,           /*_width_Int,*/
+        global_heightFix_Int,           /*_height_Int,*/
+        global_xUCMasterNode_Int,       /*_xC_Int,*/
+        global_nodeSpawnPointY_Int,     /*_yC_Int,*/
+        true,                           /*_fill_Bool,*/
+        true,                           /*_stroke_Bool,*/
+        global_fillNodeMaster_String,   /*_fillColor_String,*/
+        global_strokeWeight_Int,        /*_stroke_Int,*/
+        global_strokeColor_String       /*_strokeColor_String*/
     );
 
 

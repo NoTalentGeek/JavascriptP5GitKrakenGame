@@ -206,7 +206,7 @@ function InitiateGlobalVariableFromScreenRatio_Void(){
 
         /*Limit so that these variable does not appear to small.*/
         if(global_height_Int        < 20)   { global_height_Int         = 20; }
-        if(global_nodeSpeed_Int     < 5)    { global_nodeSpeed_Int      = 5; }
+        if(global_nodeSpeed_Int     < 1)    { global_nodeSpeed_Int      = 1; }
         if(global_offset_Int        < 5)    { global_offset_Int         = 5; }
         if(global_strokeWeight_Int  < 1)    { global_strokeWeight_Int   = 1; }
 
@@ -214,10 +214,10 @@ function InitiateGlobalVariableFromScreenRatio_Void(){
 
 
 
-        console.log(global_height_Int);
-        console.log(global_nodeSpeed_Int);
-        console.log(global_offset_Int);
-        console.log(global_strokeWeight_Int);
+        //console.log(global_height_Int);
+        //console.log(global_nodeSpeed_Int);
+        //console.log(global_offset_Int);
+        //console.log(global_strokeWeight_Int);
 
     }
 

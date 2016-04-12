@@ -14,17 +14,45 @@ function setup(){
 
 
 
+    global_offsetSizeFix_Int    = (global_offset_Int*2);
+
+
+
+
     global_Bar_Object           = new Bar_Object();
     global_heightFix_Int        = global_height_Int - global_offsetSizeFix_Int;
     global_NodeGenerator_Object = new NodeGenerator_Object();
     global_nodeNearestYUL_Int   = height;
     global_nodeSpawnPointY_Int  = height - global_offset_Int- (global_height_Int/2);
+    global_xUC1Node_Int         = global_xULBar_Int + (global_height_Int/2) + (global_height_Int*1);
+    global_xUC2Node_Int         = global_xULBar_Int + (global_height_Int/2) + (global_height_Int*2);
+    global_xUC3Node_Int         = global_xULBar_Int + (global_height_Int/2) + (global_height_Int*3);
+    global_xUC4Node_Int         = global_xULBar_Int + (global_height_Int/2) + (global_height_Int*4);
+    global_xUCMasterNode_Int    = global_xULBar_Int + (global_height_Int/2) + (global_height_Int*0);
     global_screen_Area_Struct   = new Area_Struct(
         width,
         height,
         0,
         0
     );
+
+
+
+
+
+    //console.log(global_Bar_Object);
+    //console.log(global_height_Int);
+    //console.log(global_heightFix_Int);
+    //console.log(global_NodeGenerator_Object);
+    //console.log(global_nodeNearestYUL_Int);
+    //console.log(global_nodeSpawnPointY_Int);
+    //console.log(global_offsetSizeFix_Int);
+    //console.log(global_screen_Area_Struct);
+    //console.log(global_xUC1Node_Int);
+    //console.log(global_xUC2Node_Int);
+    //console.log(global_xUC3Node_Int);
+    //console.log(global_xUC4Node_Int);
+    //console.log(global_xUCMasterNode_Int);
 
 }
 /*==================================================*/

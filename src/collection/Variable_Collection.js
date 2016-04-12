@@ -2,14 +2,22 @@ var global_bar_Area_Struct;             /*Variable initiated in Bar_Object.js.*/
 var global_Bar_Object;                  /*Variable initiated in sketch.js.*/
 var global_barPressedCountdown_Int;     /*Variable initiated in sketch.js.*/
 var global_furthest_Node_Object;        /*Variable initiated in CheckFurthestBarNode_Void() in sketch.js.*/
-var global_height_Int;                  /*Variable initiated in sketch.js.*/
+var global_height_Int;                  /*Variable initiated in InitiateGlobalVariableFromScreenRatio_Void() in sketch.js.*/
 var global_heightFix_Int;               /*Variable initiated in sketch.js.*/
 var global_nearest_Node_Object;         /*Variable initiated in CheckNearestBarNode_Void() in sketch.js.*/
 var global_NodeGenerator_Object;        /*Variable initiated in sketch.js.*/
 var global_nodeNearestYUL_Int;          /*Variable initiated in sketch.js.*/
 var global_nodeSpawnPointY_Int;         /*Variable initiated in sketch.js.*/
+var global_nodeSpeed_Int;               /*Variable initiated in InitiateGlobalVariableFromScreenRatio_Void() in sketch.js.*/
+var global_offset_Int;                  /*Variable initiated in InitiateGlobalVariableFromScreenRatio_Void() in sketch.js.*/
 var global_screen_Area_Struct;          /*Variable initiated in sketch.js.*/
+var global_strokeWeight_Int;            /*Variable initiated in InitiateGlobalVariableFromScreenRatio_Void() in sketch.js.*/
 var global_widthBar_Int;                /*Variable initiated in Bar_Object.js.*/
+var global_xUC1Node_Int;                /*Variable initiated in sketch.js.*/
+var global_xUC2Node_Int;                /*Variable initiated in sketch.js.*/
+var global_xUC3Node_Int;                /*Variable initiated in sketch.js.*/
+var global_xUC4Node_Int;                /*Variable initiated in sketch.js.*/
+var global_xUCMasterNode_Int;           /*Variable initiated in sketch.js.*/
 var global_xULBar_Int;                  /*Variable initiated in Bar_Object.js. CAUTION: Change this using setter.*/
 var global_yULBar_Int;                  /*Variable initiated in Bar_Object.js. CAUTION: Change this using setter.*/
 var global_barPressed_Bool              = false;
@@ -17,13 +25,6 @@ var global_barPressedCountdownFixed_Int = 5;
 var global_Node_Object_Array            = new Array();
 var global_nodeAmount_Int               = 5;
 var global_nodeFurthestYUL_Int          = 0;
-
-
-
-var global_nodeSpeed_Int                = 5;
-var global_offset_Int                   = 10;
-var global_strokeWeight_Int             = 5;
-
 
 
 var global_offsetSizeFix_Int            = (global_offset_Int*2);
