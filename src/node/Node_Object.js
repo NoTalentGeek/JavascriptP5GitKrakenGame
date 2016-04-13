@@ -47,9 +47,11 @@ var Node_Object = function(
     this.counterAnimation_Bool      = false;
     this.counterAnimationDelay_Int  = 10;
     this.delete_Bool                = false;
+    this.endTrail_Bool              = false;
     this.furthest_Bool              = false; /*Variable updated in CheckFurthestBarNode_Void() in sketch.js*/
     this.inside_Bool                = false;
     this.nearest_Bool               = false; /*Variable updated in CheckNearestBarNode_Void() in sketch.js*/
+    this.startTrail_Bool            = false;
     this.xUL_Int                    = this.xC_Int - (this.width_Int/2);     /*CAUTION: Do not change this variable.*/
     this.yUL_Int                    = this.yC_Int - (this.height_Int/2);    /*CAUTION: Do not change this variable.*/
 
@@ -70,7 +72,6 @@ var Node_Object = function(
     /*When this object is created automatically add this object
         into the main node array.*/
     global_Node_Object_Array.push(this);
-    this.branch_Node_Object_Array.push(this);
     /*PENDING: Recycle array.*/
     /*
     if(global_Node_Object_Array.length == 0){ global_Node_Object_Array.push(this); }
@@ -102,6 +103,10 @@ var Node_Object = function(
 
     }
     */
+    this.branch_Node_Object_Array.push(this);
+    /*If this is the start array then flag this as a starting node trail.*/
+    if(this.branch_Node_Object_Array.indexOf(this) == 0)
+        { this.startTrail_Bool = true; }
 
 
 
@@ -196,6 +201,21 @@ Node_Object.prototype.CheckDelete_Node_Object = function(){
 
 
 
+/*==================================================
+Function to determine whether a trail start or end in this node.*/
+Node_Object.prototype.DetermineStartEnd_Node_Object = function(){
+
+    /*If this is the start node in each branch array then start trail.*/
+    if(this.branch_Node_Object_Array.indexof(this) == 0)
+        { this.startTrail_Bool = true; }
+
+};
+/*==================================================*/
+
+
+
+
+
 /*==================================================*/
 Node_Object.prototype.Draw_Node_Object = function(){
 
@@ -204,7 +224,14 @@ Node_Object.prototype.Draw_Node_Object = function(){
         //console.log("Hello world!");
 
 
+
+
+
         this.counter_Int ++;
+
+
+
+
 
 
         ellipseMode(CORNER);

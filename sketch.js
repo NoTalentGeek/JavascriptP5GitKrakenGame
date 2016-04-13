@@ -47,6 +47,12 @@ function setup(){
 
 
 
+    global_TrailGenerator_Object        = new TrailGenerator_Object();
+
+
+
+
+
     function DetermineXCNode_Int(_index_Int){
 
         var barWidthDivision_Int    = global_barWidth_Int/global_nodeAmount_Int;
@@ -109,8 +115,9 @@ function draw(){
 
 
 
-    global_Bar_Object.Update_Bar_Object();
+    global_TrailGenerator_Object.Update_TrailGenerator_Object();
     global_NodeGenerator_Object.Update_NodeGenerator_Object();
+    global_Bar_Object.Update_Bar_Object();
 
 
 

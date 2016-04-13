@@ -18,10 +18,16 @@ var MasterNode_Object = function(){
     );
 
 
+    if(this.startTrail_Bool == true){
 
+        global_startNodeMaster_Node_Object = this;
+        global_nodeMaster_Trail_Object.draw_Bool = true;
+
+    }
 
 
     //console.log(this._Area_Struct.xUL_Int);
+    //console.log(this.yC_Int);
 
 };
 MasterNode_Object.prototype.constructor = MasterNode_Object;
@@ -49,6 +55,8 @@ MasterNode_Object.prototype.Update_Node_Object = function(){
 
 
     //console.log("Test!");
+    //console.log("this.xC_Int = " + this.xC_Int);
+    //console.log("this.yC_Int = " + this.yC_Int);
 
 };
 /*==================================================*/

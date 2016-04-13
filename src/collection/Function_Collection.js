@@ -31,6 +31,34 @@ function ButtonMainPressed_Void(){
 
 
 /*==================================================
+This function is for checking null value availability in an array.*/
+function CheckArrayIntegrity_Bool(_Array){
+
+    /*If an array has its elements all null or undefined then return this boolean to true.*/
+    var allNull_Bool = true;
+
+    for(var i_Int = 0; i_Int < _Array.length; i_Int ++){
+
+        if(
+            _Array[i_Int] != null ||
+            _Array[i_Int] !== undefined
+        ){
+            allNull_Bool = false;
+            return allNull_Bool;
+        }
+
+    }
+
+    return allNull_Bool;
+
+}
+/*==================================================*/
+
+
+
+
+
+/*==================================================
 Function to check what is the furthest node from the bar.
 The comments are nearly the same with CheckNearestBarNode_Void().*/
 function CheckFurthestBarNode_Void(_index_Int){
