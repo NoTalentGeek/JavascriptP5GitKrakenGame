@@ -16,7 +16,7 @@ var TrailGenerator_Object = function(){
 
 
 
-    2//console.log(global_startNodeMaster_Point_Struct.y_Int);
+    //console.log(global_startNodeMaster_Point_Struct.y_Int);
     //console.log(global_startNodeMaster_Point_Struct.x_Int);
 
 };
@@ -59,7 +59,7 @@ TrailGenerator_Object.prototype.Update_TrailGenerator_Object = function(){
 
 
         //console.log(global_endNodeMaster_Point_Struct.y_Int);
-        console.log(global_startNodeMaster_Point_Struct.x_Int);
+        //console.log(global_startNodeMaster_Point_Struct.x_Int);
         //console.log(yTrailStart_Int);
 
     }

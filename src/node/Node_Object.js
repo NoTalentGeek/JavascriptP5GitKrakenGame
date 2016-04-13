@@ -258,15 +258,17 @@ Node_Object.prototype.Draw_Node_Object = function(){
 
 
 
-            if(this.counterAnimation_Bool == true){ noFill(); }
+            if(this.counterAnimation_Bool == true){ fill(global_fillNodeBlink_String); }
             else if(this.counterAnimation_Bool == false){ fill(this.fillColor_String); }
 
         }
 
 
         if(this.stroke_Bool == true){
+
             stroke(this.strokeColor_String);
             strokeWeight(this.stroke_Int);
+
         }
         else if(this.stroke_Bool == false){ noStroke(); }
         //console.log(this.stroke_Bool);

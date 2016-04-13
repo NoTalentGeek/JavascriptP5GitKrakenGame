@@ -108,16 +108,27 @@ function setup(){
 function draw(){
 
     background(global_backgroundColor_String);
-    StartBarPressedCountdown_Void();
-    UpdateAllNode_Void();
 
 
 
 
 
     global_TrailGenerator_Object.Update_TrailGenerator_Object();
+
+
+
+
+
+    UpdateAllNode_Void();
     global_NodeGenerator_Object.Update_NodeGenerator_Object();
+
+
+
+
+
+    StartBarPressedCountdown_Void();
     global_Bar_Object.Update_Bar_Object();
+
 
 
 
