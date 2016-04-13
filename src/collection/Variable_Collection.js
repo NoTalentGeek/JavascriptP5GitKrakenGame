@@ -12,69 +12,48 @@ var global_nodeNearestYUL_Int;              /*Variable initiated in sketch.js.*/
 var global_nodeSpawnPointY_Int;             /*Variable initiated in sketch.js.*/
 var global_nodeSpeed_Int;                   /*Variable initiated in InitiateGlobalVariableFromScreenRatio_Void() in sketch.js.*/
 var global_offset_Int;                      /*Variable initiated in InitiateGlobalVariableFromScreenRatio_Void() in sketch.js.*/
+var global_offsetSizeFix_Int;               /*Variable initiated in InitiateGlobalVariableFromScreenRatio_Void() in sketch.js.*/
 var global_screen_Area_Struct;              /*Variable initiated in sketch.js.*/
 var global_strokeWeight_Int;                /*Variable initiated in InitiateGlobalVariableFromScreenRatio_Void() in sketch.js.*/
 var global_TrailGenerator_Object;           /*Variable initiated in sketch.js*/
-
-var global_xUC1Node_Int;                    /*Variable initiated in sketch.js.*/
-var global_xUC2Node_Int;                    /*Variable initiated in sketch.js.*/
-var global_xUC3Node_Int;                    /*Variable initiated in sketch.js.*/
-var global_xUC4Node_Int;                    /*Variable initiated in sketch.js.*/
-var global_xUCMasterNode_Int;               /*Variable initiated in sketch.js.*/
-
 var global_xULBar_Int;                      /*Variable initiated in Bar_Object.js. CAUTION: Change this using setter.*/
 var global_yULBar_Int;                      /*Variable initiated in Bar_Object.js. CAUTION: Change this using setter.*/
-
-var global_node1_Trail_Object               = new Trail_Object();
-var global_node2_Trail_Object               = new Trail_Object();
-var global_node3_Trail_Object               = new Trail_Object();
-var global_node4_Trail_Object               = new Trail_Object();
-var global_nodeMaster_Trail_Object          = new Trail_Object();
-
 var global_barPressed_Bool                  = false;
 var global_barPressedCountdownFixed_Int     = 5;
 var global_Node_Object_Array                = new Array();
 var global_nodeAmount_Int                   = 5;
 var global_nodeFurthestYUL_Int              = 0;
 
+
+
+
+
 var global_Trail_Object_Array               = new Array(global_nodeAmount_Int);
+for(var i_Int = 0; i_Int < global_nodeAmount_Int; i_Int ++)
+    { global_Trail_Object_Array[i_Int] = new Trail_Object(); }
 var global_xUCNode_Int_Array                = new Array(global_nodeAmount_Int);
 
 
 
 
 
-for(var i_Int = 0; i_Int < global_nodeAmount_Int; i_Int ++)
-    { global_Trail_Object_Array[i_Int] = new Trail_Object(); }
-
-
-
-
-
-var global_offsetSizeFix_Int                = (global_offset_Int*2);
-
-
 
 
 
 /*Color variables.*/
-var global_fillBarColor_String;
 var global_backgroundColor_String           = "rgba(34, 32, 52, 1)";
+var global_fillBarColor_String;
 var global_fillBarDefaultColor_String       = "rgba(69, 40, 60, 0.5)";
 var global_fillBarPressedColor_String       = "rgba(143, 86, 59, 0.5)";
 var global_fillColor_String                 = "rgba(69, 40, 60, 1)";
-
-var global_fillNode1_String                 = "rgba(251, 242, 54, 1)";
-var global_fillNode2_String                 = "rgba(153, 229, 80, 1)";
-var global_fillNode3_String                 = "rgba(106, 190, 48, 1)";
-var global_fillNode4_String                 = "rgba(55, 148, 110, 1)";
-var global_fillNodeMaster_String            = "rgba(172, 50, 50, 1)";
-
-var global_fillNodeOther_String             = "rgba(0, 0, 0, 1)";
 var global_fillNodeBlink_String             = "rgba(217, 87, 99, 1)";
-
+var global_fillNodeOther_String             = "rgba(0, 0, 0, 1)";
 var global_strokeBarColor_String            = "rgba(102, 57, 49, 0.5)";
 var global_strokeColor_String               = "rgba(102, 57, 49, 1)";
+
+
+
+
 
 var global_fillNode_String_Array            = new Array(global_nodeAmount_Int);
     global_fillNode_String_Array[0]         = "rgba(172, 50, 50, 1)";
@@ -86,15 +65,14 @@ var global_fillNode_String_Array            = new Array(global_nodeAmount_Int);
 
 
 
-/*Sound variables.*/
-var global_node1_Audio                      = new Audio("asset/sound/_1Node.ogg");
-var global_node2_Audio                      = new Audio("asset/sound/_2Node.ogg");
-var global_node3_Audio                      = new Audio("asset/sound/_3Node.ogg");
-var global_node4_Audio                      = new Audio("asset/sound/_4Node.ogg");
-var global_nodeMaster_Audio                 = new Audio("asset/sound/MasterNode.ogg");
 
+/*Sound variables.*/
 var global_nodeOther_Audio                  = new Audio("asset/sound/OtherNode.ogg");
 var global_nodeMissed_Audio                 = new Audio("asset/sound/MissedNode.ogg");
+
+
+
+
 
 var global_node_Audio_Array                 = new Array(global_nodeAmount_Int);
     global_node_Audio_Array[0]              = new Audio("asset/sound/MasterNode.ogg");
@@ -107,30 +85,6 @@ var global_node_Audio_Array                 = new Array(global_nodeAmount_Int);
 
 
 /*Variables that save the trail position.*/
-var global_endNode1_Point_Struct;           /*Variable initiated in TrailGenerator_Object.js.*/
-var global_endNode2_Point_Struct;           /*Variable initiated in TrailGenerator_Object.js.*/
-var global_endNode3_Point_Struct;           /*Variable initiated in TrailGenerator_Object.js.*/
-var global_endNode4_Point_Struct;           /*Variable initiated in TrailGenerator_Object.js.*/
-var global_endNodeMaster_Point_Struct;      /*Variable initiated in TrailGenerator_Object.js.*/
-
-var global_startNode1_Point_Struct;         /*Variable initiated in TrailGenerator_Object.js.*/
-var global_startNode2_Point_Struct;         /*Variable initiated in TrailGenerator_Object.js.*/
-var global_startNode3_Point_Struct;         /*Variable initiated in TrailGenerator_Object.js.*/
-var global_startNode4_Point_Struct;         /*Variable initiated in TrailGenerator_Object.js.*/
-var global_startNodeMaster_Point_Struct;    /*Variable initiated in TrailGenerator_Object.js.*/
-
-var global_endNode1_Node_Object;            /*Variable initiated in each node object.*/
-var global_endNode2_Node_Object;            /*Variable initiated in each node object.*/
-var global_endNode3_Node_Object;            /*Variable initiated in each node object.*/
-var global_endNode4_Node_Object;            /*Variable initiated in each node object.*/
-var global_endNodeMaster_Node_Object;       /*Variable initiated in each node object.*/
-
-var global_startNode1_Node_Object;          /*Variable initiated in each node object.*/
-var global_startNode2_Node_Object;          /*Variable initiated in each node object.*/
-var global_startNode3_Node_Object;          /*Variable initiated in each node object.*/
-var global_startNode4_Node_Object;          /*Variable initiated in each node object.*/
-var global_startNodeMaster_Node_Object;     /*Variable initiated in each node object.*/
-
 var global_endNode_Point_Struct_Array       = new Array(global_nodeAmount_Int);
 var global_startNode_Point_Struct_Array     = new Array(global_nodeAmount_Int);
 var global_end_Node_Object_Array            = new Array(global_nodeAmount_Int);

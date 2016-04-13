@@ -326,10 +326,10 @@ function InitiateGlobalVariableFromScreenRatio_Void(){
 
     function GlobalVariableRatioControl(_widthOrHeight_Int){
 
-        global_height_Int       = _widthOrHeight_Int/16;
-        global_nodeSpeed_Int    = _widthOrHeight_Int/96;
-        global_offset_Int       = _widthOrHeight_Int/96;
-        global_strokeWeight_Int = _widthOrHeight_Int/192;
+        global_height_Int           = _widthOrHeight_Int/16;
+        global_nodeSpeed_Int        = _widthOrHeight_Int/96;
+        global_offset_Int           = _widthOrHeight_Int/96;
+        global_strokeWeight_Int     = _widthOrHeight_Int/192;
 
 
 
@@ -340,6 +340,12 @@ function InitiateGlobalVariableFromScreenRatio_Void(){
         if(global_nodeSpeed_Int     < 1)    { global_nodeSpeed_Int      = 1; }
         if(global_offset_Int        < 5)    { global_offset_Int         = 5; }
         if(global_strokeWeight_Int  < 1)    { global_strokeWeight_Int   = 1; }
+
+
+
+
+
+        global_offsetSizeFix_Int    = (global_offset_Int*2);
 
 
 

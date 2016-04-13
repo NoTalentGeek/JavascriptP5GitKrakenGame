@@ -37,11 +37,11 @@ function setup(){
 
 
 
-    global_xUC1Node_Int                 = global_xULBar_Int + DetermineXCNode_Int(2);
-    global_xUC2Node_Int                 = global_xULBar_Int + DetermineXCNode_Int(3);
-    global_xUC3Node_Int                 = global_xULBar_Int + DetermineXCNode_Int(4);
-    global_xUC4Node_Int                 = global_xULBar_Int + DetermineXCNode_Int(5);
-    global_xUCMasterNode_Int            = global_xULBar_Int + DetermineXCNode_Int(1);
+    global_xUCNode_Int_Array[0]             = global_xULBar_Int + DetermineXCNode_Int(1);
+    global_xUCNode_Int_Array[1]             = global_xULBar_Int + DetermineXCNode_Int(2);
+    global_xUCNode_Int_Array[2]             = global_xULBar_Int + DetermineXCNode_Int(3);
+    global_xUCNode_Int_Array[3]             = global_xULBar_Int + DetermineXCNode_Int(4);
+    global_xUCNode_Int_Array[4]             = global_xULBar_Int + DetermineXCNode_Int(5);
 
 
 

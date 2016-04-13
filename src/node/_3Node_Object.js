@@ -3,16 +3,16 @@ var _3Node_Object = function(){
 
     Node_Object.call(
         this,
-        global_node3_Audio,                 /*__Audio,*/
+        global_node_Audio_Array[3],         /*__Audio,*/
         Branch_Enum._3_BRANCH,              /*__Branch_Enum,*/
         global_branch_Node_Object_Array[3], /*_branch_Node_Object_Array,*/
         global_heightFix_Int,               /*_width_Int,*/
         global_heightFix_Int,               /*_height_Int,*/
-        global_xUC3Node_Int,                /*_xC_Int,*/
+        global_xUCNode_Int_Array[3],        /*_xC_Int,*/
         global_nodeSpawnPointY_Int,         /*_yC_Int,*/
         true,                               /*_fill_Bool,*/
         true,                               /*_stroke_Bool,*/
-        global_fillNode3_String,            /*_fillColor_String,*/
+        global_fillNode_String_Array[3],    /*_fillColor_String,*/
         global_strokeWeight_Int,            /*_stroke_Int,*/
         global_strokeColor_String           /*_strokeColor_String*/
     );
