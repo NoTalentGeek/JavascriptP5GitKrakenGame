@@ -99,6 +99,7 @@ function CheckFurthestBarNode_Void(_index_Int){
 
 
 
+
 /*==================================================
 Function to check if this area is inside container area.*/
 function CheckInsideArea_Bool(_Area_Struct, container_Area_Struct){
@@ -203,6 +204,32 @@ function CheckNearestBarNode_Void(_index_Int){
     //console.log("Hello world!");
     //console.log(global_Node_Object_Array[0].nearest_Bool);
 
+}
+/*==================================================*/
+
+
+
+
+
+/*==================================================
+A function to make a multi dimensional array.*/
+function CreateMultiDimension_Array(_dimension_Int) {
+    var _Array = new Array(_dimension_Int || 0),
+        i_Int = _dimension_Int;
+
+    if (arguments.length > 1) {
+
+        var slicePrototype_Array = Array.prototype.slice.call(arguments, 1);
+        while(i_Int --){
+
+            _Array[_dimension_Int - 1 - i_Int] =
+                CreateMultiDimension_Array.apply(this, slicePrototype_Array);
+
+        }
+
+    }
+
+    return _Array;
 }
 /*==================================================*/
 

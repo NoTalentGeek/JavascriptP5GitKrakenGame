@@ -2,6 +2,7 @@ var global_bar_Area_Struct;             /*Variable initiated in Bar_Object.js.*/
 var global_Bar_Object;                  /*Variable initiated in sketch.js.*/
 var global_barPressedCountdown_Int;     /*Variable initiated in sketch.js.*/
 var global_barWidth_Int;                /*Variable initiated in Bar_Object.js.*/
+var global_branch_Node_Object_Array;    /*Variable initiated in sketch.js.*/
 var global_furthest_Node_Object;        /*Variable initiated in CheckFurthestBarNode_Void() in sketch.js.*/
 var global_height_Int;                  /*Variable initiated in InitiateGlobalVariableFromScreenRatio_Void() in sketch.js.*/
 var global_heightFix_Int;               /*Variable initiated in sketch.js.*/

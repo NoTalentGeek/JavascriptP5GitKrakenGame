@@ -7,8 +7,6 @@ var NodeGenerator_Object = function(){
     this.counter_Float = 0.0;
     this.nothing_Bool = true;
 
-
-
 }
 NodeGenerator_Object.prototype.constructor = NodeGenerator_Object;
 /*==================================================*/

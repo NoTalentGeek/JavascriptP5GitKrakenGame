@@ -2,6 +2,7 @@
 var Node_Object = function(
     __Audio,
     __Branch_Enum,
+    _branch_Node_Object_Array,
     _width_Int,
     _height_Int,
     _xC_Int,
@@ -27,6 +28,7 @@ var Node_Object = function(
     /*Assign the parameters into local variables.*/
     this._Audio                     = __Audio;
     this._Branch_Enum               = __Branch_Enum;
+    this.branch_Node_Object_Array   = _branch_Node_Object_Array;
     this.height_Int                 = _height_Int;  /*CAUTION: Change this using setter.*/
     this.width_Int                  = _width_Int;   /*CAUTION: Change this using setter.*/
     this.xC_Int                     = _xC_Int;      /*CAUTION: Change this using setter.*/
@@ -68,6 +70,7 @@ var Node_Object = function(
     /*When this object is created automatically add this object
         into the main node array.*/
     global_Node_Object_Array.push(this);
+    this.branch_Node_Object_Array.push(this);
     /*PENDING: Recycle array.*/
     /*
     if(global_Node_Object_Array.length == 0){ global_Node_Object_Array.push(this); }

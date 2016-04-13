@@ -14,17 +14,11 @@ function setup(){
 
 
 
-    global_offsetSizeFix_Int    = (global_offset_Int*2);
-
-
-
-
-    global_Bar_Object           = new Bar_Object();
-    global_heightFix_Int        = global_height_Int - global_offsetSizeFix_Int;
-    global_NodeGenerator_Object = new NodeGenerator_Object();
-    global_nodeNearestYUL_Int   = height;
-    global_nodeSpawnPointY_Int  = height - global_offset_Int - (global_height_Int/2);
-    global_screen_Area_Struct   = new Area_Struct(
+    global_branch_Node_Object_Array     = new CreateMultiDimension_Array(global_nodeAmount_Int, 0);
+    global_NodeGenerator_Object         = new NodeGenerator_Object();
+    global_nodeNearestYUL_Int           = height;
+    global_offsetSizeFix_Int            = (global_offset_Int*2);
+    global_screen_Area_Struct           = new Area_Struct(
         width,
         height,
         0,
@@ -35,11 +29,19 @@ function setup(){
 
 
 
-    global_xUC1Node_Int         = global_xULBar_Int + DetermineXCNode_Int(2);
-    global_xUC2Node_Int         = global_xULBar_Int + DetermineXCNode_Int(3);
-    global_xUC3Node_Int         = global_xULBar_Int + DetermineXCNode_Int(4);
-    global_xUC4Node_Int         = global_xULBar_Int + DetermineXCNode_Int(5);
-    global_xUCMasterNode_Int    = global_xULBar_Int + DetermineXCNode_Int(1);
+    global_Bar_Object                   = new Bar_Object();
+    global_heightFix_Int                = global_height_Int - global_offsetSizeFix_Int;
+    global_nodeSpawnPointY_Int          = height - global_offset_Int - (global_height_Int/2);
+
+
+
+
+
+    global_xUC1Node_Int                 = global_xULBar_Int + DetermineXCNode_Int(2);
+    global_xUC2Node_Int                 = global_xULBar_Int + DetermineXCNode_Int(3);
+    global_xUC3Node_Int                 = global_xULBar_Int + DetermineXCNode_Int(4);
+    global_xUC4Node_Int                 = global_xULBar_Int + DetermineXCNode_Int(5);
+    global_xUCMasterNode_Int            = global_xULBar_Int + DetermineXCNode_Int(1);
 
 
 
@@ -61,6 +63,15 @@ function setup(){
 
     //var test_Audio = new Audio("asset/sound/Test.ogg");
     //test_Audio.play();
+    //var test_multiDimension_Array = new CreateMultiDimension_Array(3, 0);
+    /*
+    for(var i_Int = 0; i_Int < test_multiDimension_Array.length; i_Int ++){
+
+        console.log(i_Int);
+        console.log(test_multiDimension_Array[i_Int]);
+
+    }
+    */
 
 
 
