@@ -23,6 +23,8 @@ var global_barPressedCountdownFixed_Int     = 5;
 var global_Node_Object_Array                = new Array();
 var global_nodeAmount_Int                   = 5;
 var global_nodeFurthestYUL_Int              = 0;
+var global_nodeMasterInterval_Int           = 50;
+var global_nodeMasterIntervalFix_Int        = 50;
 
 
 

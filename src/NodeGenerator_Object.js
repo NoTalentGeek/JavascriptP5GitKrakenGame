@@ -18,41 +18,16 @@ NodeGenerator_Object.prototype.constructor = NodeGenerator_Object;
 /*==================================================*/
 NodeGenerator_Object.prototype.Update_NodeGenerator_Object = function(){
 
-    /*If the main node array length is 0 then spawn a free node.
-    Or if all node is undefined in the array.*/
     if(
         global_Node_Object_Array.length                 == 0 ||
         global_NodeGenerator_Object.nothing_Boolean     == true
     ){ new MasterNode_Object(); }
-    /*Check if this object is ready to spawn new node.
-    Check the farthest node from the bar.*/
-    else if(global_furthest_Node_Object != null){
+    /*Make the main node to have fixed interval for the main branch.*/
+    if(global_nodeMasterInterval_Int > 0){ global_nodeMasterInterval_Int --; }
+    else if(global_nodeMasterInterval_Int <= 0){
 
-        if(
-            global_nodeSpawnPointY_Int -
-                (
-                    global_furthest_Node_Object._Area_Struct.yUL_Int +
-                    global_furthest_Node_Object._Area_Struct.height_Int
-                /*Change between < or > to change the way node spawn direction.*/
-                ) <= global_height_Int
-        ){
-
-            if(Math.random() > (0.99 - this.counter_Float)){
-
-                var random_Float    = Math.random() * global_nodeAmount_Int;
-                var random_Int      = Math.floor(random_Float);
-                if(random_Int == 0){ new MasterNode_Object(); }
-                if(random_Int == 1){ new _1Node_Object(); }
-                if(random_Int == 2){ new _2Node_Object(); }
-                if(random_Int == 3){ new _3Node_Object(); }
-                if(random_Int == 4){ new _4Node_Object(); }
-
-                this.counter_Float = 0.0;
-
-            }
-            else{ this.counter_Float += 0.001; }
-
-        }
+        new MasterNode_Object();
+        global_nodeMasterInterval_Int = global_nodeMasterIntervalFix_Int;
 
     }
 
