@@ -6,18 +6,19 @@ var TrailGenerator_Object = function(){
     global_endNode_Point_Struct_Array[3]    = new Point_Struct(global_xUCNode_Int_Array[3], global_nodeSpawnPointY_Int);
     global_endNode_Point_Struct_Array[4]    = new Point_Struct(global_xUCNode_Int_Array[4], global_nodeSpawnPointY_Int);
     global_endNode_Point_Struct_Array[0]    = new Point_Struct(global_xUCNode_Int_Array[0], global_nodeSpawnPointY_Int);
-    global_startNode_Point_Struct_Array[1]  = new Point_Struct(global_xUCNode_Int_Array[1], 0 - (global_height_Int/2));
-    global_startNode_Point_Struct_Array[2]  = new Point_Struct(global_xUCNode_Int_Array[2], 0 - (global_height_Int/2));
-    global_startNode_Point_Struct_Array[3]  = new Point_Struct(global_xUCNode_Int_Array[3], 0 - (global_height_Int/2));
-    global_startNode_Point_Struct_Array[4]  = new Point_Struct(global_xUCNode_Int_Array[4], 0 - (global_height_Int/2));
-    global_startNode_Point_Struct_Array[0]  = new Point_Struct(global_xUCNode_Int_Array[0], 0 - (global_height_Int/2));
+    global_startNode_Point_Struct_Array[1]  = new Point_Struct(global_xUCNode_Int_Array[1], height);
+    global_startNode_Point_Struct_Array[2]  = new Point_Struct(global_xUCNode_Int_Array[2], height);
+    global_startNode_Point_Struct_Array[3]  = new Point_Struct(global_xUCNode_Int_Array[3], height);
+    global_startNode_Point_Struct_Array[4]  = new Point_Struct(global_xUCNode_Int_Array[4], height);
+    global_startNode_Point_Struct_Array[0]  = new Point_Struct(global_xUCNode_Int_Array[0], height);
 
 
 
 
 
-    //console.log(global_startNode_Point_Struct_Array[0].y_Int);
+    console.log(global_endNode_Point_Struct_Array[0].y_Int);
     //console.log(global_startNode_Point_Struct_Array[0].x_Int);
+    console.log(global_startNode_Point_Struct_Array[0].y_Int);
 
 };
 TrailGenerator_Object.prototype.constructor = TrailGenerator_Object;
@@ -30,6 +31,21 @@ TrailGenerator_Object.prototype.constructor = TrailGenerator_Object;
 /*==================================================*/
 TrailGenerator_Object.prototype.Update_TrailGenerator_Object = function(){
 
+    /*For master branch make the trail to be always visible.*/
+    global_Trail_Object_Array[0].draw_Bool == true
+    /*Also for master branch make sure that the trail is always
+        at the default length.*/
+    global_Trail_Object_Array[0].Draw_Trail_Object(
+            global_startNode_Point_Struct_Array[0].x_Int,
+            global_endNode_Point_Struct_Array[0].y_Int,
+            global_startNode_Point_Struct_Array[0].y_Int
+    );
+
+
+
+
+
+    /*
     var yTrailEnd_Int;
     var yTrailStart_Int;
     if(global_Trail_Object_Array[0].draw_Bool == true){
@@ -63,6 +79,7 @@ TrailGenerator_Object.prototype.Update_TrailGenerator_Object = function(){
         //console.log(yTrailStart_Int);
 
     }
+    */
 
 };
 /*==================================================*/
