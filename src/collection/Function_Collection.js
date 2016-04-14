@@ -37,19 +37,88 @@ function CheckArrayIntegrity_Bool(_Array){
     /*If an array has its elements all null or undefined then return this boolean to true.*/
     var allNull_Bool = true;
 
+
+
+
+
     for(var i_Int = 0; i_Int < _Array.length; i_Int ++){
+
+        console.log(_Array[i_Int]);
+
+
+
+
 
         if(
             _Array[i_Int] != null ||
             _Array[i_Int] !== undefined
         ){
+
             allNull_Bool = false;
             return allNull_Bool;
+
         }
 
     }
 
+
+
+
+
     return allNull_Bool;
+
+}
+/*==================================================*/
+
+
+
+
+
+/*==================================================
+Function to check array integrity to all branch node
+    array but not the master branch.*/
+function CheckArrayIntegrityNodeButMaster_Bool(_Array){
+
+    var allNullNodeButMaster_Bool = false;
+
+
+
+
+
+    for(
+        var i_Int = 1;
+        i_Int < global_branch_Node_Object_Array.length;
+        i_Int ++
+    ){
+
+        var temp_Bool =
+            CheckArrayIntegrity_Bool(global_branch_Node_Object_Array[i_Int]);
+        //console.log(global_branch_Node_Object_Array[i_Int].length);
+
+
+
+
+
+        if(temp_Bool == true){
+
+            allNullNodeButMaster_Bool = temp_Bool;
+            return allNullNodeButMaster_Bool;
+
+        }
+
+    }
+
+
+
+
+
+    console.log(allNullNodeButMaster_Bool);
+
+
+
+
+
+    return allNullNodeButMaster_Bool
 
 }
 /*==================================================*/
@@ -417,6 +486,9 @@ function StartBarPressedCountdown_Void(){
 /*==================================================*/
 function UpdateAllNode_Void(){
 
+    /*Change nothing_Boolean variable into a function that
+        calculates node availability of other node than in
+        the node in master branch.*/
     global_NodeGenerator_Object.nothing_Boolean = true;
 
 
