@@ -19,7 +19,7 @@ var global_TrailGenerator_Object;           /*Variable initiated in sketch.js*/
 var global_xULBar_Int;                      /*Variable initiated in Bar_Object.js. CAUTION: Change this using setter.*/
 var global_yULBar_Int;                      /*Variable initiated in Bar_Object.js. CAUTION: Change this using setter.*/
 var global_barPressed_Bool                  = false;
-var global_barPressedCountdownFixed_Int     = 5;
+var global_barPressedCountdownFix_Int       = 2;
 var global_Node_Object_Array                = new Array();
 var global_nodeAmount_Int                   = 5;
 var global_nodeFurthestYUL_Int              = 0;

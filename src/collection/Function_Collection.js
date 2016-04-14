@@ -4,7 +4,7 @@ function ButtonMainPressed_Void(){
 
         global_barPressed_Bool = true;
         global_barPressedCountdown_Int
-            = global_barPressedCountdownFixed_Int;
+            = global_barPressedCountdownFix_Int;
 
 
 
@@ -22,103 +22,6 @@ function ButtonMainPressed_Void(){
             //console.log(global_nearest_Node_Object);
 
         }
-
-}
-/*==================================================*/
-
-
-
-
-
-/*==================================================
-This function is for checking null value availability in an array.*/
-function CheckArrayIntegrity_Bool(_Array){
-
-    /*If an array has its elements all null or undefined then return this boolean to true.*/
-    var allNull_Bool = true;
-
-
-
-
-
-    for(var i_Int = 0; i_Int < _Array.length; i_Int ++){
-
-        console.log(_Array[i_Int]);
-
-
-
-
-
-        if(
-            _Array[i_Int] != null ||
-            _Array[i_Int] !== undefined
-        ){
-
-            allNull_Bool = false;
-            return allNull_Bool;
-
-        }
-
-    }
-
-
-
-
-
-    return allNull_Bool;
-
-}
-/*==================================================*/
-
-
-
-
-
-/*==================================================
-Function to check array integrity to all branch node
-    array but not the master branch.*/
-function CheckArrayIntegrityNodeButMaster_Bool(_Array){
-
-    var allNullNodeButMaster_Bool = false;
-
-
-
-
-
-    for(
-        var i_Int = 1;
-        i_Int < global_branch_Node_Object_Array.length;
-        i_Int ++
-    ){
-
-        var temp_Bool =
-            CheckArrayIntegrity_Bool(global_branch_Node_Object_Array[i_Int]);
-        //console.log(global_branch_Node_Object_Array[i_Int].length);
-
-
-
-
-
-        if(temp_Bool == true){
-
-            allNullNodeButMaster_Bool = temp_Bool;
-            return allNullNodeButMaster_Bool;
-
-        }
-
-    }
-
-
-
-
-
-    console.log(allNullNodeButMaster_Bool);
-
-
-
-
-
-    return allNullNodeButMaster_Bool
 
 }
 /*==================================================*/

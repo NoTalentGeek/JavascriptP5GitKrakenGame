@@ -47,18 +47,6 @@ NodeGenerator_Object.prototype.Update_NodeGenerator_Object = function(){
 
 
 
-    /*Spawn a random node when there is nothing on the screen.
-    What I need to check are.
-    1. When there is no other nodes other than the master node.
-    2. And the node spawning point should be not in the same interval as
-        the master node.*/
-    /*
-    if(CheckArrayIntegrityNodeButMaster_Bool() == true){
-
-        //console.log("Hello world!");
-
-    }
-    */
     if(global_furthest_Node_Object != null){
 
         if(
