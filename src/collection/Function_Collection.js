@@ -69,9 +69,9 @@ function CheckFurthestBarNode_Void(_index_Int){
     ){
 
         var tempYUL_Int =
+            global_yULBar_Int +
             global_Node_Object_Array[_index_Int].yUL_Int +
-            global_Node_Object_Array[_index_Int]._Area_Struct.height_Int -
-            global_yULBar_Int;
+            global_Node_Object_Array[_index_Int]._Area_Struct.height_Int;
 
 
 
@@ -183,9 +183,9 @@ function CheckNearestBarNode_Void(_index_Int){
     ){
 
         var tempYUL_Int =
+            global_yULBar_Int -
             global_Node_Object_Array[_index_Int].yUL_Int +
-            global_Node_Object_Array[_index_Int]._Area_Struct.height_Int -
-            global_yULBar_Int;
+            global_Node_Object_Array[_index_Int]._Area_Struct.height_Int;
 
 
 

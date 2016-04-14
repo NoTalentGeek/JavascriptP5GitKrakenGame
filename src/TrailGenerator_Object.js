@@ -6,6 +6,8 @@ var TrailGenerator_Object = function(){
     global_endNode_Point_Struct_Array[3]    = new Point_Struct(global_xUCNode_Int_Array[3], global_nodeSpawnPointY_Int);
     global_endNode_Point_Struct_Array[4]    = new Point_Struct(global_xUCNode_Int_Array[4], global_nodeSpawnPointY_Int);
     global_endNode_Point_Struct_Array[0]    = new Point_Struct(global_xUCNode_Int_Array[0], global_nodeSpawnPointY_Int);
+    /*CAUTION: Change height in the last Point_Struct argument when I need to change the orientation
+        of the movement of the node.*/
     global_startNode_Point_Struct_Array[1]  = new Point_Struct(global_xUCNode_Int_Array[1], height);
     global_startNode_Point_Struct_Array[2]  = new Point_Struct(global_xUCNode_Int_Array[2], height);
     global_startNode_Point_Struct_Array[3]  = new Point_Struct(global_xUCNode_Int_Array[3], height);
