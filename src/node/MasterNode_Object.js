@@ -55,6 +55,7 @@ MasterNode_Object.prototype.Update_Node_Object = function(){
 
 
     //console.log("Test!");
+    //console.log(this.furthest_Bool);
     //console.log("this.xC_Int = " + this.xC_Int);
     //console.log("this.yC_Int = " + this.yC_Int);
 

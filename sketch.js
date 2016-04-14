@@ -144,6 +144,20 @@ function draw(){
     //console.log(global_nodeFurthestYUL_Int);
     //console.log(global_nodeNearestYUL_Int);
 
+    for(var i_Int = 0; i_Int < global_Node_Object_Array.length; i_Int ++){
+
+        if(global_Node_Object_Array[i_Int] != null || global_Node_Object_Array[i_Int] !== undefined){
+
+            if(global_Node_Object_Array[i_Int].furthest_Bool == false){
+
+                console.log(global_Node_Object_Array[i_Int]);
+
+            }
+
+        }
+
+    }
+
 }
 /*==================================================*/
 

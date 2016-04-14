@@ -23,6 +23,8 @@ var Node_Object = function(
 
 
 
+    this.furthest_Bool              = false; /*Variable updated in CheckFurthestBarNode_Void() in sketch.js*/
+
 
 
     /*Assign the parameters into local variables.*/
@@ -48,7 +50,6 @@ var Node_Object = function(
     this.counterAnimationDelay_Int  = 10;
     this.delete_Bool                = false;
     this.endTrail_Bool              = false;
-    this.furthest_Bool              = false; /*Variable updated in CheckFurthestBarNode_Void() in sketch.js*/
     this.inside_Bool                = false;
     this.nearest_Bool               = false; /*Variable updated in CheckNearestBarNode_Void() in sketch.js*/
     this.startTrail_Bool            = false;
@@ -247,8 +248,33 @@ Node_Object.prototype.Draw_Node_Object = function(){
         //console.log(this.nearest_Bool);
 
 
+
+
+
+        if(this.stroke_Bool == true){
+
+            stroke(this.strokeColor_String);
+            strokeWeight(this.stroke_Int);
+
+        }
+        else if(this.stroke_Bool == false){ noStroke(); }
+        //console.log(this.stroke_Bool);
+
+
+
+
+
+        /*PENDING: Change the color when the node is the
+            furthest and the nearest.*/
+        if(this.furthest_Bool == true){ noStroke(); }
         /*Simple blinking animation for nearest node.*/
         if(this.nearest_Bool == true){
+
+            //console.log(this);
+
+
+
+
 
             /*Animation for nearest node.*/
             if(this.counter_Int%this.counterAnimationDelay_Int == 0)
@@ -262,16 +288,6 @@ Node_Object.prototype.Draw_Node_Object = function(){
             else if(this.counterAnimation_Bool == false){ fill(this.fillColor_String); }
 
         }
-
-
-        if(this.stroke_Bool == true){
-
-            stroke(this.strokeColor_String);
-            strokeWeight(this.stroke_Int);
-
-        }
-        else if(this.stroke_Bool == false){ noStroke(); }
-        //console.log(this.stroke_Bool);
 
 
 

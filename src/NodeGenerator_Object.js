@@ -49,13 +49,20 @@ NodeGenerator_Object.prototype.Update_NodeGenerator_Object = function(){
 
     if(global_furthest_Node_Object != null){
 
+        //console.log("height_Int = " + global_furthest_Node_Object._Area_Struct.height_Int);
+        //console.log("yUL_Int = " + global_furthest_Node_Object._Area_Struct.yUL_Int);
+        //console.log(global_furthest_Node_Object._Area_Struct.yUL_Int + global_furthest_Node_Object._Area_Struct.height_Int);
+        //console.log(global_height_Int);
+        //console.log(global_nodeSpawnPointY_Int + global_height_Int);
+        //console.log(global_nodeSpawnPointY_Int);
+
+
+
+
+
         if(
-            global_nodeSpawnPointY_Int -
-                (
-                    global_furthest_Node_Object._Area_Struct.yUL_Int +
-                    global_furthest_Node_Object._Area_Struct.height_Int
-                /*Change between < or > to change the way node spawn direction.*/
-                ) <= global_height_Int
+            global_furthest_Node_Object._Area_Struct.yUL_Int + global_furthest_Node_Object._Area_Struct.height_Int >
+                global_nodeSpawnPointY_Int + global_height_Int
         ){
 
             if(Math.random() > (0.99 - this.counter_Float)){

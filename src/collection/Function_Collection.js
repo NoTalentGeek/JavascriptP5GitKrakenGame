@@ -35,13 +35,14 @@ Function to check what is the furthest node from the bar.
 The comments are nearly the same with CheckNearestBarNode_Void().*/
 function CheckFurthestBarNode_Void(_index_Int){
 
-    if(
-        global_Node_Object_Array[_index_Int] != null &&
+     if(
+        global_Node_Object_Array[_index_Int] != null ||
         global_Node_Object_Array[_index_Int] !== undefined
     ){
 
         var tempYUL_Int =
             global_yULBar_Int +
+            global_height_Int -
             global_Node_Object_Array[_index_Int].yUL_Int +
             global_Node_Object_Array[_index_Int]._Area_Struct.height_Int;
 
@@ -53,16 +54,6 @@ function CheckFurthestBarNode_Void(_index_Int){
             tempYUL_Int > 0 &&
             tempYUL_Int > global_nodeFurthestYUL_Int
         ){
-
-
-
-
-
-            //console.log("Hello world!");
-
-
-
-
 
             global_nodeFurthestYUL_Int = tempYUL_Int;
             global_Node_Object_Array[_index_Int].furthest_Bool = true;
@@ -79,7 +70,10 @@ function CheckFurthestBarNode_Void(_index_Int){
 
             if(_index_Int > 0){
 
-                if(global_Node_Object_Array[_index_Int - 1]!= null){
+                if(
+                    global_Node_Object_Array[_index_Int - 1] != null ||
+                    global_Node_Object_Array[_index_Int - 1] !== undefined
+                ){
 
                     global_Node_Object_Array[_index_Int - 1]
                         .furthest_Bool
@@ -150,12 +144,13 @@ This function will executed because the bar need to determine which
 function CheckNearestBarNode_Void(_index_Int){
 
     if(
-        global_Node_Object_Array[_index_Int] != null &&
+        global_Node_Object_Array[_index_Int] != null ||
         global_Node_Object_Array[_index_Int] !== undefined
     ){
 
         var tempYUL_Int =
-            global_yULBar_Int -
+            global_yULBar_Int +
+            global_height_Int -
             global_Node_Object_Array[_index_Int].yUL_Int +
             global_Node_Object_Array[_index_Int]._Area_Struct.height_Int;
 
@@ -183,7 +178,10 @@ function CheckNearestBarNode_Void(_index_Int){
 
             if(_index_Int > 0){
 
-                if(global_Node_Object_Array[_index_Int - 1]!= null){
+                if(
+                    global_Node_Object_Array[_index_Int - 1] != null ||
+                    global_Node_Object_Array[_index_Int - 1] !== undefined
+                ){
 
                     global_Node_Object_Array[_index_Int - 1]
                         .nearest_Bool
@@ -410,6 +408,7 @@ function UpdateAllNode_Void(){
 
         if(global_Node_Object_Array[i_Int] != null){
 
+
             CheckFurthestBarNode_Void(i_Int);
             CheckNearestBarNode_Void(i_Int);
             global_Node_Object_Array[i_Int].Update_Node_Object();
@@ -430,7 +429,7 @@ function UpdateAllNode_Void(){
 
     /*Set back to default value.*/
     global_nodeNearestYUL_Int   = height;
-    global_nodeFurthestYUL_Int  = 0;
+    global_nodeFurthestYUL_Int  = height;
 
 
 
