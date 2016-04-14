@@ -42,7 +42,6 @@ var global_xUCNode_Int_Array                = new Array(global_nodeAmount_Int);
 
 /*Color variables.*/
 var global_backgroundColor_String           = "rgba(34, 32, 52, 1)";
-var global_fillBarColor_String;
 var global_fillBarDefaultColor_String       = "rgba(69, 40, 60, 0.5)";
 var global_fillBarPressedColor_String       = "rgba(143, 86, 59, 0.5)";
 var global_fillColor_String                 = "rgba(69, 40, 60, 1)";

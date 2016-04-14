@@ -42,7 +42,7 @@ _2Node_Object.prototype.Update_Node_Object = function(){
 
     Node_Object.prototype.CheckBound_Node_Object.call(this)
     Node_Object.prototype.Draw_Node_Object.call(this);
-    Node_Object.prototype.Set_yC_Int_Void.call(this, this.yC_Int - global_nodeSpeed_Int);
+    Node_Object.prototype.Set_yC_Int_Void.call(this, this.yC_Int + global_nodeSpeed_Int);
 
 
 

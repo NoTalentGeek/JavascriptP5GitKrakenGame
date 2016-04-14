@@ -1,9 +1,10 @@
 /*==================================================*/
 var Bar_Object = function(){
 
-    global_xULBar_Int       = ((1/4)*width) + global_offset_Int;            /*CAUTION: Change this using setter.*/
-    global_yULBar_Int       = global_offset_Int;                            /*CAUTION: Change this using setter.*/
     global_barWidth_Int     = ((3/4)*width) - global_offsetSizeFix_Int;
+    global_xULBar_Int       = ((1/4)*width) + global_offset_Int;                        /*CAUTION: Change this using setter.*/
+    global_yULBar_Int       = height - global_heightFix_Int - global_offset_Int;        /*CAUTION: Change this using setter.*/
+    //console.log(global_heightFix_Int);
 
 
 

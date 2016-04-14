@@ -29,9 +29,13 @@ function setup(){
 
 
 
-    global_Bar_Object                   = new Bar_Object();
     global_heightFix_Int                = global_height_Int - global_offsetSizeFix_Int;
-    global_nodeSpawnPointY_Int          = height - global_offset_Int - (global_height_Int/2);
+
+
+
+
+    global_Bar_Object                   = new Bar_Object();
+    global_nodeSpawnPointY_Int          = global_offset_Int + (global_height_Int/2);
 
 
 

@@ -33,7 +33,8 @@ NodeGenerator_Object.prototype.Update_NodeGenerator_Object = function(){
                 (
                     global_furthest_Node_Object._Area_Struct.yUL_Int +
                     global_furthest_Node_Object._Area_Struct.height_Int
-                ) >= global_height_Int
+                /*Change between < or > to change the way node spawn direction.*/
+                ) <= global_height_Int
         ){
 
             if(Math.random() > (0.99 - this.counter_Float)){
