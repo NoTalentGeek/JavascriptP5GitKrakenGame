@@ -3,20 +3,20 @@ var _1Node_Object = function(){
 
     Node_Object.call(
         this,
-        global_node_Audio_Array[1],                     /*__Audio,*/
-        Branch_Enum._1_BRANCH,                          /*__Branch_Enum,*/
-        global_branch_Node_Object_Array[1],             /*_branch_Node_Object_Array,*/
-        global_heightFix_Int,                           /*_width_Int,*/
-        global_heightFix_Int,                           /*_height_Int,*/
-        global_xUCNode_Int_Array[1],                    /*_xC_Int,*/
-        global_nodeSpawnPointY_Int,                     /*_yC_Int,*/
-        true,                                           /*_fill_Bool,*/
-        true,                                           /*_stroke_Bool,*/
-        global_fillNodeColor_String_Array[1],           /*_fillNodeColor_String,*/
-        global_fillNodeFurthestColor_String_Array[1],   /*_fillNodeFurthestColor_String,*/
-        global_fillNodeNearestColor_String_Array[1],    /*_fillNodeNearestColor_String,*/
-        global_strokeWeight_Int,                        /*_stroke_Int,*/
-        global_strokeDefaultColor_String                /*_strokeColor_String*/
+        global_node_Audio_Array[1],                             /*__Audio,*/
+        Branch_Enum._1_BRANCH,                                  /*__Branch_Enum,*/
+        global_branch_Node_Object_Array[1],                     /*_branch_Node_Object_Array,*/
+        global_heightFix_Int,                                   /*_width_Int,*/
+        global_heightFix_Int,                                   /*_height_Int,*/
+        global_xUCNode_Int_Array[1],                            /*_xC_Int,*/
+        global_nodeSpawnPointY_Int + (global_heightFix_Int/2),  /*_yC_Int,*/
+        true,                                                   /*_fill_Bool,*/
+        true,                                                   /*_stroke_Bool,*/
+        global_fillNodeColor_String_Array[1],                   /*_fillNodeColor_String,*/
+        global_fillNodeFurthestColor_String_Array[1],           /*_fillNodeFurthestColor_String,*/
+        global_fillNodeNearestColor_String_Array[1],            /*_fillNodeNearestColor_String,*/
+        global_strokeWeight_Int,                                /*_stroke_Int,*/
+        global_strokeDefaultColor_String                        /*_strokeColor_String*/
     );
 
 

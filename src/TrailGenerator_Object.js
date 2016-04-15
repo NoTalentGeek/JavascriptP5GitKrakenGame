@@ -18,6 +18,30 @@ var TrailGenerator_Object = function(){
 
 
 
+    /*For master branch make the trail to be always visible.*/
+    global_Trail_Object_Array[0].draw_Bool = true;
+    /*Also for master branch make sure that the trail is always
+        at the default length.*/
+    global_Trail_Object_Array[0].Draw_Trail_Object(
+        global_startNode_Point_Struct_Array[0].x_Int,
+        global_endNode_Point_Struct_Array[0].y_Int,
+        global_startNode_Point_Struct_Array[0].y_Int
+    );
+
+    /*For master branch make the trail to be always visible.*/
+    global_Trail_Object_Array[1].draw_Bool == true;
+    /*Also for master branch make sure that the trail is always
+        at the default length.*/
+    global_Trail_Object_Array[1].Draw_Trail_Object(
+            global_startNode_Point_Struct_Array[1].x_Int,
+            global_endNode_Point_Struct_Array[1].y_Int,
+            global_startNode_Point_Struct_Array[1].y_Int
+    );
+
+
+
+
+
     //console.log(global_endNode_Point_Struct_Array[0].y_Int);
     //console.log(global_startNode_Point_Struct_Array[0].x_Int);
     //console.log(global_startNode_Point_Struct_Array[0].y_Int);
@@ -34,7 +58,7 @@ TrailGenerator_Object.prototype.constructor = TrailGenerator_Object;
 TrailGenerator_Object.prototype.Update_TrailGenerator_Object = function(){
 
     /*For master branch make the trail to be always visible.*/
-    global_Trail_Object_Array[0].draw_Bool == true
+    global_Trail_Object_Array[0].draw_Bool = true;
     /*Also for master branch make sure that the trail is always
         at the default length.*/
     global_Trail_Object_Array[0].Draw_Trail_Object(
@@ -43,9 +67,45 @@ TrailGenerator_Object.prototype.Update_TrailGenerator_Object = function(){
             global_startNode_Point_Struct_Array[0].y_Int
     );
 
+    /*For master branch make the trail to be always visible.*/
+    global_Trail_Object_Array[1].draw_Bool = true;
+    /*Also for master branch make sure that the trail is always
+        at the default length.*/
+    global_Trail_Object_Array[1].Draw_Trail_Object(
+            global_startNode_Point_Struct_Array[1].x_Int,
+            global_endNode_Point_Struct_Array[1].y_Int,
+            global_startNode_Point_Struct_Array[1].y_Int
+    );
 
+    /*For master branch make the trail to be always visible.*/
+    global_Trail_Object_Array[2].draw_Bool = true;
+    /*Also for master branch make sure that the trail is always
+        at the default length.*/
+    global_Trail_Object_Array[2].Draw_Trail_Object(
+            global_startNode_Point_Struct_Array[2].x_Int,
+            global_endNode_Point_Struct_Array[2].y_Int,
+            global_startNode_Point_Struct_Array[2].y_Int
+    );
 
+    /*For master branch make the trail to be always visible.*/
+    global_Trail_Object_Array[3].draw_Bool = true;
+    /*Also for master branch make sure that the trail is always
+        at the default length.*/
+    global_Trail_Object_Array[3].Draw_Trail_Object(
+            global_startNode_Point_Struct_Array[3].x_Int,
+            global_endNode_Point_Struct_Array[3].y_Int,
+            global_startNode_Point_Struct_Array[3].y_Int
+    );
 
+    /*For master branch make the trail to be always visible.*/
+    global_Trail_Object_Array[4].draw_Bool = true;
+    /*Also for master branch make sure that the trail is always
+        at the default length.*/
+    global_Trail_Object_Array[4].Draw_Trail_Object(
+            global_startNode_Point_Struct_Array[4].x_Int,
+            global_endNode_Point_Struct_Array[4].y_Int,
+            global_startNode_Point_Struct_Array[4].y_Int
+    );
 
     /*
     var yTrailEnd_Int;
@@ -91,9 +151,5 @@ TrailGenerator_Object.prototype.Update_TrailGenerator_Object = function(){
 
 
 /*==================================================*/
-TrailGenerator_Object.prototype.DetermineStartEndNode_TrailGenerator_Object = function(){
-
-
-
-};
+TrailGenerator_Object.prototype.DetermineStartEndNode_TrailGenerator_Object = function(){};
 /*==================================================*/

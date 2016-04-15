@@ -13,11 +13,13 @@ function setup(){
 
 
 
-
+    //global_IntervalManager_Object       = new IntervalManager_Object(); /*Variable initiated in sketch.js*/
     global_branch_Node_Object_Array     = new CreateMultiDimension_Array(global_nodeAmount_Int, 0);
+    global_branch_Point_Object_Array    = new CreateMultiDimension_Array(global_nodeAmount_Int, 0);
     global_NodeGenerator_Object         = new NodeGenerator_Object();
     global_nodeNearestYUL_Int           = height;
     global_offsetSizeFix_Int            = (global_offset_Int*2);
+    global_pointInterval_Function       = PointInterval_Void; /*Variable initiated in sketch.js*/
     global_screen_Area_Struct           = new Area_Struct(
         width,
         height,
@@ -52,6 +54,14 @@ function setup(){
 
 
     global_TrailGenerator_Object        = new TrailGenerator_Object();
+    //console.log(global_Trail_Object_Array[0].draw_Bool);
+
+
+
+
+
+    PointInterval_Void();
+    //console.log("Hello world!");
 
 
 

@@ -14,7 +14,12 @@ NodeGenerator_Object.prototype.constructor = NodeGenerator_Object;
 /*==================================================*/
 
 
+NodeGenerator_Object.prototype.SpawnMasterNode_NodeGenerator_Object = function(){
 
+    new MasterNode_Object();
+    return this;
+
+};
 
 
 /*==================================================*/
@@ -27,7 +32,9 @@ NodeGenerator_Object.prototype.Update_NodeGenerator_Object = function(){
 
 
 
+
     /*Make the main node to have fixed interval for the main branch.*/
+    /*
     if(global_nodeMasterInterval_Int > 0){ global_nodeMasterInterval_Int --; }
     else if(global_nodeMasterInterval_Int <= 0){
 
@@ -42,6 +49,7 @@ NodeGenerator_Object.prototype.Update_NodeGenerator_Object = function(){
         //console.log(global_nearest_Node_Object);
 
     }
+    */
 
 
 

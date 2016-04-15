@@ -5,6 +5,7 @@ var global_branch_Node_Object_Array;                /*Variable initiated in sket
 var global_furthest_Node_Object;                    /*Variable initiated in CheckFurthestBarNode_Void() in sketch.js.*/
 var global_height_Int;                              /*Variable initiated in InitiateGlobalVariableFromScreenRatio_Void() in sketch.js.*/
 var global_heightFix_Int;                           /*Variable initiated in sketch.js.*/
+var global_IntervalManager_Object;                  /*Variable initiated in sketch.js*/
 var global_nearest_Node_Object;                     /*Variable initiated in CheckNearestBarNode_Void() in sketch.js.*/
 var global_NodeGenerator_Object;                    /*Variable initiated in sketch.js.*/
 var global_nodeNearestYUL_Int;                      /*Variable initiated in sketch.js.*/
@@ -20,20 +21,26 @@ var global_yULBar_Int;                              /*Variable initiated in Bar_
 var global_barPressed_Bool                          = false;
 var global_barPressedCountdown_Int                  = 2;
 var global_barPressedCountdownFixed_Int             = 2;
+var global_Counter_Struct_Array                     = new Array();
 var global_Node_Object_Array                        = new Array();
 var global_nodeAmount_Int                           = 5;
 var global_nodeFurthestYUL_Int                      = 0;
 var global_nodeMasterInterval_Int                   = 50;
 var global_nodeMasterIntervalFixed_Int              = 50;
+var global_pointerAmount_Int                        = 5;
+var global_pointerIntervalAmount_Int                = 5;
+var global_pointerIntervalCount_Int                 = 0;
+var global_pointIntervalName_String                 = "PointInterval";
 
 
 
 
 
+var global_branch_Point_Object_Array                = new Array(global_nodeAmount_Int);
 var global_Trail_Object_Array                       = new Array(global_nodeAmount_Int);
+var global_xUCNode_Int_Array                        = new Array(global_nodeAmount_Int);
 for(var i_Int = 0; i_Int < global_nodeAmount_Int; i_Int ++)
     { global_Trail_Object_Array[i_Int] = new Trail_Object(); }
-var global_xUCNode_Int_Array                        = new Array(global_nodeAmount_Int);
 
 
 

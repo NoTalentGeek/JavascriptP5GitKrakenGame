@@ -21,7 +21,19 @@ Trail_Object.prototype.Draw_Trail_Object = function(
     _yStart_Int
 ){
 
+    //console.log("Hello world!");
+
+
+
+
+
     if(this.draw_Bool == true){
+
+        console.log("Hello world!");
+
+
+
+
 
         this.x_Int          = _x_Int;
         this.yStart_Int     = _yStart_Int;

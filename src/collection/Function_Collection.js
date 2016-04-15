@@ -344,6 +344,72 @@ function MakeStruct_Function(_variable_String){
 
 
 
+
+/*==================================================*/
+function PointInterval_Void(){
+
+    //console.log(global_Trail_Object_Array.length);
+
+
+
+
+
+    for(
+        var i_Int = 0;
+        i_Int < global_Trail_Object_Array.length;
+        i_Int ++
+    ){
+
+        //console.log("Hello world!");
+
+
+
+
+
+        if(global_Trail_Object_Array[i_Int].draw_Bool == true){
+
+            var distanceStartEnd_Int    =
+                height - global_nodeSpawnPointY_Int;
+            var distanceInterval_Int    = Math.floor(distanceStartEnd_Int/global_pointerAmount_Int);
+            var distanceAmount_Int      = distanceStartEnd_Int/distanceInterval_Int;
+
+
+
+
+
+            //console.log(distanceStartEnd_Int);
+            //console.log(distanceAmount_Int);
+
+
+
+
+
+            for(
+                var j_Int = 0;
+                j_Int < distanceAmount_Int;
+                j_Int ++
+            ){
+
+                new Point_Object(
+                    global_Trail_Object_Array[i_Int].x_Int,
+                    global_nodeSpawnPointY_Int + (distanceInterval_Int*j_Int),
+                    height,
+                    0
+                );
+
+            }
+
+        }
+
+    }
+
+}
+/*==================================================*/
+
+
+
+
+
 /*==================================================
 Start countdown to set back bar pressed boolean to false.*/
 function StartBarPressedCountdown_Void(){
@@ -401,6 +467,37 @@ function UpdateAllNode_Void(){
 
 
             global_NodeGenerator_Object.nothing_Boolean = false;
+
+        }
+
+    }
+
+
+
+
+
+    /*Update all point object array.*/
+    for(
+        var i_Int = 0;
+        i_Int < global_branch_Point_Object_Array.length;
+        i_Int ++
+    ){
+
+        //console.log(global_branch_Point_Object_Array.length);
+        //console.log(global_branch_Point_Object_Array[i_Int].length);
+
+
+
+
+
+        for(
+            var j_Int = 0;
+            j_Int < global_branch_Point_Object_Array[i_Int].length;
+            j_Int ++
+        ){
+
+            //console.log(global_branch_Point_Object_Array[i_Int][j_Int]);
+            global_branch_Point_Object_Array[i_Int][j_Int].Draw_Point_Object();
 
         }
 

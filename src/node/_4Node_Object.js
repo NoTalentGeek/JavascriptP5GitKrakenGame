@@ -9,7 +9,7 @@ var _4Node_Object = function(){
         global_heightFix_Int,                           /*_width_Int,*/
         global_heightFix_Int,                           /*_height_Int,*/
         global_xUCNode_Int_Array[4],                    /*_xC_Int,*/
-        global_nodeSpawnPointY_Int,                     /*_yC_Int,*/
+        global_nodeSpawnPointY_Int + (global_heightFix_Int/2),                     /*_yC_Int,*/
         true,                                           /*_fill_Bool,*/
         true,                                           /*_stroke_Bool,*/
         global_fillNodeColor_String_Array[4],           /*_fillNodeColor_String,*/
