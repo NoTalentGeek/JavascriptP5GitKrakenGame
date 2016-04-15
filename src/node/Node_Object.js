@@ -290,17 +290,6 @@ Node_Object.prototype.Draw_Node_Object = function(){
             if(this.counterFurthestAnimation_Bool == true){ fill(this.fillNodeFurthestColor_String); }
             else if(this.counterFurthestAnimation_Bool == false){ fill(this.fillNodeColor_String); }
 
-
-
-
-
-            rect(
-                this.xUL_Int,
-                this.yUL_Int,
-                this.width_Int,
-                this.height_Int
-            );
-
         }
         /*Simple blinking animation for nearest node.*/
         if(this.nearest_Bool == true){
@@ -322,9 +311,42 @@ Node_Object.prototype.Draw_Node_Object = function(){
             if(this.counterNearestAnimation_Bool == true){ fill(this.fillNodeNearestColor_String); }
             else if(this.counterNearestAnimation_Bool == false){ fill(this.fillNodeColor_String); }
 
+        }
 
 
 
+
+        if(
+            this.furthest_Bool  == true &&
+            this.nearest_Bool   == true
+        ){
+
+            rect(
+                this.xUL_Int,
+                this.yUL_Int,
+                this.width_Int,
+                this.height_Int,
+                10
+            );
+
+        }
+        else if(
+            this.furthest_Bool  == true &&
+            this.nearest_Bool   == false
+        ){
+
+            rect(
+                this.xUL_Int,
+                this.yUL_Int,
+                this.width_Int,
+                this.height_Int
+            );
+
+        }
+        else if(
+            this.furthest_Bool  == false &&
+            this.nearest_Bool   == true
+        ){
 
             triangle(
                 this.xUL_Int + (this.width_Int/2),
@@ -336,12 +358,7 @@ Node_Object.prototype.Draw_Node_Object = function(){
             );
 
         }
-
-
-
-
-
-        if(
+        else if(
             this.furthest_Bool  == false &&
             this.nearest_Bool   == false
         ){
