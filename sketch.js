@@ -41,11 +41,11 @@ function setup(){
 
 
 
-    global_xUCNode_Int_Array[0]             = global_xULBar_Int + DetermineXCNode_Int(1);
-    global_xUCNode_Int_Array[1]             = global_xULBar_Int + DetermineXCNode_Int(2);
-    global_xUCNode_Int_Array[2]             = global_xULBar_Int + DetermineXCNode_Int(3);
-    global_xUCNode_Int_Array[3]             = global_xULBar_Int + DetermineXCNode_Int(4);
-    global_xUCNode_Int_Array[4]             = global_xULBar_Int + DetermineXCNode_Int(5);
+    global_xUCNode_Int_Array[0]         = global_xULBar_Int + DetermineXCNode_Int(1);
+    global_xUCNode_Int_Array[1]         = global_xULBar_Int + DetermineXCNode_Int(2);
+    global_xUCNode_Int_Array[2]         = global_xULBar_Int + DetermineXCNode_Int(3);
+    global_xUCNode_Int_Array[3]         = global_xULBar_Int + DetermineXCNode_Int(4);
+    global_xUCNode_Int_Array[4]         = global_xULBar_Int + DetermineXCNode_Int(5);
 
 
 
@@ -61,8 +61,18 @@ function setup(){
 
         var barWidthDivision_Int    = global_barWidth_Int/global_nodeAmount_Int;
         var xC_Int                  = (barWidthDivision_Int*_index_Int) - (barWidthDivision_Int/2);
+
+
+
+
+
         //console.log(global_barWidth_Int);
         //console.log(xC_Int);
+
+
+
+
+
         return xC_Int;
 
     }
@@ -143,20 +153,6 @@ function draw(){
     //console.log(global_Node_Object_Array.length);
     //console.log(global_nodeFurthestYUL_Int);
     //console.log(global_nodeNearestYUL_Int);
-
-    for(var i_Int = 0; i_Int < global_Node_Object_Array.length; i_Int ++){
-
-        if(global_Node_Object_Array[i_Int] != null || global_Node_Object_Array[i_Int] !== undefined){
-
-            if(global_Node_Object_Array[i_Int].furthest_Bool == false){
-
-                console.log(global_Node_Object_Array[i_Int]);
-
-            }
-
-        }
-
-    }
 
 }
 /*==================================================*/

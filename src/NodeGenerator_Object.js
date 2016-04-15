@@ -32,7 +32,7 @@ NodeGenerator_Object.prototype.Update_NodeGenerator_Object = function(){
     else if(global_nodeMasterInterval_Int <= 0){
 
         new MasterNode_Object();
-        global_nodeMasterInterval_Int = global_nodeMasterIntervalFix_Int;
+        global_nodeMasterInterval_Int = global_nodeMasterIntervalFixed_Int;
 
 
 

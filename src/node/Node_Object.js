@@ -9,52 +9,58 @@ var Node_Object = function(
     _yC_Int,
     _fill_Bool,
     _stroke_Bool,
-    _fillColor_String,
+    _fillNodeColor_String,
+    _fillNodeFurthestColor_String,
+    _fillNodeNearestColor_String,
     _stroke_Int,
     _strokeColor_String
 ){
 
     /*Filling in optional parameters.*/
-    if(_fill_Bool           === undefined || _fill_Bool             === null){ _fill_Bool              = true; }
-    if(_fillColor_String    === undefined || _fillColor_String      === null){ _fillColor_String       = "#FFFFFF"; }
-    if(_stroke_Bool         === undefined || _stroke_Bool           === null){ _stroke_Bool            = true; }
-    if(_stroke_Int          === undefined || _stroke_Int            === null){ _stroke_Int             = 1; }
-    if(_strokeColor_String  === undefined || _strokeColor_String    === null){ _strokeColor_String     = "#000000"; }
+    if(_fill_Bool               === undefined || _fill_Bool             === null){ _fill_Bool              = true; }
+    if(_fillNodeColor_String    === undefined || _fillNodeColor_String  === null){ _fillNodeColor_String   = global_fillNodeOther_String }
+    if(_stroke_Bool             === undefined || _stroke_Bool           === null){ _stroke_Bool            = true; }
+    if(_stroke_Int              === undefined || _stroke_Int            === null){ _stroke_Int             = global_strokeWeight_Int; }
+    if(_strokeColor_String      === undefined || _strokeColor_String    === null){ _strokeColor_String     = global_strokeDefaultColor_String; }
 
 
-
-    this.furthest_Bool              = false; /*Variable updated in CheckFurthestBarNode_Void() in sketch.js*/
 
 
 
     /*Assign the parameters into local variables.*/
-    this._Audio                     = __Audio;
-    this._Branch_Enum               = __Branch_Enum;
-    this.branch_Node_Object_Array   = _branch_Node_Object_Array;
-    this.height_Int                 = _height_Int;  /*CAUTION: Change this using setter.*/
-    this.width_Int                  = _width_Int;   /*CAUTION: Change this using setter.*/
-    this.xC_Int                     = _xC_Int;      /*CAUTION: Change this using setter.*/
-    this.yC_Int                     = _yC_Int;      /*CAUTION: Change this using setter.*/
-    this.fill_Bool                  = _fill_Bool;
-    this.fillColor_String           = _fillColor_String;
-    this.stroke_Bool                = _stroke_Bool;
-    this.stroke_Int                 = _stroke_Int;
-    this.strokeColor_String         = _strokeColor_String;
+    this._Audio                             = __Audio;
+    this._Branch_Enum                       = __Branch_Enum;
+    this.branch_Node_Object_Array           = _branch_Node_Object_Array;
+    this.fill_Bool                          = _fill_Bool;
+    this.fillNodeColor_String               = _fillNodeColor_String;
+    this.fillNodeFurthestColor_String       = _fillNodeFurthestColor_String;
+    this.fillNodeNearestColor_String        = _fillNodeNearestColor_String
+    this.height_Int                         = _height_Int;                          /*CAUTION: Change this using setter.*/
+    this.stroke_Bool                        = _stroke_Bool;
+    this.stroke_Int                         = _stroke_Int;
+    this.strokeColor_String                 = _strokeColor_String;
+    this.width_Int                          = _width_Int;                           /*CAUTION: Change this using setter.*/
+    this.xC_Int                             = _xC_Int;                              /*CAUTION: Change this using setter.*/
+    this.yC_Int                             = _yC_Int;                              /*CAUTION: Change this using setter.*/
 
 
 
 
 
-    this.counter_Int                = 0;
-    this.counterAnimation_Bool      = false;
-    this.counterAnimationDelay_Int  = 10;
-    this.delete_Bool                = false;
-    this.endTrail_Bool              = false;
-    this.inside_Bool                = false;
-    this.nearest_Bool               = false; /*Variable updated in CheckNearestBarNode_Void() in sketch.js*/
-    this.startTrail_Bool            = false;
-    this.xUL_Int                    = this.xC_Int - (this.width_Int/2);     /*CAUTION: Do not change this variable.*/
-    this.yUL_Int                    = this.yC_Int - (this.height_Int/2);    /*CAUTION: Do not change this variable.*/
+    this.counter_Int                        = 0;
+    this.counterFurthestAnimation_Bool      = false;
+    this.counterFurthestDelayAnimation_Int  = 10;
+    this.counterNearestAnimation_Bool       = false;
+    this.counterNearestDelayAnimation_Int   = 10;
+    this.delete_Bool                        = false;
+    this.endTrail_Bool                      = false;
+    this.furthest_Bool                      = false;                                /*Variable updated in CheckFurthestBarNode_Void() in sketch.js*/
+    this.inside_Bool                        = false;
+    this.missed_Bool                        = false;
+    this.nearest_Bool                       = false;                                /*Variable updated in CheckNearestBarNode_Void() in sketch.js*/
+    this.startTrail_Bool                    = false;
+    this.xUL_Int                            = this.xC_Int - (this.width_Int/2);     /*CAUTION: Do not change this variable.*/
+    this.yUL_Int                            = this.yC_Int - (this.height_Int/2);    /*CAUTION: Do not change this variable.*/
 
 
 
@@ -241,7 +247,7 @@ Node_Object.prototype.Draw_Node_Object = function(){
 
 
 
-        if(this.fill_Bool == true){ fill(this.fillColor_String); }
+        if(this.fill_Bool == true){ fill(this.fillNodeColor_String); }
         else if(this.fill_Bool == fase){ noFill(); }
         //console.log(this.fill_Bool);
         //console.log(this.fill_Bool || this.nearest_Bool);
@@ -264,9 +270,38 @@ Node_Object.prototype.Draw_Node_Object = function(){
 
 
 
-        /*PENDING: Change the color when the node is the
-            furthest and the nearest.*/
-        if(this.furthest_Bool == true){ noStroke(); }
+        /*Animation for furthest and furthest node in scene.*/
+        if(this.furthest_Bool == true){
+
+            //console.log(this);
+
+
+
+
+
+            /*Animation for furthest node.*/
+            if(this.counter_Int%this.counterFurthestDelayAnimation_Int == 0)
+                { this.counterFurthestAnimation_Bool = !this.counterFurthestAnimation_Bool; }
+
+
+
+
+
+            if(this.counterFurthestAnimation_Bool == true){ fill(this.fillNodeFurthestColor_String); }
+            else if(this.counterFurthestAnimation_Bool == false){ fill(this.fillNodeColor_String); }
+
+
+
+
+
+            rect(
+                this.xUL_Int,
+                this.yUL_Int,
+                this.width_Int,
+                this.height_Int
+            );
+
+        }
         /*Simple blinking animation for nearest node.*/
         if(this.nearest_Bool == true){
 
@@ -277,15 +312,28 @@ Node_Object.prototype.Draw_Node_Object = function(){
 
 
             /*Animation for nearest node.*/
-            if(this.counter_Int%this.counterAnimationDelay_Int == 0)
-                { this.counterAnimation_Bool = !this.counterAnimation_Bool; }
+            if(this.counter_Int%this.counterNearestDelayAnimation_Int == 0)
+                { this.counterNearestAnimation_Bool = !this.counterNearestAnimation_Bool; }
 
 
 
 
 
-            if(this.counterAnimation_Bool == true){ fill(global_fillNodeBlink_String); }
-            else if(this.counterAnimation_Bool == false){ fill(this.fillColor_String); }
+            if(this.counterNearestAnimation_Bool == true){ fill(this.fillNodeNearestColor_String); }
+            else if(this.counterNearestAnimation_Bool == false){ fill(this.fillNodeColor_String); }
+
+
+
+
+
+            triangle(
+                this.xUL_Int + (this.width_Int/2),
+                this.yUL_Int,
+                this.xUL_Int,
+                this.yUL_Int + this.height_Int,
+                this.xUL_Int + this.width_Int,
+                this.yUL_Int + this.height_Int
+            );
 
         }
 
@@ -293,12 +341,19 @@ Node_Object.prototype.Draw_Node_Object = function(){
 
 
 
-        ellipse(
-            this.xUL_Int,
-            this.yUL_Int,
-            this.width_Int,
-            this.height_Int
-        );
+        if(
+            this.furthest_Bool  == false &&
+            this.nearest_Bool   == false
+        ){
+
+            ellipse(
+                this.xUL_Int,
+                this.yUL_Int,
+                this.width_Int,
+                this.height_Int
+            );
+
+        }
 
 
 

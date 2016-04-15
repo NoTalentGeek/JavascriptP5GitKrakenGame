@@ -33,18 +33,28 @@ Bar_Object.prototype.constructor = Bar_Object;
 /*==================================================*/
 Bar_Object.prototype.Draw_Bar_Object = function(){
 
-    if(global_barPressed_Bool == true)
-        { global_fillBarColor_String = global_fillBarPressedColor_String; }
-    else if(global_barPressed_Bool == false)
-        { global_fillBarColor_String = global_fillBarDefaultColor_String; }
+    var fillBarColor_String;
+    var strokeBarColor_String;
+    if(global_barPressed_Bool == true){
+
+        fillBarColor_String     = global_fillBarPressedColor_String;
+        strokeBarColor_String   = global_strokeBarPressedColor_String;
+
+    }
+    else if(global_barPressed_Bool == false){
+
+        fillBarColor_String     = global_fillBarColor_String;
+        strokeBarColor_String   = global_strokeDefaultColor_String;
+
+    }
 
 
 
 
 
     rectMode(CORNER);
-    fill(global_fillBarColor_String);
-    stroke(global_strokeBarColor_String);
+    fill(fillBarColor_String);
+    stroke(strokeBarColor_String);
     strokeWeight(global_strokeWeight_Int);
 
 

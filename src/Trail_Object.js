@@ -31,7 +31,7 @@ Trail_Object.prototype.Draw_Trail_Object = function(
 
 
 
-        stroke(global_strokeColor_String);
+        stroke(global_strokeDefaultColor_String);
         strokeWeight(global_strokeWeight_Int);
 
 

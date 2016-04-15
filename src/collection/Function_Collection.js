@@ -4,24 +4,7 @@ function ButtonMainPressed_Void(){
 
         global_barPressed_Bool = true;
         global_barPressedCountdown_Int
-            = global_barPressedCountdownFix_Int;
-
-
-
-
-
-        /*For every time the action button being pushed
-            check for the nearest node first.*/
-        for(
-            var i_Int = 0;
-            i_Int < global_Node_Object_Array.length;
-            i_Int ++
-        ){
-
-            //CheckNearestBarNode_Void(i_Int);
-            //console.log(global_nearest_Node_Object);
-
-        }
+            = global_barPressedCountdownFixed_Int;
 
 }
 /*==================================================*/
