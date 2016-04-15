@@ -287,8 +287,8 @@ Node_Object.prototype.Draw_Node_Object = function(){
 
 
 
-            if(this.counterFurthestAnimation_Bool == true){ fill(this.fillNodeFurthestColor_String); }
-            else if(this.counterFurthestAnimation_Bool == false){ fill(this.fillNodeColor_String); }
+            if(this.counterFurthestAnimation_Bool == true){ /*fill(this.fillNodeFurthestColor_String);*/ }
+            else if(this.counterFurthestAnimation_Bool == false){ /*fill(this.fillNodeColor_String);*/ }
 
         }
         /*Simple blinking animation for nearest node.*/
@@ -308,14 +308,15 @@ Node_Object.prototype.Draw_Node_Object = function(){
 
 
 
-            if(this.counterNearestAnimation_Bool == true){ fill(this.fillNodeNearestColor_String); }
-            else if(this.counterNearestAnimation_Bool == false){ fill(this.fillNodeColor_String); }
+            if(this.counterNearestAnimation_Bool == true){ /*fill(this.fillNodeNearestColor_String);*/ }
+            else if(this.counterNearestAnimation_Bool == false){ /*fill(this.fillNodeColor_String);*/ }
 
         }
 
 
 
 
+        /*
         if(
             this.furthest_Bool  == true &&
             this.nearest_Bool   == true
@@ -371,6 +372,18 @@ Node_Object.prototype.Draw_Node_Object = function(){
             );
 
         }
+        */
+
+
+
+
+
+        ellipse(
+            this.xUL_Int,
+            this.yUL_Int,
+            this.width_Int,
+            this.height_Int
+        );
 
 
 

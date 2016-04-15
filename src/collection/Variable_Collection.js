@@ -29,7 +29,6 @@ var global_nodeMasterInterval_Int                   = 50;
 var global_nodeMasterIntervalFixed_Int              = 50;
 var global_pointerAmount_Int                        = 5;
 var global_pointerIntervalAmount_Int                = 5;
-var global_pointerIntervalCount_Int                 = 0;
 var global_pointIntervalName_String                 = "PointInterval";
 
 
@@ -37,9 +36,12 @@ var global_pointIntervalName_String                 = "PointInterval";
 
 
 var global_branch_Point_Object_Array                = new Array(global_nodeAmount_Int);
+var global_pointerIntervalCount_Int_Array           = new Array(global_nodeAmount_Int);
 var global_Trail_Object_Array                       = new Array(global_nodeAmount_Int);
 var global_xUCNode_Int_Array                        = new Array(global_nodeAmount_Int);
-for(var i_Int = 0; i_Int < global_nodeAmount_Int; i_Int ++)
+for(var i_Int = 0; i_Int < global_pointerIntervalCount_Int_Array.length; i_Int ++)
+    { global_pointerIntervalCount_Int_Array[i_Int] = 0; }
+for(var i_Int = 0; i_Int < global_Trail_Object_Array.length; i_Int ++)
     { global_Trail_Object_Array[i_Int] = new Trail_Object(); }
 
 

@@ -29,7 +29,7 @@ Trail_Object.prototype.Draw_Trail_Object = function(
 
     if(this.draw_Bool == true){
 
-        console.log("Hello world!");
+        //console.log("Hello world!");
 
 
 

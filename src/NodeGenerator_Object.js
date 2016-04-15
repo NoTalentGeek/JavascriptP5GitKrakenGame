@@ -14,12 +14,51 @@ NodeGenerator_Object.prototype.constructor = NodeGenerator_Object;
 /*==================================================*/
 
 
+
+
+
+/*==================================================*/
 NodeGenerator_Object.prototype.SpawnMasterNode_NodeGenerator_Object = function(){
 
     new MasterNode_Object();
     return this;
 
 };
+/*==================================================*/
+
+
+
+
+
+/*==================================================*/
+NodeGenerator_Object.prototype.SpawnNode_NodeGenerator_Int = function(){
+
+    var random_Int = Math.ceil(Math.random()*(global_nodeAmount_Int - 1));
+
+
+
+
+
+    if(Math.random() > 0.5){
+
+        if(random_Int == 1){ new _1Node_Object(); }
+        if(random_Int == 2){ new _2Node_Object(); }
+        if(random_Int == 3){ new _3Node_Object(); }
+        if(random_Int == 4){ new _4Node_Object(); }
+
+    }
+
+
+
+
+
+    return random_Int;
+
+}
+/*==================================================*/
+
+
+
 
 
 /*==================================================*/

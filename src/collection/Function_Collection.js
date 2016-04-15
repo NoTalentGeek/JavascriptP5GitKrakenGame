@@ -394,7 +394,7 @@ function PointInterval_Void(){
                     global_Trail_Object_Array[i_Int].x_Int,
                     global_nodeSpawnPointY_Int + (distanceInterval_Int*j_Int),
                     height,
-                    0
+                    i_Int
                 );
 
             }

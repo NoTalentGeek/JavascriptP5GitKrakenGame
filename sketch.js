@@ -144,7 +144,7 @@ function draw(){
 
 
     UpdateAllNode_Void();
-    global_NodeGenerator_Object.Update_NodeGenerator_Object();
+    //global_NodeGenerator_Object.Update_NodeGenerator_Object();
 
 
 
