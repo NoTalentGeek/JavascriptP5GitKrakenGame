@@ -341,42 +341,6 @@ Trail_Object.prototype.Determine_destinedAxis_Int = function(_maxLength_Int){
 
 
 /*==================================================*/
-Trail_Object.prototype.Determine_indexTrue_Int = function(){
-
-    //console.log("Hello world!");
-
-
-
-
-
-    var decreaseCounter_Int = 0;
-    for(
-        var i_Int = 0;
-        i_Int < this.index_Int;
-        i_Int ++
-    ){
-
-        if(
-            global_Trail_Object_Array[i_Int] == null ||
-            global_Trail_Object_Array[i_Int] === undefined
-        ){ decreaseCounter_Int ++; }
-
-    }
-    this.indexTrue_Int = this.index_Int - decreaseCounter_Int;
-
-
-
-
-    return this.indexTrue_Int;
-
-};
-/*==================================================*/
-
-
-
-
-
-/*==================================================*/
 Trail_Object.prototype.Determine_staticAxisMax_Int = function(){
 
     /*Simple function to set the bar to the maximum
@@ -499,7 +463,15 @@ Trail_Object.prototype.DetermineBatch_indexTrue_Int = function(){
         if(
             global_Trail_Object_Array[i_Int] != null &&
             global_Trail_Object_Array[i_Int] !== undefined
-        ){ global_Trail_Object_Array[i_Int].Determine_indexTrue_Int(); }
+        ){
+
+            global_Trail_Object_Array[i_Int].indexTrue_Int =
+                DetermineIndexTrue_Int(
+                    global_Trail_Object_Array[i_Int].index_Int,
+                    global_Trail_Object_Array
+                );
+
+        }
 
     }
 
