@@ -110,8 +110,12 @@ Trail_Object.prototype.AnimationControl_Trail_Object = function(){
 
 
 
-    if(this.prepareDelete_Bool == true)
-        { this.AnimationOut_Trail_Object(); }
+    if(this.prepareDelete_Bool == true){
+
+        this.AnimationOut_Trail_Object();
+        this.ready_Bool = false;
+
+    }
     if(
         this.animationOut_Bool  == false &&
         this.prepareDelete_Bool == false
@@ -184,16 +188,31 @@ Trail_Object.prototype.AnimationFix_Trail_Object = function(){
 
 
 
+    /*If the destined position is in the left of the current static position.*/
     if(this.destinedAxis_Int < this.staticAxis_Int){
 
-        this.staticAxis_Int = this.Set_staticAxis_Int(this.staticAxis_Int - global_animationSpeed_Int);
+        this.staticAxis_Int =
+            this.Set_staticAxis_Int(this.staticAxis_Int - global_animationSpeed_Int);
+
+
+
+
+
+        /*Sometimes the position is not the same interval with the animation speed.
+        So this if function is to make sure that the destined position is reached.*/
         if(this.destinedAxis_Int > this.staticAxis_Int)
             { this.staticAxis_Int = this.Set_staticAxis_Int(this.destinedAxis_Int); }
 
     }
     else if(this.destinedAxis_Int > this.staticAxis_Int){
 
-        this.staticAxis_Int = this.Set_staticAxis_Int(this.staticAxis_Int + global_animationSpeed_Int);
+        this.staticAxis_Int =
+            this.Set_staticAxis_Int(this.staticAxis_Int + global_animationSpeed_Int);
+
+
+
+
+
         if(this.destinedAxis_Int < this.staticAxis_Int)
             { this.staticAxis_Int = this.Set_staticAxis_Int(this.destinedAxis_Int); }
 
@@ -204,11 +223,13 @@ Trail_Object.prototype.AnimationFix_Trail_Object = function(){
 
 
 
+    /*
     if(this.indexTrue_Int == 1){
 
-        //console.log("Hello world!");
+        console.log("Hello world!");
 
     }
+    */
 
 }
 /*==================================================*/
@@ -231,6 +252,7 @@ Trail_Object.prototype.AnimationIn_Trail_Object = function(){
 
         this.animationIn_Bool   = false;
         this.prepareSetup_Bool  = false;
+        this.staticAxis_Int     = this.Set_staticAxis_Int(this.destinedAxis_Int);
 
     }
 
@@ -257,12 +279,12 @@ Trail_Object.prototype.AnimationOut_Trail_Object = function(){
 
 
 
-    if(height + global_offset_Int != this.staticAxis_Int)
-        { this.staticAxis_Int = Set_staticAxis_Int(this.staticAxis_Int + global_animationSpeed_Int); }
-    if(height + global_offset_Int == this.staticAxis_Int){
+    this.staticAxis_Int = this.Set_staticAxis_Int(this.staticAxis_Int + global_animationSpeed_Int);
+    if(this.staticAxisMax_Int < this.staticAxis_Int){
 
-        this.animation_Bool         = false;
-        this.prepareDelete_Bool     = false;
+        this.animationIn_Bool   = false;
+        this.prepareSetup_Bool  = false;
+        this.staticAxis_Int     = this.Set_staticAxis_Int(this.staticAxisMax_Int);
 
     }
 
@@ -578,7 +600,11 @@ Trail_Object.prototype.Draw_Trail_Object = function(){
 
 
 
-/*==================================================*/
+/*==================================================
+Setter functions for the position axis variable.
+Everything need to be set from setter function because
+    the axis calculation is always based on container
+    object position.*/
 Trail_Object.prototype.Set_endAxis_Int = function(_endAxis_Int){
 
     if(
@@ -603,7 +629,11 @@ Trail_Object.prototype.Set_endAxis_Int = function(_endAxis_Int){
 
 
 
-/*==================================================*/
+/*==================================================
+Setter functions for the position axis variable.
+Everything need to be set from setter function because
+    the axis calculation is always based on container
+    object position.*/
 Trail_Object.prototype.Set_startAxis_Int = function(_startAxis_Int){
 
     if(
@@ -625,7 +655,11 @@ Trail_Object.prototype.Set_startAxis_Int = function(_startAxis_Int){
 
 
 
-/*==================================================*/
+/*==================================================
+Setter functions for the position axis variable.
+Everything need to be set from setter function because
+    the axis calculation is always based on container
+    object position.*/
 Trail_Object.prototype.Set_staticAxis_Int = function(_staticAxis_Int){
 
     if(
@@ -650,9 +684,12 @@ Trail_Object.prototype.Set_staticAxis_Int = function(_staticAxis_Int){
 /*==================================================*/
 Trail_Object.prototype.Update_Trail_Object = function(){
 
-    this.DetermineIndividual_destinedAxis_Int();
-    this.AnimationControl_Trail_Object();
-    this.Draw_Trail_Object(
+    this.DetermineIndividual_destinedAxis_Int();    /*Determine the this object
+                                                        destined position before
+                                                        updating the rest of this
+                                                        class.*/
+    this.AnimationControl_Trail_Object();           /*Animation control.*/
+    this.Draw_Trail_Object(                         /*Draw this object.*/
         this.staticAxis_Int,
         this.endAxis_Int,
         this.startAxis_Int
@@ -662,15 +699,16 @@ Trail_Object.prototype.Update_Trail_Object = function(){
 
 
 
-    console.log(this.destinedAxis_Int + " " + this.staticAxis_Int);
+    //console.log(this.destinedAxis_Int + " " + this.staticAxis_Int);
     /*There was a problem of the true index number 1 trail
         is not moving after some times.*/
-    if(this.indexTrue_Int == 1){
+    /*if(this.indexTrue_Int == 1){
 
-            //console.log(this.destinedAxis_Int);
-            //console.log(this.staticAxis_Int);
+            console.log(this.destinedAxis_Int);
+            console.log(this.staticAxis_Int);
 
     }
+    */
 
 
 
