@@ -1,3 +1,4 @@
+/*==================================================*/
 var Container_Object = function(
     _x_Int,
     _y_Int,
@@ -17,6 +18,14 @@ var Container_Object = function(
 
 };
 Container_Object.prototype.constructor = Container_Object;
+/*==================================================*/
+
+
+
+
+
+/*==================================================
+A function to add visual object into this container.*/
 Container_Object.prototype.AddComponent_Container_Object = function(__Dynamic_Object){
 
     this.insideComponent_Dynamic_Array.push(__Dynamic_Object);
@@ -27,10 +36,22 @@ Container_Object.prototype.AddComponent_Container_Object = function(__Dynamic_Ob
 
     return this;
 
-}
+};
+/*==================================================*/
+
+
+
+
+
+/*==================================================*/
 Container_Object.prototype.Draw_Container_Object = function(){
 
-    rect(this.x_Int, this.y_Int, this.width_Int, this.height_Int);
+    rect(
+        this.x_Int,
+        this.y_Int,
+        this.width_Int,
+        this.height_Int
+    );
 
 
 
@@ -39,3 +60,4 @@ Container_Object.prototype.Draw_Container_Object = function(){
     return this;
 
 };
+/*==================================================*/

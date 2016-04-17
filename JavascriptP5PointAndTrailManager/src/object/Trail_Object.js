@@ -1,4 +1,7 @@
-/*==================================================*/
+/*==================================================
+_endAxis is a parameter to set the ending position of a node that end the trail object.
+_startAxis is a parameter to set the starting position of a node that start the trail object.
+_staticAxis is the other axis that is not the start axis or the end axis.*/
 var Trail_Object = function(
     _endAxis_Int,
     _startAxis_Int,
@@ -13,9 +16,12 @@ var Trail_Object = function(
 
 
 
-    this.destinedAxis_Int;
+    this.destinedAxis_Int;                  /*This destined axis is the supposed position of this
+                                                trail object. If this object is not in the supposed
+                                                position then the fix animation happens.*/
     this.index_Int;
-    this.indexTrue_Int;
+    this.indexTrue_Int;                     /*True index is the index without calculating null and
+                                                undefined object in the main array.*/
     this.staticAxis_Int;
     this.animation_Bool         = true;
     this.animation_Fix          = false;
@@ -24,12 +30,15 @@ var Trail_Object = function(
     this.prepareDelete_Bool     = false;
     this.prepareSetup_Bool      = true;
     this.ready_Bool             = false;
+    this.visible_Bool           = true;
 
 
 
-
-
-    this.staticAxis_Int = this.Set_staticAxis_Int(this._Container_Object.width_Int + global_offset_Int);
+    /*Determine the max initial position of the trail.
+    Just before animation in happens.*/
+    this.Determine_staticAxisMax_Int();
+    /*Set the initial position based on the maximum initial position for this trail.*/
+    this.staticAxis_Int = this.Set_staticAxis_Int(this.staticAxisMax_Int);
 
 
 
@@ -42,6 +51,9 @@ var Trail_Object = function(
 
 
 
+    /*Add this object into the trail object array.
+    This function also determine the destined axis
+        and the true index of this trail object.*/
     this.AddToArray_Trail_Object();
 
 };
@@ -55,41 +67,18 @@ Trail_Object.prototype.constructor = Trail_Object;
 /*==================================================*/
 Trail_Object.prototype.AddToArray_Trail_Object = function(){
 
-    global_Trail_Object_Array.push(this);
-    this.index_Int = global_Trail_Object_Array.indexOf(this);
-
-
-
-    for(
-        var i_Int = 0;
-        i_Int < global_Trail_Object_Array.length;
-        i_Int ++
-    ){
-
-        //console.log(global_Trail_Object_Array[i_Int]);
+    global_Trail_Object_Array.push(this);                       /*Add this object into the main
+                                                                    array.*/
+    this.index_Int = global_Trail_Object_Array.indexOf(this);   /*Determine this object local
+                                                                    index in the main array.*/
 
 
 
 
 
-        if(
-            global_Trail_Object_Array[i_Int] != null &&
-            global_Trail_Object_Array[i_Int] !== undefined
-        ){ global_Trail_Object_Array[i_Int].DetermineTrueIndex_Trail_Object(); }
-
-    }
-
-
-
-
-
-    //console.log(this.indexTrue_Int);
-
-
-
-
-
-    this.DetermineDestinedAxisBatch_Trail_Object();
+    /*Function to determine all other trail index true index
+        and destined position.*/
+    this.DetermineBatch_destinedAxis_Int_indexTrue_Int();
 
 
 
@@ -104,7 +93,9 @@ Trail_Object.prototype.AddToArray_Trail_Object = function(){
 
 
 
-/*==================================================*/
+/*==================================================
+Basically just a function to control animation.
+How and when does the animation should happen.*/
 Trail_Object.prototype.AnimationControl_Trail_Object = function(){
 
     if(
@@ -119,50 +110,48 @@ Trail_Object.prototype.AnimationControl_Trail_Object = function(){
 
 
 
-    if(this.prepareDelete_Bool == true){
-
-        this.AnimationOut_Trail_Object();
-
-    }
+    if(this.prepareDelete_Bool == true)
+        { this.AnimationOut_Trail_Object(); }
     if(
         this.animationOut_Bool  == false &&
-        this.prepareDelete_Bool == true
-    ){
-
-        this.prepareDelete_Bool = false;
-        //this.Delete_Trail_Object();
-
-    }
+        this.prepareDelete_Bool == false
+    ){ /*this.Delete_Trail_Object();*/ }
 
 
 
 
 
-    if(this.prepareSetup_Bool == true){
-
-        this.AnimationIn_Trail_Object();
-
-    }
+    if(this.prepareSetup_Bool == true)
+        { this.AnimationIn_Trail_Object(); }
     if(
         this.animationIn_Bool   == false &&
-        this.prepareSetup_Bool  == true
-    ){
+        this.prepareSetup_Bool  == false
+    ){ this.ready_Bool          = true; /*console.log("Hello world!");*/ }
 
-        this.prepareSetup_Bool  = false;
-        this.ready_Bool         = true;
 
-    }
+
+
+
+    //console.log(this.ready_Bool);
 
 
 
 
 
     if(
-        this.destinedAxis_Int != this.staticAxis_Int &&
-        this.ready_Bool == true
-    ){
+        this.destinedAxis_Int   != this.staticAxis_Int &&
+        this.ready_Bool         == true
+    ){ this.AnimationFix_Trail_Object(); }
 
-        AnimationFix_Trail_Object();
+
+
+
+
+    if(this.indexTrue_Int == 1){
+
+        //console.log("Hello world!");
+        //console.log(this.destinedAxis_Int != this.staticAxis_Int);
+        //console.log(this.ready_Bool);
 
     }
 
@@ -179,21 +168,47 @@ Trail_Object.prototype.AnimationControl_Trail_Object = function(){
 
 
 
-/*==================================================*/
+/*==================================================
+Animation that functioned to fix the position of the trail object.*/
 Trail_Object.prototype.AnimationFix_Trail_Object = function(){
 
-        this.animation_Bool = true;
+    //console.log("Hello world!");
 
 
 
 
 
+    this.animation_Bool = true;
+
+
+
+
+
+    if(this.destinedAxis_Int < this.staticAxis_Int){
+
+        this.staticAxis_Int = this.Set_staticAxis_Int(this.staticAxis_Int - global_animationSpeed_Int);
+        if(this.destinedAxis_Int > this.staticAxis_Int)
+            { this.staticAxis_Int = this.Set_staticAxis_Int(this.destinedAxis_Int); }
+
+    }
+    else if(this.destinedAxis_Int > this.staticAxis_Int){
+
+        this.staticAxis_Int = this.Set_staticAxis_Int(this.staticAxis_Int + global_animationSpeed_Int);
         if(this.destinedAxis_Int < this.staticAxis_Int)
-            { this.staticAxis_Int = Set_staticAxis_Int(this.staticAxis_Int - global_animationSpeed_Int); }
-        else if(this.destinedAxis_Int > this.staticAxis_Int)
-            { this.staticAxis_Int = Set_staticAxis_Int(this.staticAxis_Int + global_animationSpeed_Int); }
-        else if(this.destinedAxis_Int == this.staticAxis_Int)
-            { this.animation_Bool = false; }
+            { this.staticAxis_Int = this.Set_staticAxis_Int(this.destinedAxis_Int); }
+
+    }
+    else if(this.destinedAxis_Int == this.staticAxis_Int)
+        { this.animation_Bool = false; }
+
+
+
+
+    if(this.indexTrue_Int == 1){
+
+        //console.log("Hello world!");
+
+    }
 
 }
 /*==================================================*/
@@ -211,15 +226,13 @@ Trail_Object.prototype.AnimationIn_Trail_Object = function(){
 
 
 
-    if(this.destinedAxis_Int < this.staticAxis_Int)
-        { this.staticAxis_Int = this.Set_staticAxis_Int(this.staticAxis_Int - global_animationSpeed_Int); }
-    else if(this.destinedAxis_Int > this.staticAxis_Int){
+    this.staticAxis_Int = this.Set_staticAxis_Int(this.staticAxis_Int - global_animationSpeed_Int);
+    if(this.destinedAxis_Int > this.staticAxis_Int){
 
-        this.staticAxis_Int = this.Set_staticAxis_Int(this.destinedAxis_Int);
-        this.animation_Bool = false;
+        this.animationIn_Bool   = false;
+        this.prepareSetup_Bool  = false;
 
     }
-    else if(this.destinedAxis_Int == this.staticAxis_Int){ this.animation_Bool = false; }
 
 
 
@@ -246,7 +259,12 @@ Trail_Object.prototype.AnimationOut_Trail_Object = function(){
 
     if(height + global_offset_Int != this.staticAxis_Int)
         { this.staticAxis_Int = Set_staticAxis_Int(this.staticAxis_Int + global_animationSpeed_Int); }
-    if(height + global_offset_Int == this.staticAxis_Int){ this.animation_Bool = false; }
+    if(height + global_offset_Int == this.staticAxis_Int){
+
+        this.animation_Bool         = false;
+        this.prepareDelete_Bool     = false;
+
+    }
 
 
 
@@ -262,9 +280,10 @@ Trail_Object.prototype.AnimationOut_Trail_Object = function(){
 
 
 /*==================================================*/
-Trail_Object.prototype.DetermineDestinedAxis_Trail_Object = function(_maxLength_Int){
+Trail_Object.prototype.Determine_destinedAxis_Int = function(_maxLength_Int){
 
-    var trailInterval_Int = _maxLength_Int/(CheckTrueArrayLength_Int(global_Trail_Object_Array) + 1);
+    var trailInterval_Int =
+        _maxLength_Int/(CheckTrueArrayLength_Int(global_Trail_Object_Array) + 1);
 
 
 
@@ -278,13 +297,19 @@ Trail_Object.prototype.DetermineDestinedAxis_Trail_Object = function(_maxLength_
 
 
 
-    this.destinedAxis_Int = this._Container_Object.x_Int + (this.indexTrue_Int + 1)*trailInterval_Int;
+    this.destinedAxis_Int =
+        Math.round(this._Container_Object.x_Int + (this.indexTrue_Int + 1)*trailInterval_Int);
 
 
 
 
 
-    //console.log(this.destinedAxis_Int);
+    //console.log(this.destinedAxis_Int + " " + this.staticAxis_Int);
+
+
+
+
+    return this.destinedAxis_Int;
 
 };
 /*==================================================*/
@@ -294,7 +319,70 @@ Trail_Object.prototype.DetermineDestinedAxis_Trail_Object = function(_maxLength_
 
 
 /*==================================================*/
-Trail_Object.prototype.DetermineDestinedAxisBatch_Trail_Object = function(){
+Trail_Object.prototype.Determine_indexTrue_Int = function(){
+
+    //console.log("Hello world!");
+
+
+
+
+
+    var decreaseCounter_Int = 0;
+    for(
+        var i_Int = 0;
+        i_Int < this.index_Int;
+        i_Int ++
+    ){
+
+        if(
+            global_Trail_Object_Array[i_Int] == null ||
+            global_Trail_Object_Array[i_Int] === undefined
+        ){ decreaseCounter_Int ++; }
+
+    }
+    this.indexTrue_Int = this.index_Int - decreaseCounter_Int;
+
+
+
+
+    return this.indexTrue_Int;
+
+};
+/*==================================================*/
+
+
+
+
+
+/*==================================================*/
+Trail_Object.prototype.Determine_staticAxisMax_Int = function(){
+
+    /*Simple function to set the bar to the maximum
+        position that is just outside the container or the screen.*/
+    if(
+        this._Container == null ||
+        this._Container === undefined
+    ){ this.staticAxisMax_Int = width + global_offset_Int; }
+    else if(
+        this._Container != null &&
+        this._Container !== undefined
+    ){ this.staticAxisMax_Int = this._Container_Object.width_Int + global_offset_Int; }
+
+
+
+
+
+    return this.staticAxisMax_Int;
+
+}
+/*==================================================*/
+
+
+
+
+
+/*==================================================*/
+Trail_Object.prototype.DetermineBatch_destinedAxis_Int = function(){
 
     for(
         var i_Int = 0;
@@ -326,7 +414,7 @@ Trail_Object.prototype.DetermineDestinedAxisBatch_Trail_Object = function(){
 
 
 
-            global_Trail_Object_Array[i_Int].DetermineDestinedAxis_Trail_Object(maxLength_Int);
+            global_Trail_Object_Array[i_Int].Determine_destinedAxis_Int(maxLength_Int);
 
         }
 
@@ -340,7 +428,68 @@ Trail_Object.prototype.DetermineDestinedAxisBatch_Trail_Object = function(){
 
 
 /*==================================================*/
-Trail_Object.prototype.DetermineDestinedAxisBatch_Trail_Object = function(){
+Trail_Object.prototype.DetermineBatch_destinedAxis_Int_indexTrue_Int = function(){
+
+
+    this.DetermineBatch_indexTrue_Int();
+
+
+
+
+
+    //console.log(this.indexTrue_Int);
+
+
+
+
+
+    /*Determine the destined axis.
+    Destined axis is the destined position of this object.
+    CAUTION: The true index should have already determined
+        when the function executed.*/
+    this.DetermineBatch_destinedAxis_Int();
+
+};
+/*==================================================*/
+
+
+
+
+
+/*==================================================*/
+Trail_Object.prototype.DetermineBatch_indexTrue_Int = function(){
+
+    /*This loop is to determine whether or not there are nulls and undefined objects
+        inside the main array.
+    This loop also determines the true index of the this object.*/
+    for(
+        var i_Int = 0;
+        i_Int < global_Trail_Object_Array.length;
+        i_Int ++
+    ){
+
+        //console.log(global_Trail_Object_Array[i_Int]);
+
+
+
+
+
+        if(
+            global_Trail_Object_Array[i_Int] != null &&
+            global_Trail_Object_Array[i_Int] !== undefined
+        ){ global_Trail_Object_Array[i_Int].Determine_indexTrue_Int(); }
+
+    }
+
+};
+/*==================================================*/
+
+
+
+
+
+/*==================================================*/
+Trail_Object.prototype.DetermineIndividual_destinedAxis_Int = function(){
 
     var maxLength_Int;
     if(
@@ -361,38 +510,23 @@ Trail_Object.prototype.DetermineDestinedAxisBatch_Trail_Object = function(){
 
 
 
-    this.DetermineDestinedAxis_Trail_Object(maxLength_Int);
-
-};
-/*==================================================*/
+    this.Determine_destinedAxis_Int(maxLength_Int);
 
 
 
 
+    /*
+    if(this.indexTrue_Int == 1){
 
-/*==================================================*/
-Trail_Object.prototype.DetermineTrueIndex_Trail_Object = function(){
-
-    //console.log("Hello world!");
-
-
-
-
-
-    var decreaseCounter_Int = 0;
-    for(
-        var i_Int = 0;
-        i_Int < this.index_Int;
-        i_Int ++
-    ){
-
-        if(
-            global_Trail_Object_Array[i_Int] == null ||
-            global_Trail_Object_Array[i_Int] === undefined
-        ){ decreaseCounter_Int ++; }
+            console.log("Hello world!");
 
     }
-    this.indexTrue_Int = this.index_Int - decreaseCounter_Int;
+    */
+
+
+
+
+    return this.Determine_destinedAxis_Int(maxLength_Int);
 
 };
 /*==================================================*/
@@ -404,28 +538,32 @@ Trail_Object.prototype.DetermineTrueIndex_Trail_Object = function(){
 /*==================================================*/
 Trail_Object.prototype.Draw_Trail_Object = function(){
 
-    strokeWeight(global_strokeWeight_Int);
+    if(this.visible_Bool == true){
+
+        strokeWeight(global_strokeWeight_Int);
 
 
 
 
 
-    //console.log(this.staticAxis_Int);
+        //console.log(this.staticAxis_Int);
 
 
 
 
-    line(
-        this.staticAxis_Int,
-        this.startAxis_Int,
-        this.staticAxis_Int,
-        this.endAxis_Int
-    );
+        line(
+            this.staticAxis_Int,
+            this.startAxis_Int,
+            this.staticAxis_Int,
+            this.endAxis_Int
+        );
 
 
 
 
-    strokeWeight(1);
+        strokeWeight(1);
+
+    }
 
 
 
@@ -512,13 +650,27 @@ Trail_Object.prototype.Set_staticAxis_Int = function(_staticAxis_Int){
 /*==================================================*/
 Trail_Object.prototype.Update_Trail_Object = function(){
 
-    this.DetermineDestinedAxisBatch_Trail_Object();
+    this.DetermineIndividual_destinedAxis_Int();
     this.AnimationControl_Trail_Object();
     this.Draw_Trail_Object(
         this.staticAxis_Int,
         this.endAxis_Int,
         this.startAxis_Int
     );
+
+
+
+
+
+    console.log(this.destinedAxis_Int + " " + this.staticAxis_Int);
+    /*There was a problem of the true index number 1 trail
+        is not moving after some times.*/
+    if(this.indexTrue_Int == 1){
+
+            //console.log(this.destinedAxis_Int);
+            //console.log(this.staticAxis_Int);
+
+    }
 
 
 
