@@ -89,47 +89,7 @@ Trail_Object.prototype.AddToArray_Trail_Object = function(){
 
 
 
-    for(
-        var i_Int = 0;
-        i_Int < global_Trail_Object_Array.length;
-        i_Int ++
-    ){
-
-        if(
-            global_Trail_Object_Array[i_Int] != null &&
-            global_Trail_Object_Array[i_Int] !== undefined
-        ){
-
-            var maxLength_Int;
-            if(
-                global_Trail_Object_Array[i_Int]._Container_Object_Object != null &&
-                global_Trail_Object_Array[i_Int]._Container_Object_Object !== undefined
-            ){ maxLength_Int = _Container_Object.width; }
-            else if(
-                global_Trail_Object_Array[i_Int]._Container_Object_Object == null ||
-                global_Trail_Object_Array[i_Int]._Container_Object_Object === undefined
-            ){ maxLength_Int = width; }
-
-
-
-
-            //console.log(maxLength_Int);
-
-
-
-
-
-            global_Trail_Object_Array[i_Int].DetermineDestinedAxis_Trail_Object(maxLength_Int);
-
-        }
-
-    }
-
-
-
-
-
-    //console.log(this.destinedAxis_Int);
+    this.DetermineDestinedAxisBatch_Trail_Object();
 
 
 
@@ -326,7 +286,84 @@ Trail_Object.prototype.DetermineDestinedAxis_Trail_Object = function(_maxLength_
 
     //console.log(this.destinedAxis_Int);
 
-}
+};
+/*==================================================*/
+
+
+
+
+
+/*==================================================*/
+Trail_Object.prototype.DetermineDestinedAxisBatch_Trail_Object = function(){
+
+    for(
+        var i_Int = 0;
+        i_Int < global_Trail_Object_Array.length;
+        i_Int ++
+    ){
+
+        if(
+            global_Trail_Object_Array[i_Int] != null &&
+            global_Trail_Object_Array[i_Int] !== undefined
+        ){
+
+            var maxLength_Int;
+            if(
+                global_Trail_Object_Array[i_Int]._Container_Object_Object != null &&
+                global_Trail_Object_Array[i_Int]._Container_Object_Object !== undefined
+            ){ maxLength_Int = _Container_Object.width; }
+            else if(
+                global_Trail_Object_Array[i_Int]._Container_Object_Object == null ||
+                global_Trail_Object_Array[i_Int]._Container_Object_Object === undefined
+            ){ maxLength_Int = width; }
+
+
+
+
+            //console.log(maxLength_Int);
+
+
+
+
+
+            global_Trail_Object_Array[i_Int].DetermineDestinedAxis_Trail_Object(maxLength_Int);
+
+        }
+
+    }
+
+};
+/*==================================================*/
+
+
+
+
+
+/*==================================================*/
+Trail_Object.prototype.DetermineDestinedAxisBatch_Trail_Object = function(){
+
+    var maxLength_Int;
+    if(
+        this._Container_Object_Object != null &&
+        this._Container_Object_Object !== undefined
+    ){ maxLength_Int = _Container_Object.width; }
+    else if(
+        this._Container_Object_Object == null ||
+        this._Container_Object_Object === undefined
+    ){ maxLength_Int = width; }
+
+
+
+
+    //console.log(maxLength_Int);
+
+
+
+
+
+    this.DetermineDestinedAxis_Trail_Object(maxLength_Int);
+
+};
 /*==================================================*/
 
 
@@ -475,6 +512,7 @@ Trail_Object.prototype.Set_staticAxis_Int = function(_staticAxis_Int){
 /*==================================================*/
 Trail_Object.prototype.Update_Trail_Object = function(){
 
+    this.DetermineDestinedAxisBatch_Trail_Object();
     this.AnimationControl_Trail_Object();
     this.Draw_Trail_Object(
         this.staticAxis_Int,

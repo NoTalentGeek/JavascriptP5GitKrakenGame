@@ -49,41 +49,6 @@ function draw() {
 
     }
     test_Container_Object.x_Int += 1;
-    for(
-        var i_Int = 0;
-        i_Int < test_Container_Object.insideComponent_Dynamic_Array.length;
-        i_Int ++
-    ){
-
-        if(
-            test_Container_Object.insideComponent_Dynamic_Array[i_Int] != null &&
-            test_Container_Object.insideComponent_Dynamic_Array[i_Int] !== undefined
-        ){
-
-            var maxLength_Int;
-            if(
-                test_Container_Object.insideComponent_Dynamic_Array[i_Int]._Container_Object_Object != null &&
-                test_Container_Object.insideComponent_Dynamic_Array[i_Int]._Container_Object_Object !== undefined
-            ){ maxLength_Int = _Container_Object.width; }
-            else if(
-                test_Container_Object.insideComponent_Dynamic_Array[i_Int]._Container_Object_Object == null ||
-                test_Container_Object.insideComponent_Dynamic_Array[i_Int]._Container_Object_Object === undefined
-            ){ maxLength_Int = width; }
-
-
-
-
-            //console.log(maxLength_Int);
-
-
-
-
-
-            global_Trail_Object_Array[i_Int].DetermineDestinedAxis_Trail_Object(maxLength_Int);
-
-        }
-
-    }
     /*END TESTING.*/
 
 }
