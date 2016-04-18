@@ -42,17 +42,17 @@ var PointSet_Object = function(){
     ){
 
         if(
-            first_Trail_Object                  != null         &&
+            first_Trail_Object                  !=  null        &&
             first_Trail_Object                  !== undefined   &&
-            global_Trail_Object_Array[i_Int]    != null         &&
+            global_Trail_Object_Array[i_Int]    !=  null        &&
             global_Trail_Object_Array[i_Int]    !== undefined
         ){ first_Trail_Object = global_Trail_Object_Array[i_Int]; }
         if(
-            global_Trail_Object_Array[i_Int]    != null         &&
+            global_Trail_Object_Array[i_Int]    !=  null        &&
             global_Trail_Object_Array[i_Int]    !== undefined
         ){
 
-            console.log(global_Trail_Object_Array[i_Int].staticAxis_Int);
+            //console.log(global_Trail_Object_Array[i_Int].staticAxis_Int);
 
 
 
@@ -67,6 +67,11 @@ var PointSet_Object = function(){
 
     }
 
+
+
+
+
+    //console.log(this._Point_Object_Array);
 
 
 
@@ -114,42 +119,71 @@ A function to check whether this point object is inside
     its container or not.
 If this point object is outside container then delete it
     and remove its reference.*/
-PointSet_Object.prototype.CheckBound_PointSet_Object = function(){
+PointSet_Object.prototype.CheckBound_PointSet_Object = function(__Container_Object){
 
-    if(
-        this._Counter_Object == null ||
-        this._Counter_Object === undefined
-    ){ this.inside_Bool = CheckInside_Bool(0, 0, width, height); }
-    else if(
-        this._Counter_Object != null &&
-        this._Counter_Object !== undefined
-    ){
+    //console.log(this._Point_Object_Array);
 
-        this.inside_Bool = CheckInside_Bool(
-            this._Container.x_Int,
-            this._Container.y_Int,
-            this._Container.width_Int,
-            this._Container.height_Int
-        );
 
-    }
+
+
+
+    this.inside_Bool = CheckInside_Bool(
+        this._Point_Object_Array,
+        __Container_Object.y_Int,
+        __Container_Object.y_Int + __Container_Object.height_Int
+    );
+
+
+
+
+    //console.log(this.inside_Bool);
 
 
 
 
 
     function CheckInside_Bool(
-        _xStart_Int,
+        __Dynamic_Object_Array,
         _yStart_Int,
-        _xEnd_Int,
         _yEnd_Int
     ){
 
-        var insideAlt_Bool = false;
+        var first_Point_Object;
+        for(
+            var i_Int = 0;
+            i_Int < __Dynamic_Object_Array.length;
+            i_Int ++
+        ){
+
+            if(
+                __Dynamic_Object_Array[i_Int] != null &&
+                __Dynamic_Object_Array[i_Int] !== undefined
+            ){ first_Point_Object = __Dynamic_Object_Array[i_Int]; break; }
+
+        }
+
         if(
-            (this.x_Int > _xStart_Int && this.x_Int < _xEnd_Int) &&
-            (this.y_Int > _yStart_Int && this.y_Int < _yEnd_Int)
-        ){ insideAlt_Bool = true; }
+            __Dynamic_Object_Array[i_Int]    != null &&
+            __Dynamic_Object_Array[i_Int]    !== undefined
+        ){
+
+            var insideAlt_Bool = false;
+            if(
+                (first_Point_Object.y_Int >= _yStart_Int && first_Point_Object.y_Int <= _yEnd_Int)
+            ){ insideAlt_Bool = true; }
+
+
+
+
+
+            //console.log(first_Point_Object.x_Int + " " + _xStart_Int);
+            //console.log(first_Point_Object.y_Int + " " + _yStart_Int);
+            //console.log(first_Point_Object.x_Int > _xStart_Int);
+            //console.log(first_Point_Object.x_Int < _xEnd_Int);
+            //console.log(first_Point_Object.y_Int > _yStart_Int);
+            //console.log(first_Point_Object.y_Int < _yEnd_Int);
+
+        }
 
 
 
@@ -195,12 +229,12 @@ PointSet_Object.prototype.CheckDelete_PointSet_Object = function(){
 
         for(
             var i_Int = 0;
-            i_Int < _Point_Object_Array.length;
+            i_Int < this._Point_Object_Array.length;
             i_Int ++
         ){
 
-            _Point_Object_Array[i_Int].visible_Bool = false;
-            delete _Point_Object_Array[i_Int];
+            this._Point_Object_Array[i_Int].visible_Bool = false;
+            delete this._Point_Object_Array[i_Int];
 
         }
 
@@ -219,6 +253,10 @@ PointSet_Object.prototype.CheckDelete_PointSet_Object = function(){
 /*==================================================*/
 
 
+
+
+
+/*==================================================*/
 PointSet_Object.prototype.CheckIncreaseDecreasePoint_PointSet_Object = function(){
 
     if(this.pointAmountPrev_Int != global_trailObjectArrayTrueLength_Int){
@@ -265,7 +303,7 @@ PointSet_Object.prototype.CheckIncreaseDecreasePoint_PointSet_Object = function(
                 if(
                     this._Point_Object_Array[i_Int]    != null &&
                     this._Point_Object_Array[i_Int]    !== undefined
-                ){ first_Point_Object = this._Point_Object_Array[i_Int]; break;}
+                ){ first_Point_Object = this._Point_Object_Array[i_Int]; break; }
 
             }
 
@@ -273,12 +311,21 @@ PointSet_Object.prototype.CheckIncreaseDecreasePoint_PointSet_Object = function(
 
 
 
-            var temp_Point_Object = new Point_Object(
-                this,
-                last_Trail_Object
-            );
-            temp_Point_Object.x_Int = first_Point_Object.x_Int;
-            temp_Point_Object.y_Int = first_Point_Object.y_Int;
+            if(
+                first_Point_Object  !=      null        &&
+                first_Point_Object  !==     undefined   &&
+                last_Trail_Object   !=      null        &&
+                last_Trail_Object   !==     undefined
+            ){
+
+                var temp_Point_Object = new Point_Object(
+                    this,
+                    last_Trail_Object
+                );
+                temp_Point_Object.x_Int = first_Point_Object.x_Int;
+                temp_Point_Object.y_Int = first_Point_Object.y_Int;
+
+            }
 
 
 
@@ -291,7 +338,7 @@ PointSet_Object.prototype.CheckIncreaseDecreasePoint_PointSet_Object = function(
 
 
 
-            console.log("Hello world 1!");
+            //console.log("Hello world 1!");
 
         }
         else if(this.pointAmountPrev_Int > global_trailObjectArrayTrueLength_Int){
@@ -315,18 +362,24 @@ PointSet_Object.prototype.CheckIncreaseDecreasePoint_PointSet_Object = function(
 
 
 
-            console.log("Hello world 2!");
+            //console.log("Hello world 2!");
 
         }
 
     }
 
 }
+/*==================================================*/
+
+
+
 
 
 /*==================================================*/
-PointSet_Object.prototype.Update_PointSet_Object = function(){
+PointSet_Object.prototype.Update_PointSet_Object = function(__Container_Object){
 
+    this.CheckBound_PointSet_Object(__Container_Object);
+    this.CheckDelete_PointSet_Object();
     this.CheckIncreaseDecreasePoint_PointSet_Object();
 
 
@@ -337,7 +390,23 @@ PointSet_Object.prototype.Update_PointSet_Object = function(){
         var i_Int = 0;
         i_Int < this._Point_Object_Array.length;
         i_Int ++
-    ){ this._Point_Object_Array[i_Int].Draw_Point_Object(); }
+    ){ + global_offset_Int
+
+        if(
+            this._Point_Object_Array[i_Int] != null ||
+            this._Point_Object_Array[i_Int] !== undefined
+        ){
+
+            //console.log(this._Point_Object_Array[i_Int]);
+            this._Point_Object_Array[i_Int].Draw_Point_Object();
+
+        }
+
+    }
+
+
+
+
 
     return this;
 

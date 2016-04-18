@@ -105,7 +105,7 @@ function DetermineIndexTrue_Int(
 /*==================================================
 Function to update all trail object in the main trail
     array.*/
-function Update_global_PointSet_Object_Array_Void(){
+function Update_global_PointSet_Object_Array_Void(__Container_Object){
 
     for(
         var i_Int = 0;
@@ -113,7 +113,10 @@ function Update_global_PointSet_Object_Array_Void(){
         i_Int ++
     ){
 
-        global_PointSet_Object_Array[i_Int].Update_PointSet_Object();
+        if(
+            global_PointSet_Object_Array[i_Int] != null ||
+            global_PointSet_Object_Array[i_Int] !== undefined
+        ){ global_PointSet_Object_Array[i_Int].Update_PointSet_Object(__Container_Object); }
 
     }
 
@@ -135,7 +138,10 @@ function Update_global_Trail_Object_Array_Void(){
         i_Int ++
     ){
 
-        global_Trail_Object_Array[i_Int].Update_Trail_Object();
+        if(
+            global_Trail_Object_Array[i_Int] != null &&
+            global_Trail_Object_Array[i_Int] !== undefined
+        ){ global_Trail_Object_Array[i_Int].Update_Trail_Object(); }
 
     }
 

@@ -11,6 +11,7 @@ var testCounter_Int         = 0;
 function setup() {
 
     createCanvas(960,540);
+    frameRate(60);
 
 
 
@@ -76,7 +77,7 @@ function draw() {
         DetermineTrueArrayLength_Int(global_Trail_Object_Array);
     /*Global function to update all trail object.*/
     Update_global_Trail_Object_Array_Void();
-    Update_global_PointSet_Object_Array_Void();
+    Update_global_PointSet_Object_Array_Void(test_Container_Object);
 
 
 
@@ -88,8 +89,8 @@ function draw() {
     testCounter_Int ++;
     if(testCounter_Int%100 == 0){
 
-        var temp_PointSet_Object    = new PointSet_Object();
-        var temp_Trail_Object       = new Trail_Object(0 + global_offset_Int, height - global_offset_Int, test_Container_Object);
+        var temp_PointSet_Object = new PointSet_Object();
+        var temp_Trail_Object = new Trail_Object(0 + global_offset_Int, height - global_offset_Int, test_Container_Object);
         test_Container_Object.AddComponent_Container_Object(temp_Trail_Object);
 
     }
@@ -117,6 +118,11 @@ function draw() {
 
 
     //test_PointSet_Object.Update_PointSet_Object();
+
+
+
+
+    console.log(frameRate());
     /*END TESTING.*/
 
 }
