@@ -192,11 +192,6 @@ Trail_Object.prototype.AnimationFix_Trail_Object = function(){
 
         this.staticAxis_Int =
             this.Set_staticAxis_Int(this.staticAxis_Int - global_animationSpeed_Int);
-
-
-
-
-
         /*Sometimes the position is not the same interval with the animation speed.
         So this if function is to make sure that the destined position is reached.*/
         if(this.destinedAxis_Int > this.staticAxis_Int)
@@ -207,17 +202,11 @@ Trail_Object.prototype.AnimationFix_Trail_Object = function(){
 
         this.staticAxis_Int =
             this.Set_staticAxis_Int(this.staticAxis_Int + global_animationSpeed_Int);
-
-
-
-
-
         if(this.destinedAxis_Int < this.staticAxis_Int)
             { this.staticAxis_Int = this.Set_staticAxis_Int(this.destinedAxis_Int); }
 
     }
-    else if(this.destinedAxis_Int == this.staticAxis_Int)
-        { this.animation_Bool = false; }
+    else if(this.destinedAxis_Int == this.staticAxis_Int){ this.animation_Bool = false; }
 
 
 
@@ -235,20 +224,27 @@ Trail_Object.prototype.AnimationFix_Trail_Object = function(){
 /*==================================================*/
 Trail_Object.prototype.AnimationIn_Trail_Object = function(){
 
+    //console.log(this.staticAxis_Int);
+
+
+
+
+
     this.animation_Bool = true;
 
 
 
 
 
-    this.staticAxis_Int = this.Set_staticAxis_Int(this.staticAxis_Int - global_animationSpeed_Int);
     if(this.destinedAxis_Int > this.staticAxis_Int){
 
         this.animationIn_Bool   = false;
         this.prepareSetup_Bool  = false;
-        this.staticAxis_Int     = this.Set_staticAxis_Int(this.destinedAxis_Int);
+        this.staticAxis_Int     = this.Set_staticAxis_Int(this.destinedAxis_Int);s
 
     }
+    else(this.destinedAxis_Int < this.staticAxis_Int)
+        { this.staticAxis_Int -= global_animationSpeed_Int; }
 
 
 
@@ -274,7 +270,9 @@ Trail_Object.prototype.AnimationOut_Trail_Object = function(){
 
 
     this.staticAxis_Int = this.Set_staticAxis_Int(this.staticAxis_Int + global_animationSpeed_Int);
-    if(this.staticAxisMax_Int < this.staticAxis_Int){
+    if(this.staticAxisMax_Int > this.staticAxis_Int)
+        { this.staticAxis_Int += global_animationSpeed_Int; }
+    else if(this.staticAxisMax_Int < this.staticAxis_Int){
 
         this.animationIn_Bool   = false;
         this.prepareSetup_Bool  = false;
@@ -322,6 +320,7 @@ Trail_Object.prototype.Determine_destinedAxis_Int = function(_maxLength_Int){
 
 
     //console.log(this.destinedAxis_Int + " " + this.staticAxis_Int);
+    //if(this == global_Trail_Object_Array[0]){ console.log(this.staticAxis_Int + " " + this.destinedAxis_Int); }
 
 
 
@@ -588,6 +587,12 @@ Trail_Object.prototype.Update_Trail_Object = function(){
                                                         updating the rest of this
                                                         class.*/
     this.AnimationControl_Trail_Object();           /*Animation control.*/
+
+
+
+
+
+    if(this.ready_Bool == true){ this.staticAxis_Int = this.destinedAxis_Int; }
     this.Draw_Trail_Object(                         /*Draw this object.*/
         this.staticAxis_Int,
         this.endAxis_Int,
@@ -606,7 +611,9 @@ Trail_Object.prototype.Update_Trail_Object = function(){
             console.log(this.staticAxis_Int);
     }
     */
-
+    strokeWeight(80);
+    point(this.destinedAxis_Int, height/2);
+    strokeWeight(1);
 
 
 

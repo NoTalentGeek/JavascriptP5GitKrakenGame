@@ -89,7 +89,6 @@ function draw() {
 
 
     /*Simple in animation for the container object for the main game object.*/
-    console.log(global_playContainerObjectInitialAnimationDone_Bool == false);
     if(
         global_play_Container_Object.x_Int > 0 &&
         global_playContainerObjectInitialAnimationDone_Bool == false
@@ -111,8 +110,6 @@ function draw() {
             { test_switchAnimation_Int = -1; }
 
         global_play_Container_Object.x_Int += test_switchAnimation_Int;
-
-        console.log(test_switchAnimation_Int);
 
     }
 
