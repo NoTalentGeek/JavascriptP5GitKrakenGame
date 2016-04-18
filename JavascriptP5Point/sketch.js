@@ -122,7 +122,7 @@ function draw() {
 
 
 
-    console.log(frameRate());
+    //console.log(frameRate());
     /*END TESTING.*/
 
 }
