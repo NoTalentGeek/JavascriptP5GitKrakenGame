@@ -16,6 +16,14 @@ function setup() {
 
 
 
+    /*Determine the true length of the trail main array.*/
+    global_trailObjectArrayTrueLength_Int =
+        DetermineTrueArrayLength_Int(global_Trail_Object_Array);
+
+
+
+
+
     /*TESTING.*/
     /*This is simple method on how to add an object into container object.
     Things that should be put into the container is a visual object.
@@ -27,8 +35,13 @@ function setup() {
     3. Using AddComponent_Container_Object() function from the container object to
         the visual object.*/
     test_Container_Object = new Container_Object(global_offset_Int, global_offset_Int, width - global_offset_Int*2, height - global_offset_Int*2);
-    var test_Trail_Object = new Trail_Object(0 + global_offset_Int, height - global_offset_Int, test_Container_Object);
-    test_Container_Object.AddComponent_Container_Object(test_Trail_Object);
+    var temp_Trail_Object = new Trail_Object(global_offset_Int, height - global_offset_Int, test_Container_Object);
+    test_Container_Object.AddComponent_Container_Object(temp_Trail_Object);
+
+
+
+
+    test_PointSet_Object = new PointSet_Object();
     /*END TESTING.*/
 
 }
@@ -58,8 +71,12 @@ function draw() {
 
 
 
+    /*Determine the true length of the trail main array.*/
+    global_trailObjectArrayTrueLength_Int =
+        DetermineTrueArrayLength_Int(global_Trail_Object_Array);
     /*Global function to update all trail object.*/
     Update_global_Trail_Object_Array_Void();
+    Update_global_PointSet_Object_Array_Void();
 
 
 
@@ -71,8 +88,9 @@ function draw() {
     testCounter_Int ++;
     if(testCounter_Int%100 == 0){
 
-        var test_Trail_Object = new Trail_Object(0 + global_offset_Int, height - global_offset_Int, test_Container_Object);
-        test_Container_Object.AddComponent_Container_Object(test_Trail_Object);
+        var temp_PointSet_Object    = new PointSet_Object();
+        var temp_Trail_Object       = new Trail_Object(0 + global_offset_Int, height - global_offset_Int, test_Container_Object);
+        test_Container_Object.AddComponent_Container_Object(temp_Trail_Object);
 
     }
 
@@ -83,6 +101,22 @@ function draw() {
     /*In this interval I tried to move the container to see if the components
         inside are also moving.*/
     test_Container_Object.x_Int += 1;
+
+
+
+
+
+    /*
+    strokeWeight(25);
+    point(10, 10);
+    strokeWeight(1);
+    */
+
+
+
+
+
+    //test_PointSet_Object.Update_PointSet_Object();
     /*END TESTING.*/
 
 }

@@ -1,7 +1,36 @@
 /*==================================================
+Function to put an object into its main array and to
+    determine its index.*/
+function AddToArray_Int(
+    __Dynamic_Array,
+    _element_Dynamic
+){
+
+    var index_Int;
+
+
+
+
+
+    __Dynamic_Array.push(_element_Dynamic);
+    index_Int = __Dynamic_Array.indexOf(_element_Dynamic);
+
+
+
+
+    return index_Int;
+
+}
+/*==================================================*/
+
+
+
+
+
+/*==================================================
 Check the true array length without elements those are
     null or undefined*/
-function CheckTrueArrayLength_Int(_Array){
+function DetermineTrueArrayLength_Int(_Array){
 
     var trueLength_Int = 0;
     for(
@@ -76,6 +105,28 @@ function DetermineIndexTrue_Int(
 /*==================================================
 Function to update all trail object in the main trail
     array.*/
+function Update_global_PointSet_Object_Array_Void(){
+
+    for(
+        var i_Int = 0;
+        i_Int < global_PointSet_Object_Array.length;
+        i_Int ++
+    ){
+
+        global_PointSet_Object_Array[i_Int].Update_PointSet_Object();
+
+    }
+
+}
+/*==================================================*/
+
+
+
+
+
+/*==================================================
+Function to update all trail object in the main trail
+    array.*/
 function Update_global_Trail_Object_Array_Void(){
 
     for(
@@ -89,3 +140,4 @@ function Update_global_Trail_Object_Array_Void(){
     }
 
 }
+/*==================================================*/

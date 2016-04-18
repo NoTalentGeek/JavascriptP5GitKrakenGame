@@ -9,8 +9,8 @@ var Trail_Object = function(
 ){
 
     this._Container_Object      = __Container_Object;
-    this.endAxis_Int            = _endAxis_Int;
-    this.startAxis_Int          = _startAxis_Int;
+    this.endAxis_Int            = this.Set_endAxis_Int(_endAxis_Int);
+    this.startAxis_Int          = this.Set_startAxis_Int(_startAxis_Int);
 
 
 
@@ -67,10 +67,11 @@ Trail_Object.prototype.constructor = Trail_Object;
 /*==================================================*/
 Trail_Object.prototype.AddToArray_Trail_Object = function(){
 
-    global_Trail_Object_Array.push(this);                       /*Add this object into the main
-                                                                    array.*/
-    this.index_Int = global_Trail_Object_Array.indexOf(this);   /*Determine this object local
-                                                                    index in the main array.*/
+    /*Determine this object local index in the main array.*/
+    this.index_Int = AddToArray_Int(
+        global_Trail_Object_Array,
+        this
+    );
 
 
 
@@ -304,23 +305,23 @@ Trail_Object.prototype.AnimationOut_Trail_Object = function(){
 /*==================================================*/
 Trail_Object.prototype.Determine_destinedAxis_Int = function(_maxLength_Int){
 
-    var trailInterval_Int =
-        _maxLength_Int/(CheckTrueArrayLength_Int(global_Trail_Object_Array) + 1);
+    global_trailInterval_Int =
+        _maxLength_Int/(global_trailObjectArrayTrueLength_Int + 1);
 
 
 
 
 
     //console.log(_maxLength_Int);
-    //console.log(CheckTrueArrayLength_Int(global_Trail_Object_Array) + 1);
-    //console.log(trailInterval_Int);
+    //console.log(DetermineTrueArrayLength_Int(global_Trail_Object_Array) + 1);
+    //console.log(global_trailInterval_Int);
 
 
 
 
 
     this.destinedAxis_Int =
-        Math.round(this._Container_Object.x_Int + (this.indexTrue_Int + 1)*trailInterval_Int);
+        Math.round(this._Container_Object.x_Int + (this.indexTrue_Int + 1)*global_trailInterval_Int);
 
 
 
