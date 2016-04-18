@@ -46,12 +46,17 @@ Container_Object.prototype.AddComponent_Container_Object = function(__Dynamic_Ob
 /*==================================================*/
 Container_Object.prototype.Draw_Container_Object = function(){
 
+    fill(global_containerColor_String);
+    noStroke();
     rect(
         this.x_Int,
         this.y_Int,
         this.width_Int,
-        this.height_Int
+        this.height_Int,
+        20
     );
+    stroke("rgba(0, 0, 0, 1)");
+    fill("rgba(0, 0, 0, 1)");
 
 
 

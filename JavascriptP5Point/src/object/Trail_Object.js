@@ -315,13 +315,14 @@ Trail_Object.prototype.Determine_destinedAxis_Int = function(_maxLength_Int){
     //console.log(_maxLength_Int);
     //console.log(DetermineTrueArrayLength_Int(global_Trail_Object_Array) + 1);
     //console.log(global_trailInterval_Int);
+    //console.log(this._Container_Object.x_Int);
 
 
 
 
 
     this.destinedAxis_Int =
-        Math.round(this._Container_Object.x_Int + (this.indexTrue_Int + 1)*global_trailInterval_Int);
+        Math.round(this._Container_Object.x_Int + (this.indexTrue_Int + 1)*global_trailInterval_Int) - global_offset_Int;
 
 
 
@@ -347,12 +348,12 @@ Trail_Object.prototype.Determine_staticAxisMax_Int = function(){
     /*Simple function to set the bar to the maximum
         position that is just outside the container or the screen.*/
     if(
-        this._Container == null ||
-        this._Container === undefined
+        this._Container_Object == null ||
+        this._Container_Object === undefined
     ){ this.staticAxisMax_Int = width + global_offset_Int; }
     else if(
-        this._Container != null &&
-        this._Container !== undefined
+        this._Container_Object != null &&
+        this._Container_Object !== undefined
     ){ this.staticAxisMax_Int = this._Container_Object.width_Int + global_offset_Int; }
 
 
@@ -581,12 +582,12 @@ Everything need to be set from setter function because
 Trail_Object.prototype.Set_endAxis_Int = function(_endAxis_Int){
 
     if(
-        this._Container_Object_Object != null &&
-        this._Container_Object_Object !== undefined
-    ){ this.endAxis_Int = this._Container_Object.y_Int + _endAxis_Int; }
+        this._Container_Object != null &&
+        this._Container_Object !== undefined
+    ){ this.endAxis_Int = this._Container_Object.y_Int + _endAxis_Int + global_offset_Int; }
     else if(
-        this._Container_Object_Object == null ||
-        this._Container_Object_Object === undefined
+        this._Container_Object == null ||
+        this._Container_Object === undefined
     ){ this.endAxis_Int = _endAxis_Int; }
 
 
@@ -610,9 +611,9 @@ Everything need to be set from setter function because
 Trail_Object.prototype.Set_startAxis_Int = function(_startAxis_Int){
 
     if(
-        this._Container_Object_Object != null &&
-        this._Container_Object_Object !== undefined
-    ){ this.startAxis_Int = this._Container_Object.y_Int + _startAxis_Int; }
+        this._Container_Object != null &&
+        this._Container_Object !== undefined
+    ){ this.startAxis_Int = _startAxis_Int - global_offset_Int - global_offset_Int; }
     else{ this.startAxis_Int = _startAxis_Int; }
 
 
