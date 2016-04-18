@@ -190,20 +190,18 @@ Trail_Object.prototype.AnimationFix_Trail_Object = function(){
     /*If the destined position is in the left of the current static position.*/
     if(this.destinedAxis_Int < this.staticAxis_Int){
 
-        this.staticAxis_Int =
-            this.Set_staticAxis_Int(this.staticAxis_Int - global_animationSpeed_Int);
+        this.staticAxis_Int -= global_animationSpeed_Int;
         /*Sometimes the position is not the same interval with the animation speed.
         So this if function is to make sure that the destined position is reached.*/
         if(this.destinedAxis_Int > this.staticAxis_Int)
-            { this.staticAxis_Int = this.Set_staticAxis_Int(this.destinedAxis_Int); }
+            { this.staticAxis_Int = this.destinedAxis_Int; }
 
     }
     else if(this.destinedAxis_Int > this.staticAxis_Int){
 
-        this.staticAxis_Int =
-            this.Set_staticAxis_Int(this.staticAxis_Int + global_animationSpeed_Int);
+        this.staticAxis_Int += global_animationSpeed_Int;
         if(this.destinedAxis_Int < this.staticAxis_Int)
-            { this.staticAxis_Int = this.Set_staticAxis_Int(this.destinedAxis_Int); }
+            { this.staticAxis_Int = this.destinedAxis_Int; }
 
     }
     else if(this.destinedAxis_Int == this.staticAxis_Int){ this.animation_Bool = false; }
@@ -240,7 +238,7 @@ Trail_Object.prototype.AnimationIn_Trail_Object = function(){
 
         this.animationIn_Bool   = false;
         this.prepareSetup_Bool  = false;
-        this.staticAxis_Int     = this.Set_staticAxis_Int(this.destinedAxis_Int);s
+        this.staticAxis_Int     = this.Set_staticAxis_Int(this.destinedAxis_Int);
 
     }
     else(this.destinedAxis_Int < this.staticAxis_Int)
@@ -592,7 +590,7 @@ Trail_Object.prototype.Update_Trail_Object = function(){
 
 
 
-    if(this.ready_Bool == true){ this.staticAxis_Int = this.destinedAxis_Int; }
+    //if(this.ready_Bool == true){ this.staticAxis_Int = this.destinedAxis_Int; }
     this.Draw_Trail_Object(                         /*Draw this object.*/
         this.staticAxis_Int,
         this.endAxis_Int,
