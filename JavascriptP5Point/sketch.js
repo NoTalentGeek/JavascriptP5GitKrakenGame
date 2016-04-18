@@ -95,7 +95,7 @@ function draw() {
 
         if(global_Trail_Object_Array.length < 5){
 
-            var temp_Trail_Object = new Trail_Object(0, height, test_Container_Object);
+            var temp_Trail_Object = new Trail_Object(0 + global_offset_Int, height - global_offset_Int, test_Container_Object);
             test_Container_Object.AddComponent_Container_Object(temp_Trail_Object);
 
         }
