@@ -1,11 +1,3 @@
-var global_PointSet_Object_Array    = new Array(0);
-var global_pointInterval_Int        = 10;
-var global_IntervalManager_Object;
-
-
-
-
-
 /*==================================================*/
 var PointSet_Object = function(){
 
@@ -129,8 +121,8 @@ PointSet_Object.prototype.CheckBound_PointSet_Object = function(__Container_Obje
 
     this.inside_Bool = CheckInside_Bool(
         this._Point_Object_Array,
-        __Container_Object.y_Int,
-        __Container_Object.y_Int + __Container_Object.height_Int - (global_offset_Int*2)
+        global_endNodeMinPosition_Int,
+        global_startNodeMinPosition_Int
     );
 
 

@@ -1,10 +1,10 @@
 /*TESTING.*/
-var test_Container_Object;
-var testCounter1_Int        = 0;
-var testCounter2_Int        = 0;
-var testCounter3_Int        = 1;
-var testCounter4_Int        = 10;
-var testCounter5_Int        = 0;
+var test_counter1_Int           = 0;
+var test_counter2_Int           = 0;
+var test_counter3_Int           = 1;
+var test_counter4_Int           = 10;
+var test_counter5_Int           = 0;
+var test_switchAnimation_Int    = -1;
 /*END TESTING.*/
 
 
@@ -21,33 +21,31 @@ function setup() {
 
 
 
-    /*Determine the true length of the trail main array.*/
-    global_trailObjectArrayTrueLength_Int =
+    /*Set up some global variables*/
+    global_endNodeMinPosition_Int               = global_offset_Int;
+    global_playContainerInitialHeight_Int       = height - (global_offset_Int*2);
+    global_playContainerInitialWidth_Int        = width - (global_offset_Int*2);
+    global_playContainerInitialX_Int            = width + global_offset_Int;        /*Put the container slightly right off screen.*/
+    global_playContainerInitialY_Int            = global_offset_Int;
+    global_trailObjectArrayTrueLength_Int       =
         DetermineTrueArrayLength_Int(global_Trail_Object_Array);
 
 
 
 
 
-    /*TESTING.*/
-    /*This is simple method on how to add an object into container object.
-    Things that should be put into the container is a visual object.
-    So any objects that only do calculations and logic without any visual
-        are not necessarily to be in a container object.
-    The methods are.
-    1. Initiate the container object.
-    2. Initiate the visual object (in this case it is the Trail or the node object).
-    3. Using AddComponent_Container_Object() function from the container object to
-        the visual object.*/
-    test_Container_Object = new Container_Object(width + global_offset_Int, global_offset_Int, width - global_offset_Int*2, height - global_offset_Int*2);
-    //var temp_Trail_Object = new Trail_Object(0, height, test_Container_Object);
-    //test_Container_Object.AddComponent_Container_Object(temp_Trail_Object);
+    global_play_Container_Object                = new Container_Object(
+        global_playContainerInitialX_Int,
+        global_playContainerInitialY_Int,
+        global_playContainerInitialWidth_Int,
+        global_playContainerInitialHeight_Int
+    );
 
 
 
 
-    test_PointSet_Object = new PointSet_Object();
-    /*END TESTING.*/
+
+    global_startNodeMinPosition_Int             = global_play_Container_Object.height_Int - global_offset_Int;
 
 }
 /*==================================================*/
@@ -63,25 +61,60 @@ function draw() {
 
 
 
-
-
-    /*TESTING.*/
-    /*Draw function for the container object is not necessarily to be executed.
-    Only if I need to know the position of the container (so draw function
-        in a container object is mostly for visual debugging).*/
-    test_Container_Object.Draw_Container_Object();
-    /*END TESTING.*/
-
-
-
-
-
-    /*Determine the true length of the trail main array.*/
+    /*Update all necessary global variables.
+    Determine the true length of the trail main array.*/
     global_trailObjectArrayTrueLength_Int =
         DetermineTrueArrayLength_Int(global_Trail_Object_Array);
-    /*Global function to update all trail object.*/
+
+
+
+
+
+    /*Update all necessary global object.
+    Draw function for the container object is not necessarily to be executed.
+    Only if I need to know the position of the container (so draw function
+        in a container object is mostly for visual debugging).*/
+    global_play_Container_Object.Draw_Container_Object();
+
+
+
+
+
+    /*Run all global functions.*/
     Update_global_Trail_Object_Array_Void();
-    Update_global_PointSet_Object_Array_Void(test_Container_Object);
+    Update_global_PointSet_Object_Array_Void(global_play_Container_Object);
+
+
+
+
+
+    /*Simple in animation for the container object for the main game object.*/
+    console.log(global_playContainerObjectInitialAnimationDone_Bool == false);
+    if(
+        global_play_Container_Object.x_Int > 0 &&
+        global_playContainerObjectInitialAnimationDone_Bool == false
+    ){
+
+        global_play_Container_Object.x_Int -= 10;
+        if(global_play_Container_Object.x_Int <= 0){
+
+            global_play_Container_Object.x_Int = 0;
+            global_playContainerObjectInitialAnimationDone_Bool = true;
+
+        }
+
+    }
+    if(global_playContainerObjectInitialAnimationDone_Bool == true){
+
+        if(global_play_Container_Object.x_Int <= 0){ test_switchAnimation_Int = 1; }
+        else if(global_play_Container_Object.x_Int + global_play_Container_Object.width_Int >= width)
+            { test_switchAnimation_Int = -1; }
+
+        global_play_Container_Object.x_Int += test_switchAnimation_Int;
+
+        console.log(test_switchAnimation_Int);
+
+    }
 
 
 
@@ -89,66 +122,34 @@ function draw() {
 
     /*TESTING.*/
     /*In this test I tried to automatically add a new trail
-        object per interval (100 application ticks).*/
-    testCounter1_Int ++;
-    if(testCounter1_Int%100 == 0){
-
+        object per interval (100 application ticks).
+    And then stop after five trail objects are added into the scene.*/
+    test_counter1_Int ++;
+    if(test_counter1_Int%100 == 0){
         if(global_Trail_Object_Array.length < 5){
-
-            var temp_Trail_Object = new Trail_Object(0 + global_offset_Int, height - global_offset_Int, test_Container_Object);
-            test_Container_Object.AddComponent_Container_Object(temp_Trail_Object);
-
+            var temp_Trail_Object = new Trail_Object(
+                global_endNodeMinPosition_Int,
+                global_startNodeMinPosition_Int
+            );
+            global_play_Container_Object.AddComponent_Container_Object(temp_Trail_Object);
         }
-
     }
-
-
-
-
-
-    testCounter2_Int ++;
-    if(testCounter2_Int%testCounter3_Int == 0){
-
+    /*Added set of point object in a trigonometric periodic.*/
+    test_counter2_Int ++;
+    if(test_counter2_Int%test_counter3_Int == 0){
         var temp_PointSet_Object = new PointSet_Object();
-
-
-
-
-
-        if(testCounter3_Int == 1){ testCounter5_Int = 1; }
-        else if(testCounter3_Int == testCounter4_Int){ testCounter5_Int = -1; }
-        testCounter3_Int += testCounter5_Int;
-        testCounter2_Int = 0;
-        //console.log(testCounter3_Int + " " + testCounter2_Int);
-
+        if(test_counter3_Int == 1){ test_counter5_Int = 1; }
+        else if(test_counter3_Int == test_counter4_Int){ test_counter5_Int = -1; }
+        test_counter3_Int += test_counter5_Int;
+        test_counter2_Int = 0;
+        //console.log(test_counter3_Int + " " + test_counter2_Int);
     }
-
-
-
-
-    /*In this interval I tried to move the container to see if the components
-        inside are also moving.*/
-    if(test_Container_Object.x_Int > global_offset_Int){ test_Container_Object.x_Int -= 10; }
-
-
-
-
-
     /*
     strokeWeight(25);
     point(10, 10);
     strokeWeight(1);
     */
-
-
-
-
-
     //test_PointSet_Object.Update_PointSet_Object();
-
-
-
-
     //console.log(frameRate());
     /*END TESTING.*/
 
